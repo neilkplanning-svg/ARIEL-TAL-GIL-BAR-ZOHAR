@@ -1,0 +1,79 @@
+/* ============================================================
+   01-variables.css
+   ⭐ זה הקובץ היחיד שיש לערוך כדי להתאים את הלקוח החדש.
+   כל המשתנים שולטים על המראה של האתר כולו.
+   ============================================================ */
+
+:root {
+    /* ===== COLORS — מותג ===== */
+    --primary:        #1a1a1a;
+    --primary-light:  #2d2d2d;
+    --primary-dark:   #0d0d0d;
+
+    --accent:         #c9a85c;
+    --accent-light:   #d4b86a;
+    --accent-dark:    #b8943f;
+
+    /* ===== COLORS — רקעים ===== */
+    --bg-cream:       #faf8f5;
+    --bg-cream-dark:  #f0ede8;
+    --surface:        #ffffff;
+
+    /* ===== COLORS — טקסט ===== */
+    --text:           #333333;
+    --text-light:     #666666;
+    --text-muted:     #999999;
+
+    /* ===== COLORS — סטטוס ===== */
+    --success:        #28a745;
+    --error:          #dc3545;
+    --warning:        #ffc107;
+    --info:           #17a2b8;
+
+    /* ===== COLORS — אבטחה / פרטיות ===== */
+    --whatsapp:       #25d366;
+
+    /* ===== TYPOGRAPHY ===== */
+    --font-primary:   'Heebo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-secondary: 'Frank Ruhl Libre', Georgia, serif;
+    --font-base-size: 16px;
+    --line-height:    1.7;
+
+    /* ===== SHADOWS ===== */
+    --shadow-sm:      0 2px 10px rgba(0,0,0,0.06);
+    --shadow:         0 4px 30px rgba(0,0,0,0.08);
+    --shadow-lg:      0 10px 50px rgba(0,0,0,0.12);
+    --shadow-accent:  0 10px 30px rgba(201, 168, 92, 0.3);
+
+    /* ===== TRANSITIONS ===== */
+    --transition:      all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s ease;
+
+    /* ===== BORDER RADIUS ===== */
+    --radius-sm:   8px;
+    --radius:      16px;
+    --radius-lg:   24px;
+    --radius-full: 9999px;
+
+    /* ===== SPACING ===== */
+    --section-padding: 100px;
+    --container-max:   1200px;
+    --header-height:   80px;
+
+    /* ===== Z-INDEX SCALE ===== */
+    --z-base:     1;
+    --z-dropdown: 100;
+    --z-sticky:   500;
+    --z-modal:    1000;
+    --z-toast:    2000;
+}
+
+/* ===== Dark mode hooks (אופציונלי — מופעל אם נוסף class .dark ל-body) ===== */
+body.dark {
+    --bg-cream:      #1a1a1a;
+    --bg-cream-dark: #0d0d0d;
+    --surface:       #2d2d2d;
+    --text:          #f5f5f5;
+    --text-light:    #c0c0c0;
+    --text-muted:    #999999;
+}

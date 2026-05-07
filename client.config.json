@@ -1,0 +1,164 @@
+{
+  "_comment": "מקור האמת היחיד לכל פרטי הלקוח. ערוך כאן, ולאחר מכן הריץ את ההתאמות בקבצי ה-HTML/CSS לפי CLAUDE.md.",
+  "_version": "1.0.0",
+
+  "business": {
+    "name": "הרב עו״ד אריאל טל ועו״ד גיל בר זוהר",
+    "shortName": "גיל בר זוהר ואריאל טל",
+    "ownerName": "הרב עו״ד אריאל טל ועו״ד גיל בר זוהר",
+    "industry": "עורכי דין",
+    "industryKey": "legal",
+    "tagline": "משרד עורכי דין בוטיק יוקרתי",
+    "description": "משרד עורכי דין בוטיק יוקרתי בתל אביב וירושלים. למעלה מ־30 שנה ניסיון בדיני משפחה, ירושה, ערעורים פליליים, עסקים ובתי דין רבניים. בהובלת הרב עו״ד אריאל טל וגיל בר זוהר.",
+    "registrationId": "",
+    "establishedYear": ""
+  },
+
+  "contact": {
+    "phonePrimary": "+972543209765",
+    "phonePrimaryDisplay": "054-320-9765",
+    "phoneSecondary": "",
+    "phoneSecondaryDisplay": "",
+    "whatsapp": "972543209765",
+    "email": "info@bzlaw.co.il",
+    "address": {
+      "street": "הרב קוק 8",
+      "city": "ירושלים",
+      "country": "IL",
+      "postalCode": ""
+    },
+    "businessHours": {
+      "weekdays": "א'-ה': 09:00-18:00",
+      "friday": "ו': 09:00-13:00",
+      "saturday": "סגור"
+    },
+    "geo": {
+      "lat": 31.7825,
+      "lng": 35.2210,
+      "googleMapsEmbed": "",
+      "wazeUrlJerusalem": "https://waze.com/ul?ll=31.7825,35.2210&navigate=yes",
+      "wazeUrlTelAviv": "https://waze.com/ul?q=משרד%20עורכי%20דין%20תל%20אביב&navigate=yes"
+    }
+  },
+
+  "domain": {
+    "url": "https://neilkplanning-svg.github.io/ARIEL-TAL-GIL-BAR-ZOHAR",
+    "domainOnly": "neilkplanning-svg.github.io/ARIEL-TAL-GIL-BAR-ZOHAR",
+    "githubUser": "neilkplanning-svg",
+    "githubRepo": "ARIEL-TAL-GIL-BAR-ZOHAR"
+  },
+
+  "branding": {
+    "primaryColor": "#1a1a1a",
+    "primaryLight": "#2d2d2d",
+    "primaryDark": "#0d0d0d",
+    "accentColor": "#c9a85c",
+    "accentLight": "#d4b86a",
+    "accentDark": "#b8943f",
+    "backgroundColor": "#faf8f5",
+    "surfaceColor": "#ffffff",
+    "textColor": "#333333",
+    "textLightColor": "#666666",
+    "fontPrimary": "Heebo",
+    "fontSecondary": "Frank Ruhl Libre",
+    "logoPath": "images/logo.png",
+    "ogImagePath": "images/og-image.jpg"
+  },
+
+  "social": {
+    "whatsappUrl": "https://wa.me/972543209765",
+    "facebook": "",
+    "instagram": "",
+    "linkedin": "",
+    "youtube": "",
+    "googleBusiness": ""
+  },
+
+  "schemaOrg": {
+    "type": "LegalService",
+    "_typeOptions": ["LocalBusiness", "LegalService", "MedicalBusiness", "FinancialService", "Restaurant", "RealEstateAgent", "ProfessionalService"]
+  },
+
+  "seo": {
+    "keywords": [
+      "עורך דין דיני משפחה",
+      "עורך דין ירושה",
+      "ערעור פלילי",
+      "בית דין רבני",
+      "משרד עורכי דין ירושלים תל אביב"
+    ],
+    "googleAnalyticsId": "",
+    "googleSearchConsoleVerification": "",
+    "robotsIndex": true
+  },
+
+  "features": {
+    "leadForm": true,
+    "googleCalendarBooking": false,
+    "googleCalendarEmbedUrl": "",
+    "wazeNavigation": true,
+    "brandedEmail": false,
+    "accessibilityWidget": false,
+    "blog": false,
+    "whatsappFloat": true
+  },
+
+  "hero": {
+    "headlinePart1": "משרד בוטיק משפטי",
+    "headlineHighlight1": "יוקרתי ודיסקרטי",
+    "headlinePart2": "ניסיון של למעלה מ־",
+    "headlineHighlight2": "30 שנה",
+    "subheadline": "משרד עורכי דין בוטיק יוקרתי, איכותי ודיסקרטי. ייצוג אישי ואסטרטגי בתיקים מורכבים — סניפים בתל אביב וירושלים.",
+    "ctaPrimaryText": "תיאום פגישה",
+    "ctaPrimaryAnchor": "#contact",
+    "ctaSecondaryText": "השירותים שלנו",
+    "ctaSecondaryAnchor": "#services",
+    "stats": [
+      {"number": "30+", "label": "שנות ניסיון"},
+      {"number": "2", "label": "סניפים בארץ"}
+    ]
+  },
+
+  "services": [
+    {"icon": "fa-house-user", "title": "דיני משפחה ורכוש", "description": "ייצוג בהליכי גירושין, חלוקת רכוש, מזונות, זמני שהות והסכמי ממון. התמחות בתיקים בהם מעורבים נכסי נדל״ן, חברות, עסקים ורכוש משמעותי."},
+    {"icon": "fa-scroll", "title": "ירושה, צוואות וסכסוכי יורשים", "description": "טיפול בצווי ירושה וקיום צוואה, התנגדויות, סכסוכי יורשים וניהול עיזבונות מורכבים שבהם מעורבים נכסים, כספים ועסקים משפחתיים."},
+    {"icon": "fa-gavel", "title": "בתי דין רבניים", "description": "ייצוג בהליכי גירושין, כתובה, חלוקת רכוש, סמכות שיפוט וסוגיות מעמד אישי בפני בתי הדין הרבניים ברחבי הארץ."},
+    {"icon": "fa-scale-balanced", "title": "עתירות לבג״ץ", "description": "טיפול בעתירות לבג״ץ נגד החלטות בתי דין רבניים, במקרים של חריגה מסמכות, פגיעה בזכויות יסוד או טעויות משפטיות מהותיות."},
+    {"icon": "fa-shield-halved", "title": "ערעורים פליליים", "description": "ייצוג בערעורים פליליים, בקשות רשות ערעור, טענות נגד הרשעה וערעורים על חומרת הענישה — לאחר ניתוח מעמיק של ההליך וגזר הדין."},
+    {"icon": "fa-briefcase", "title": "עסקים וסכסוכים מסחריים", "description": "ייצוג אנשי עסקים, חברות ושותפים בסכסוכים מסחריים, תביעות, חובות ומחלוקות עם ספקים, לקוחות, עובדים או שותפים."},
+    {"icon": "fa-chart-line", "title": "הבראת עסקים", "description": "ליווי עסקים במשבר — הסדרת חובות, משא ומתן מול נושים, הגנה מפני תביעות ובניית מתווה להמשך פעילות העסק."},
+    {"icon": "fa-handshake", "title": "פירוק שותפויות", "description": "ייצוג בהליכי פירוק שותפויות, סכסוכי שותפים, חלוקת נכסים, הסדרת התחייבויות והגנה על זכויות כלכליות."},
+    {"icon": "fa-building", "title": "עמידר ודיור ציבורי", "description": "טיפול בתיקים נבחרים בתחום עמידר — פינוי, חובות, זכאות, ליקויי דיור, זכויות דייר ממשיך והתנהלות מול גופים ציבוריים."}
+  ],
+
+  "testimonials": [],
+
+  "faq": [
+    {"question": "כיצד מתחיל ההליך עם המשרד?", "answer": "באמצעות תיאום פגישת ייעוץ ראשונית, בה נכיר את התיק, ננתח את האפשרויות המשפטיות ונגבש מסלול פעולה אסטרטגי המותאם לנסיבות הייחודיות שלכם."},
+    {"question": "באילו ערים נמצאים סניפי המשרד?", "answer": "למשרד שני סניפים מרכזיים — בתל אביב ובירושלים. השירות ניתן ללקוחות מכל רחבי הארץ."},
+    {"question": "אילו תחומים מטופלים במשרד?", "answer": "דיני משפחה ורכוש, ירושה וצוואות, בתי דין רבניים, עתירות לבג״ץ, ערעורים פליליים, עסקים וסכסוכים מסחריים, הבראת עסקים, פירוק שותפויות וטיפול בתיקים נבחרים בתחום עמידר."},
+    {"question": "האם המשרד מטפל בתיקים בפני בית דין רבני?", "answer": "כן. המשרד מעניק ייצוג בהליכים מורכבים בפני בתי הדין הרבניים ברחבי הארץ, מתוך היכרות עמוקה עם ההליך והרגישות הנדרשת בתיקים אלו."},
+    {"question": "האם הפנייה למשרד דיסקרטית?", "answer": "בהחלט. דיסקרטיות מלאה היא ערך יסוד במשרד. כל פנייה מטופלת באופן מקצועי ובסודיות מוחלטת."}
+  ],
+
+  "footer": {
+    "copyrightText": "© 2026 כל הזכויות שמורות לגיל בר זוהר ואריאל טל",
+    "creditLine": "אתר הוקם ע\"י NK Planning",
+    "showLegalPages": true
+  },
+
+  "features_extra": {
+    "articlesPage": true,
+    "twoBranches": true,
+    "rabbinicCredentials": true
+  },
+
+  "legal": {
+    "privacyLastUpdate": "05/2026",
+    "termsLastUpdate": "05/2026",
+    "accessibilityLastUpdate": "05/2026",
+    "accessibilityCoordinatorName": "גיל בר זוהר",
+    "accessibilityCoordinatorEmail": "info@bzlaw.co.il",
+    "accessibilityCoordinatorPhone": "054-320-9765"
+  }
+}

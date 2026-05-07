@@ -1,0 +1,15 @@
+{
+    "name": "הרב עו״ד אריאל טל ועו״ד גיל בר זוהר",
+    "short_name": "בר זוהר ואריאל טל",
+    "description": "משרד עורכי דין בוטיק יוקרתי בתל אביב וירושלים. למעלה מ־30 שנה ניסיון בדיני משפחה, ירושה, ערעורים פליליים, עסקים ובתי דין רבניים.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#1a1a1a",
+    "theme_color": "#1a1a1a",
+    "lang": "he",
+    "dir": "rtl",
+    "icons": [
+        {"src": "images/icon-192.png", "sizes": "192x192", "type": "image/png"},
+        {"src": "images/icon-512.png", "sizes": "512x512", "type": "image/png"}
+    ]
+}

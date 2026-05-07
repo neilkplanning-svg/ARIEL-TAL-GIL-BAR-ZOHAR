@@ -1,0 +1,10 @@
+/* ============================================================
+   styles.css — Main Entry
+   קובץ ראשי שמייבא את כל מודולי ה-CSS לפי הסדר.
+   ============================================================ */
+
+@import url('01-variables.css');
+@import url('02-base.css');
+@import url('03-components.css');
+@import url('04-sections.css');
+@import url('05-responsive.css');

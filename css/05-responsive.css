@@ -1,0 +1,259 @@
+/* ============================================================
+   05-responsive.css
+   Media queries — Mobile first.
+   ============================================================ */
+
+/* ===== TABLET (≤1024px) ===== */
+@media (max-width: 1024px) {
+    :root {
+        --section-padding: 70px;
+    }
+
+    .hero-content,
+    .about-content,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .hero-image {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ===== MOBILE (≤768px) ===== */
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 50px;
+        --header-height: 70px;
+    }
+
+    /* Tap targets — מינימום 44px לעמידה בנגישות */
+    .btn,
+    .cta-btn,
+    nav ul a,
+    .submit-btn,
+    .btn-waze,
+    .faq-question,
+    .service-link {
+        min-height: 44px;
+    }
+
+    nav ul {
+        position: fixed;
+        top: var(--header-height);
+        right: -100%;
+        width: 85%;
+        max-width: 340px;
+        height: calc(100vh - var(--header-height));
+        background: var(--surface);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.25rem;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.15);
+        transition: right 0.3s;
+        align-items: stretch;
+        overflow-y: auto;
+    }
+
+    nav ul a {
+        display: block;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(0,0,0,0.06);
+        font-size: 1.05rem;
+    }
+
+    nav ul.active {
+        right: 0;
+    }
+
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .cta-btn {
+        display: none;
+    }
+
+    /* Logo on mobile — לוודא שלא נחתך */
+    .logo-name { font-size: 0.95rem; }
+    .logo-title { font-size: 0.7rem; }
+
+    /* Hero — עיצוב מובייל */
+    .hero {
+        min-height: auto;
+        padding: calc(var(--header-height) + 2rem) 0 3rem;
+        text-align: center;
+    }
+
+    .hero-text p { max-width: 100%; }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .footer-contact p {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-legal-links {
+        justify-content: center;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+
+    /* About — סדר על מובייל: תמונה אחרי טקסט */
+    .about-content {
+        text-align: center;
+    }
+
+    .about-image-wrapper {
+        order: -1;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .about-feature {
+        justify-content: center;
+        text-align: right;
+    }
+
+    .credential-item {
+        text-align: right;
+    }
+
+    .hero-stats {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+    .about-badge {
+        bottom: -1rem;
+        right: -1rem;
+        padding: 1rem 1.25rem;
+    }
+
+    .whatsapp-float {
+        bottom: 20px;
+        left: 20px;
+        width: 55px;
+        height: 55px;
+    }
+
+    /* Section titles — להסיר קווי קישוט שעולים על קצה המסך */
+    .section-title::before,
+    .section-title::after {
+        display: none;
+    }
+
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+
+    /* Branch cards (Waze) — תיבה אחת לעמודה */
+    .branch-cards {
+        grid-template-columns: 1fr;
+    }
+
+    /* Body scroll lock when menu open */
+    body.menu-open {
+        overflow: hidden;
+    }
+}
+
+/* ===== SMALL MOBILE (≤480px) ===== */
+@media (max-width: 480px) {
+    :root {
+        --section-padding: 40px;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .service-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .hero-text h1 {
+        font-size: 1.85rem;
+        line-height: 1.25;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .hero-stats {
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .stat-number { font-size: 1.5rem; }
+    .stat-label  { font-size: 0.75rem; }
+
+    .section-tag {
+        font-size: 0.75rem;
+        padding: 0.35rem 1rem;
+    }
+
+    /* Footer — שם המשרד עלול להיחתך */
+    .footer-brand .logo-name {
+        font-size: 0.95rem;
+    }
+}
+
+/* ===== PRINT ===== */
+@media print {
+    #header,
+    .whatsapp-float,
+    .mobile-toggle,
+    .hero-buttons,
+    .contact-form,
+    footer {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .section {
+        padding: 1rem 0;
+    }
+}
