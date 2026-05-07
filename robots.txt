@@ -1,0 +1,13 @@
+# robots.txt — עו״ד גיל בר זוהר ואריאל טל
+# מאפשר לבוטים לסרוק את האתר ומפנה למפת האתר.
+
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# מפת האתר
+Sitemap: https://neilkplanning-svg.github.io/ARIEL-TAL-GIL-BAR-ZOHAR/sitemap.xml
+
+# חסימה של תיקיות לא רלוונטיות (לדוגמה — ניתן להוסיף לפי צורך)
+# Disallow: /tmp/
+# Disallow: /admin/
