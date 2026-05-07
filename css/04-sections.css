@@ -786,6 +786,212 @@ body {
     font-size: 0.9rem;
 }
 
+/* ===== Hero מרכזי (ללא תמונה) — עיצוב חדש ===== */
+.hero-content-centered {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    grid-template-columns: none !important;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-text-wide {
+    width: 100%;
+    max-width: 820px;
+}
+
+.hero-text-wide .section-tag {
+    margin-bottom: 1.25rem;
+}
+
+.hero-text-wide h1 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(2.2rem, 4vw + 1rem, 3.6rem);
+}
+
+.hero-tagline {
+    font-size: clamp(1.05rem, 1vw + 0.85rem, 1.3rem) !important;
+    color: var(--text-light);
+    font-style: italic;
+    font-family: var(--font-secondary);
+    line-height: 1.6;
+    max-width: 720px !important;
+    margin: 0 auto 2rem !important;
+}
+
+.hero-buttons-centered {
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+/* Hero stats — שורה אחת אלגנטית במרכז */
+.hero-stats-inline {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    margin: 0 auto !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 2rem;
+    background: var(--surface);
+    border: 1px solid rgba(201, 168, 92, 0.2);
+    border-radius: var(--radius-full);
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+}
+
+.stat-divider {
+    width: 1px;
+    height: 32px;
+    background: var(--accent);
+    opacity: 0.3;
+}
+
+/* ===== Section Intro — פסקת פתיחה אלגנטית ===== */
+.section-intro {
+    background: var(--bg-cream);
+    padding: 5rem 0;
+    position: relative;
+}
+
+.section-intro::before,
+.section-intro::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.section-intro::before { top: 0; }
+.section-intro::after  { bottom: 0; }
+
+.intro-block {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro-title {
+    font-size: clamp(1.5rem, 2vw + 0.75rem, 2.2rem);
+    margin-bottom: 2rem;
+    color: var(--primary);
+    position: relative;
+    display: inline-block;
+}
+
+.intro-title::before {
+    content: '״';
+    position: absolute;
+    top: -1rem;
+    right: -2rem;
+    font-size: 4rem;
+    color: var(--accent);
+    opacity: 0.25;
+    font-family: var(--font-secondary);
+    line-height: 1;
+}
+
+.intro-paragraph {
+    font-family: var(--font-secondary);
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+}
+
+.intro-paragraph strong {
+    color: var(--accent-dark);
+    font-weight: 600;
+}
+
+.intro-cta {
+    margin-top: 2.5rem;
+}
+
+/* ===== About Teaser ===== */
+.about-teaser {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-teaser-text .section-tag { margin-bottom: 1rem; }
+
+.about-teaser-text h2 {
+    margin-bottom: 1.5rem;
+}
+
+.about-teaser-text p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.about-teaser-text strong {
+    color: var(--primary);
+}
+
+.about-teaser-text .btn {
+    margin-top: 1.5rem;
+}
+
+/* ===== Bio Grid (עמוד אודות) ===== */
+.bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.bio-text p {
+    font-family: var(--font-secondary);
+    font-size: 1.08rem;
+    line-height: 1.85;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+}
+
+.bio-text strong {
+    color: var(--accent-dark);
+}
+
+@media (max-width: 768px) {
+    .bio-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .intro-title::before {
+        right: -1rem;
+        font-size: 3rem;
+    }
+
+    .intro-paragraph {
+        font-size: 1.02rem;
+        line-height: 1.75;
+    }
+
+    .hero-stats-inline {
+        gap: 1rem;
+        padding: 0.75rem 1.25rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .stat-divider {
+        height: 24px;
+    }
+}
+
 /* Articles list */
 .articles-grid {
     display: grid;
