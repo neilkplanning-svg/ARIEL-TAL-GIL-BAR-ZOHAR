@@ -12,7 +12,30 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
     initContactForm();
     initCurrentYear();
+    initImageFallbacks();
 });
+
+/**
+ * Image fallbacks — תופס תמונות שבורות ומחיל סגנון fallback על ההורה
+ */
+function initImageFallbacks() {
+    const handleError = (img) => {
+        img.style.display = 'none';
+        const parent = img.parentElement;
+        if (parent && (parent.classList.contains('hero-image') || parent.classList.contains('about-image'))) {
+            parent.classList.add('image-fallback');
+        }
+    };
+
+    document.querySelectorAll('.hero-image img, .about-image img').forEach(img => {
+        // אם כבר נכשלה לפני ה-listener
+        if (img.complete && img.naturalHeight === 0) {
+            handleError(img);
+        } else {
+            img.addEventListener('error', () => handleError(img), { once: true });
+        }
+    });
+}
 
 /**
  * Header — אפקט גלילה

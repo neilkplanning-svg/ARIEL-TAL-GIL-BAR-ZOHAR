@@ -3,6 +3,34 @@
    Media queries — Mobile first.
    ============================================================ */
 
+/* ===== מניעת גלילה אופקית בכל המכשירים ===== */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* ===== iOS / Touch — שיפור חוויה ===== */
+* {
+    -webkit-tap-highlight-color: rgba(201, 168, 92, 0.2);
+}
+
+a, button, input, select, textarea {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* iOS Safari — תיקון לטופס ולכפתורים */
+input, textarea, select {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: var(--radius-sm);
+    font-size: 16px; /* מונע zoom אוטומטי ב-iOS על focus */
+}
+
+button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
 /* ===== TABLET (≤1024px) ===== */
 @media (max-width: 1024px) {
     :root {
@@ -30,7 +58,7 @@
 @media (max-width: 768px) {
     :root {
         --section-padding: 50px;
-        --header-height: 70px;
+        --header-height: 64px;
     }
 
     /* Tap targets — מינימום 44px לעמידה בנגישות */
@@ -40,8 +68,14 @@
     .submit-btn,
     .btn-waze,
     .faq-question,
-    .service-link {
+    .service-link,
+    .social-link {
         min-height: 44px;
+    }
+
+    /* ===== Header ===== */
+    .nav-wrapper {
+        gap: 0.5rem;
     }
 
     nav ul {
@@ -53,8 +87,8 @@
         height: calc(100vh - var(--header-height));
         background: var(--surface);
         flex-direction: column;
-        padding: 2rem;
-        gap: 1.25rem;
+        padding: 1.5rem;
+        gap: 0.5rem;
         box-shadow: -5px 0 20px rgba(0,0,0,0.15);
         transition: right 0.3s;
         align-items: stretch;
@@ -63,17 +97,35 @@
 
     nav ul a {
         display: block;
-        padding: 0.75rem 0;
+        padding: 0.85rem 0;
         border-bottom: 1px solid rgba(0,0,0,0.06);
         font-size: 1.05rem;
     }
+
+    nav ul a::after { display: none; }
 
     nav ul.active {
         right: 0;
     }
 
+    /* רקע כהה מאחורי התפריט */
+    body.menu-open::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.4);
+        z-index: calc(var(--z-sticky) - 1);
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
     .mobile-toggle {
         display: flex;
+        flex-shrink: 0;
     }
 
     .cta-btn {
@@ -81,17 +133,32 @@
     }
 
     /* Logo on mobile — לוודא שלא נחתך */
-    .logo-name { font-size: 0.95rem; }
+    .logo { flex-shrink: 1; min-width: 0; }
+    .logo-name { font-size: 0.92rem; line-height: 1.2; }
     .logo-title { font-size: 0.7rem; }
 
-    /* Hero — עיצוב מובייל */
+    /* ===== Hero ===== */
     .hero {
         min-height: auto;
-        padding: calc(var(--header-height) + 2rem) 0 3rem;
+        padding: calc(var(--header-height) + 2rem) 0 2.5rem;
         text-align: center;
     }
 
-    .hero-text p { max-width: 100%; }
+    .hero-text h1 {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+
+    .hero-text h1 br { display: none; } /* פותר שבירות מוזרות */
+
+    .hero-text p {
+        max-width: 100%;
+        font-size: 1.05rem;
+    }
+
+    .hero-image {
+        max-width: 320px;
+    }
 
     .hero-buttons {
         flex-direction: column;
@@ -102,10 +169,20 @@
         width: 100%;
     }
 
+    .hero-stats {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin: 1rem auto 0;
+        justify-content: center;
+        max-width: max-content;
+    }
+
     .form-row {
         grid-template-columns: 1fr;
     }
 
+    /* ===== Footer ===== */
     .footer-content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -125,76 +202,146 @@
         justify-content: center;
     }
 
+    /* ===== About ===== */
     .about-features {
         grid-template-columns: 1fr;
     }
 
-    /* About — סדר על מובייל: תמונה אחרי טקסט */
     .about-content {
-        text-align: center;
+        text-align: right;
+    }
+
+    .about-text {
+        text-align: right;
     }
 
     .about-image-wrapper {
         order: -1;
-        max-width: 400px;
-        margin: 0 auto;
+        max-width: 360px;
+        margin: 0 auto 1rem;
+    }
+
+    .about-image-wrapper img {
+        aspect-ratio: 4/5;
+        object-fit: cover;
     }
 
     .about-feature {
-        justify-content: center;
+        justify-content: flex-start;
         text-align: right;
     }
 
+    /* About badge — מיקום בטוח על מובייל */
+    .about-badge {
+        bottom: -0.5rem;
+        right: 0.5rem;
+        padding: 0.85rem 1rem;
+    }
+
+    .about-badge-number { font-size: 1.5rem; }
+    .about-badge-text   { font-size: 0.75rem; }
+
+    /* Credentials list — קומפקטי יותר */
     .credential-item {
         text-align: right;
+        padding: 0.7rem 0.85rem;
+        gap: 0.6rem;
     }
 
-    .hero-stats {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        margin-top: 1rem;
-        justify-content: center;
+    .credential-item strong {
+        font-size: 0.95rem;
     }
 
-    .about-badge {
-        bottom: -1rem;
-        right: -1rem;
-        padding: 1rem 1.25rem;
+    .credential-item span {
+        font-size: 0.85rem;
     }
 
-    .whatsapp-float {
-        bottom: 20px;
-        left: 20px;
-        width: 55px;
-        height: 55px;
+    /* About inline H4 styles override — נראה יפה במובייל */
+    .about-text h4 {
+        font-size: 1.05rem;
+        line-height: 1.4;
     }
 
-    /* Section titles — להסיר קווי קישוט שעולים על קצה המסך */
+    /* ===== Sections — קישוטים בטוחים ===== */
     .section-title::before,
     .section-title::after {
         display: none;
     }
 
     .section-header {
-        margin-bottom: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Section transitions — להסיר את הקו העליון בכפילות */
+    .section + .section::before {
+        width: 80px;
+    }
+
+    /* ===== Contact ===== */
+    .contact-grid {
+        gap: 2rem;
+    }
+
+    .contact-info h2 { font-size: 1.75rem; }
+
+    .contact-item {
+        margin-top: 1.25rem;
+    }
+
+    .contact-item-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
     }
 
     /* Branch cards (Waze) — תיבה אחת לעמודה */
     .branch-cards {
         grid-template-columns: 1fr;
+        gap: 0.75rem;
     }
 
-    /* Body scroll lock when menu open */
+    .branch-card {
+        padding: 1rem;
+    }
+
+    /* ===== WhatsApp Float ===== */
+    .whatsapp-float {
+        bottom: 16px;
+        left: 16px;
+        width: 52px;
+        height: 52px;
+        font-size: 1.5rem;
+    }
+
+    /* ===== Body scroll lock when menu open ===== */
     body.menu-open {
         overflow: hidden;
+    }
+
+    /* ===== Articles page ===== */
+    .articles-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .article-card {
+        padding: 1.5rem;
+    }
+
+    /* Page header (פנימי) */
+    .page-header {
+        padding: calc(var(--header-height) + 2rem) 0 2rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.75rem;
     }
 }
 
 /* ===== SMALL MOBILE (≤480px) ===== */
 @media (max-width: 480px) {
     :root {
-        --section-padding: 40px;
+        --section-padding: 36px;
     }
 
     .container {
@@ -202,39 +349,86 @@
     }
 
     .contact-form {
-        padding: 1.5rem;
+        padding: 1.25rem;
     }
 
     .service-card {
-        padding: 2rem 1.5rem;
+        padding: 1.75rem 1.25rem;
     }
 
     .hero-text h1 {
-        font-size: 1.85rem;
+        font-size: 1.7rem;
         line-height: 1.25;
     }
 
     .hero-text p {
-        font-size: 1rem;
+        font-size: 0.98rem;
     }
 
     .hero-stats {
         gap: 1rem;
-        padding: 1rem;
+        padding: 0.85rem 1rem;
     }
 
-    .stat-number { font-size: 1.5rem; }
-    .stat-label  { font-size: 0.75rem; }
+    .stat-number { font-size: 1.4rem; }
+    .stat-label  { font-size: 0.72rem; }
 
     .section-tag {
-        font-size: 0.75rem;
-        padding: 0.35rem 1rem;
+        font-size: 0.72rem;
+        padding: 0.3rem 0.85rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
     }
 
     /* Footer — שם המשרד עלול להיחתך */
     .footer-brand .logo-name {
-        font-size: 0.95rem;
+        font-size: 0.92rem;
     }
+
+    /* Service icons קטנים יותר */
+    .service-icon {
+        width: 64px;
+        height: 64px;
+        font-size: 1.6rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.15rem;
+    }
+
+    /* About badge ממוקם נכון בלי לחרוג */
+    .about-badge {
+        bottom: 0;
+        right: 0;
+    }
+
+    /* Form fields — ריווח קומפקטי */
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { font-size: 0.95rem; }
+
+    /* Credentials list — מאוד קומפקטי */
+    .credentials-list { gap: 0.5rem; }
+    .credential-item { padding: 0.6rem 0.75rem; }
+
+    /* Hero image במובייל קטן — מוסתר אם אין תמונה */
+    .hero-image.image-fallback {
+        max-width: 240px;
+        aspect-ratio: 4/5;
+    }
+}
+
+/* ===== Very Small (≤360px) — Galaxy Fold וכו׳ ===== */
+@media (max-width: 360px) {
+    .hero-text h1 { font-size: 1.5rem; }
+    .logo-name    { font-size: 0.85rem; }
+    .logo-title   { font-size: 0.65rem; }
+
+    .hero-stats { padding: 0.7rem 0.85rem; }
+    .stat-number { font-size: 1.25rem; }
+
+    .container { padding: 0 0.85rem; }
 }
 
 /* ===== PRINT ===== */

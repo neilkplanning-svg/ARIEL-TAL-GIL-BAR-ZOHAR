@@ -1,0 +1,40 @@
+# ⚠️ קבצי לקוח - מכילים מידע אישי - אסור לעולם להעלות לריפו ציבורי
+BRIEF.md
+*.brief.md
+client-private/
+*.local.json
+
+# תיקיות פרטיות לשימוש פנימי בלבד
+Internal Use/
+.claude/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# קבצי backup
+*.bak
+*.backup
+*.old
+
+# Node (אם בעתיד יתווסף build process)
+node_modules/
+package-lock.json
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# קבצי תמונות גולמיים (להעלות רק את המעובדים)
+images/raw/
+images/*.psd
+images/*.ai
+images/*.sketch
