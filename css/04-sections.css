@@ -992,6 +992,105 @@ body {
     }
 }
 
+/* ===== Public Housing — סקציית דגל בולטת ===== */
+.section-housing {
+    background:
+        linear-gradient(135deg, rgba(13,13,13,0.96), rgba(45,45,45,0.96)),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><g fill='none' stroke='%23c9a85c' stroke-opacity='0.10'><path d='M60 10 L110 60 L60 110 L10 60 Z'/></g></svg>");
+    background-size: cover, 120px 120px;
+    color: var(--surface);
+    border-top: 4px solid var(--accent);
+    border-bottom: 4px solid var(--accent);
+    position: relative;
+}
+
+.housing-wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.housing-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: var(--primary-dark);
+    padding: 0.45rem 1.4rem;
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.25rem;
+}
+
+.section-housing h2 {
+    color: var(--surface);
+    font-size: clamp(1.8rem, 3vw + 1rem, 2.8rem);
+    margin-bottom: 1rem;
+}
+
+.section-housing h2 span { color: var(--accent); }
+
+.housing-lead {
+    font-family: var(--font-secondary);
+    font-size: clamp(1.1rem, 1.2vw + 0.8rem, 1.4rem);
+    color: rgba(255,255,255,0.92);
+    max-width: 760px;
+    margin: 0 auto 1.25rem;
+    line-height: 1.7;
+}
+
+.housing-body {
+    color: rgba(255,255,255,0.78);
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+}
+
+.housing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    max-width: 860px;
+    margin: 0 auto 2.5rem;
+    text-align: right;
+}
+
+.housing-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(201, 168, 92, 0.10);
+    border: 1px solid rgba(201, 168, 92, 0.30);
+    border-radius: var(--radius-sm);
+    padding: 0.9rem 1.1rem;
+    font-weight: 600;
+    font-size: 0.98rem;
+}
+
+.housing-item i {
+    color: var(--accent);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.section-housing .btn-primary {
+    background: var(--accent);
+    color: var(--primary-dark);
+    font-weight: 800;
+    font-size: 1.05rem;
+    padding: 1rem 2.5rem;
+}
+
+.section-housing .btn-primary:hover {
+    background: var(--accent-light);
+}
+
+@media (max-width: 768px) {
+    .housing-grid { grid-template-columns: 1fr; }
+}
+
 /* Articles list */
 .articles-grid {
     display: grid;

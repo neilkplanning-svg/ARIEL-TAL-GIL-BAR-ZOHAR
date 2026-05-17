@@ -20,9 +20,9 @@
     "phoneSecondary": "",
     "phoneSecondaryDisplay": "",
     "whatsapp": "972543209765",
-    "email": "info@bzlaw.co.il",
+    "email": "a0543209765@gmail.com",
     "address": {
-      "street": "הרב קוק 8",
+      "street": "דוד המלך 8, שכונת ממילא",
       "city": "ירושלים",
       "country": "IL",
       "postalCode": ""
@@ -33,10 +33,10 @@
       "saturday": "סגור"
     },
     "geo": {
-      "lat": 31.7825,
-      "lng": 35.2210,
+      "lat": 31.7768,
+      "lng": 35.2224,
       "googleMapsEmbed": "",
-      "wazeUrlJerusalem": "https://waze.com/ul?ll=31.7825,35.2210&navigate=yes",
+      "wazeUrlJerusalem": "https://waze.com/ul?q=דוד%20המלך%208%20ירושלים&navigate=yes",
       "wazeUrlTelAviv": "https://waze.com/ul?q=משרד%20עורכי%20דין%20תל%20אביב&navigate=yes"
     }
   },
@@ -158,7 +158,7 @@
     "termsLastUpdate": "05/2026",
     "accessibilityLastUpdate": "05/2026",
     "accessibilityCoordinatorName": "גיל בר זוהר",
-    "accessibilityCoordinatorEmail": "info@bzlaw.co.il",
+    "accessibilityCoordinatorEmail": "a0543209765@gmail.com",
     "accessibilityCoordinatorPhone": "054-320-9765"
   }
 }
