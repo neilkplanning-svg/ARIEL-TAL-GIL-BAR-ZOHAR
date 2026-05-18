@@ -168,7 +168,7 @@
 .form-group select:focus {
     border-color: var(--accent);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(201, 168, 92, 0.15);
+    box-shadow: 0 0 0 3px rgba(201, 150, 47, 0.15);
 }
 
 .form-group textarea {
@@ -230,7 +230,7 @@
 /* ===== TAGS / BADGES ===== */
 .section-tag {
     display: inline-block;
-    background: rgba(201, 168, 92, 0.15);
+    background: rgba(201, 150, 47, 0.15);
     color: var(--accent-dark);
     padding: 0.4rem 1.25rem;
     border-radius: var(--radius-full);
