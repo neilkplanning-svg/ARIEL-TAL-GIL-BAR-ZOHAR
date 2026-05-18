@@ -4,8 +4,8 @@
     "description": "משרד עורכי דין בוטיק יוקרתי בתל אביב וירושלים. למעלה מ־30 שנה ניסיון בדיני משפחה, ירושה, ערעורים פליליים, עסקים ובתי דין רבניים.",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#1a1a1a",
-    "theme_color": "#1a1a1a",
+    "background_color": "#11335c",
+    "theme_color": "#11335c",
     "lang": "he",
     "dir": "rtl",
     "icons": [

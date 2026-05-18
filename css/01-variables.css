@@ -5,24 +5,29 @@
    ============================================================ */
 
 :root {
-    /* ===== COLORS — מותג ===== */
-    --primary:        #1a1a1a;
-    --primary-light:  #2d2d2d;
-    --primary-dark:   #0d0d0d;
+    /* ===== COLORS — מותג (נייבי עמוק + זהב עשיר) ===== */
+    --primary:        #11335c;   /* כחול נייבי עמוק ומלכותי */
+    --primary-light:  #1c4d82;
+    --primary-dark:   #0a2240;
 
-    --accent:         #c9a85c;
-    --accent-light:   #d4b86a;
-    --accent-dark:    #b8943f;
+    --accent:         #c9962f;   /* זהב עשיר וחד */
+    --accent-light:   #e3b04a;
+    --accent-dark:    #a8791f;
 
-    /* ===== COLORS — רקעים ===== */
-    --bg-cream:       #faf8f5;
-    --bg-cream-dark:  #f0ede8;
+    /* אקסנט משני — בורדו עמוק לפופ ולחדות */
+    --secondary:      #9b2c3a;
+    --secondary-light:#bb3a4a;
+    --secondary-dark: #7a1f2b;
+
+    /* ===== COLORS — רקעים (לבן חד וקריר) ===== */
+    --bg-cream:       #f3f6fa;   /* תכלת-לבן קריר במקום קרם חם */
+    --bg-cream-dark:  #e7edf4;
     --surface:        #ffffff;
 
-    /* ===== COLORS — טקסט ===== */
-    --text:           #333333;
-    --text-light:     #666666;
-    --text-muted:     #999999;
+    /* ===== COLORS — טקסט (כהה וחד על לבן) ===== */
+    --text:           #1b2a3a;
+    --text-light:     #51637a;
+    --text-muted:     #8493a6;
 
     /* ===== COLORS — סטטוס ===== */
     --success:        #28a745;
@@ -43,7 +48,7 @@
     --shadow-sm:      0 2px 10px rgba(0,0,0,0.06);
     --shadow:         0 4px 30px rgba(0,0,0,0.08);
     --shadow-lg:      0 10px 50px rgba(0,0,0,0.12);
-    --shadow-accent:  0 10px 30px rgba(201, 168, 92, 0.3);
+    --shadow-accent:  0 10px 30px rgba(201, 150, 47, 0.35);
 
     /* ===== TRANSITIONS ===== */
     --transition:      all 0.4s cubic-bezier(0.4, 0, 0.2, 1);

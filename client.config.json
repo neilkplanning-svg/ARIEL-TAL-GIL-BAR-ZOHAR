@@ -22,7 +22,7 @@
     "whatsapp": "972543209765",
     "email": "a0543209765@gmail.com",
     "address": {
-      "street": "דוד המלך 8, שכונת ממילא",
+      "street": "הרב קוק 8, מרכז אשדר, קומה 3",
       "city": "ירושלים",
       "country": "IL",
       "postalCode": ""
@@ -33,10 +33,10 @@
       "saturday": "סגור"
     },
     "geo": {
-      "lat": 31.7768,
-      "lng": 35.2224,
+      "lat": 31.7818,
+      "lng": 35.2191,
       "googleMapsEmbed": "",
-      "wazeUrlJerusalem": "https://waze.com/ul?q=דוד%20המלך%208%20ירושלים&navigate=yes",
+      "wazeUrlJerusalem": "https://waze.com/ul?a=share_drive&locale=iw&sd=DHyFDvY-m0qp2IQO2g-sd&env=il&utm_source=waze_app&utm_campaign=share_drive",
       "wazeUrlTelAviv": "https://waze.com/ul?q=משרד%20עורכי%20דין%20תל%20אביב&navigate=yes"
     }
   },
@@ -49,16 +49,17 @@
   },
 
   "branding": {
-    "primaryColor": "#1a1a1a",
-    "primaryLight": "#2d2d2d",
-    "primaryDark": "#0d0d0d",
-    "accentColor": "#c9a85c",
-    "accentLight": "#d4b86a",
-    "accentDark": "#b8943f",
-    "backgroundColor": "#faf8f5",
+    "primaryColor": "#11335c",
+    "primaryLight": "#1c4d82",
+    "primaryDark": "#0a2240",
+    "accentColor": "#c9962f",
+    "accentLight": "#e3b04a",
+    "accentDark": "#a8791f",
+    "secondaryColor": "#9b2c3a",
+    "backgroundColor": "#f3f6fa",
     "surfaceColor": "#ffffff",
-    "textColor": "#333333",
-    "textLightColor": "#666666",
+    "textColor": "#1b2a3a",
+    "textLightColor": "#51637a",
     "fontPrimary": "Heebo",
     "fontSecondary": "Frank Ruhl Libre",
     "logoPath": "images/logo.png",
