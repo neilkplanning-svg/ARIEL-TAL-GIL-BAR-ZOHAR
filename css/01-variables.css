@@ -5,29 +5,36 @@
    ============================================================ */
 
 :root {
-    /* ===== COLORS — מותג (aluk-firm style: פטרול + טורקיז + לבן) ===== */
+    /* ===== COLORS — מותג (aluk style: פטרול עמוק + טורקיז + תכלת) ===== */
     --primary:        #105675;   /* פטרול עמוק */
     --primary-light:  #1c6e96;
     --primary-dark:   #0a3f59;
 
-    --accent:         #177fab;   /* טורקיז ל-CTA */
+    --accent:         #177fab;   /* טורקיז CTA */
     --accent-light:   #2ba6cb;
     --accent-dark:    #115a7c;
 
-    /* אקסנט משני — אפור נייטרלי */
+    /* תכלת לקישוטים, גבולות וכותרות משנה — aluk #8fb4da */
+    --tertiary:       #8fb4da;
+    --tertiary-light: #b3cbe5;
+    --tertiary-dark:  #6d97c2;
+
+    /* אקסנט משני */
     --secondary:      #636363;
     --secondary-light:#8a8a8a;
     --secondary-dark: #404040;
 
-    /* ===== COLORS — רקעים (לבן + אפור עדין aluk) ===== */
-    --bg-cream:       #f6f6f6;   /* אפור-בהיר רקע סקציה */
-    --bg-cream-dark:  #ebebeb;
+    /* ===== COLORS — רקעים (עוטף חם, לא לבן יבש) ===== */
+    --bg-cream:       #eef3f8;   /* תכלת-לבן עדין */
+    --bg-cream-dark:  #dbe5ef;
     --surface:        #ffffff;
+    --bg-dark:        #0a3f59;   /* רקע גוף עמוק */
+    --bg-dark-deeper: #062c40;
 
-    /* ===== COLORS — טקסט (שחור על לבן) ===== */
-    --text:           #1a1a1a;
-    --text-light:     #636363;
-    --text-muted:     #999999;
+    /* ===== COLORS — טקסט ===== */
+    --text:           #1a2733;
+    --text-light:     #5a6b7d;
+    --text-muted:     #92a0b1;
 
     /* ===== COLORS — סטטוס ===== */
     --success:        #28a745;
@@ -38,11 +45,11 @@
     /* ===== COLORS — אבטחה / פרטיות ===== */
     --whatsapp:       #25d366;
 
-    /* ===== TYPOGRAPHY ===== */
-    --font-primary:   'Heebo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-secondary: 'Frank Ruhl Libre', Georgia, serif;
+    /* ===== TYPOGRAPHY — Open Sans Hebrew (aluk-firm style) ===== */
+    --font-primary:   'Open Sans Hebrew', 'Open Sans', 'Heebo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-secondary: 'Open Sans Hebrew', 'Open Sans', 'Heebo', sans-serif;
     --font-base-size: 16px;
-    --line-height:    1.7;
+    --line-height:    1.65;
 
     /* ===== SHADOWS ===== */
     --shadow-sm:      0 2px 10px rgba(0,0,0,0.06);
@@ -54,10 +61,10 @@
     --transition:      all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.2s ease;
 
-    /* ===== BORDER RADIUS (סגנון aluk — חד ומלבני) ===== */
-    --radius-sm:   3px;
-    --radius:      6px;
-    --radius-lg:   10px;
+    /* ===== BORDER RADIUS (חד מקסימלי — אלמנטים ריבועיים) ===== */
+    --radius-sm:   2px;
+    --radius:      3px;
+    --radius-lg:   4px;
     --radius-full: 9999px;
 
     /* ===== SPACING ===== */

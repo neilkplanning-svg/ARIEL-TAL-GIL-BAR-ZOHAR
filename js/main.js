@@ -13,7 +13,69 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initCurrentYear();
     initImageFallbacks();
+    initCursorGlow();
+    initHeroParallax();
 });
+
+/**
+ * Cursor glow — תאורה רכה אחרי סמן העכבר (אפקט יוקרה)
+ */
+function initCursorGlow() {
+    if (window.matchMedia('(hover: none)').matches || window.innerWidth < 769) return;
+
+    const glow = document.createElement('div');
+    glow.className = 'cursor-glow';
+    document.body.appendChild(glow);
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let glowX = mouseX;
+    let glowY = mouseY;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        glow.classList.add('active');
+    });
+
+    document.addEventListener('mouseleave', () => glow.classList.remove('active'));
+
+    function animateGlow() {
+        // smoothing factor — אפקט "מתעכב" אחרי הסמן
+        glowX += (mouseX - glowX) * 0.12;
+        glowY += (mouseY - glowY) * 0.12;
+        glow.style.transform = `translate(${glowX}px, ${glowY}px) translate(-50%, -50%)`;
+        requestAnimationFrame(animateGlow);
+    }
+    animateGlow();
+}
+
+/**
+ * Hero title parallax — הכותרת מתרחבת בגלילה (אפקט aluk)
+ */
+function initHeroParallax() {
+    const heroTitle = document.querySelector('.hero-title');
+    if (!heroTitle) return;
+
+    let ticking = false;
+    function update() {
+        const scrolled = window.scrollY;
+        const max = 400;
+        const ratio = Math.min(scrolled / max, 1);
+        const scale = 1 + ratio * 0.08;
+        const opacity = 1 - ratio * 0.7;
+        heroTitle.style.transform = `scale(${scale})`;
+        heroTitle.style.opacity = opacity;
+        heroTitle.style.transformOrigin = 'right center';
+        ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+        }
+    }, { passive: true });
+}
 
 /**
  * Image fallbacks — תופס תמונות שבורות ומחיל סגנון fallback על ההורה

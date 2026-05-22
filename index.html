@@ -59,7 +59,8 @@
     <!-- ===== Fonts ===== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/opensanshebrew.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- ===== FontAwesome (with SRI for security) ===== -->
     <link rel="stylesheet"
@@ -166,7 +167,10 @@
     <header id="header">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="index.html" class="logo" aria-label="דף הבית — משרד עורכי דין">
+                <a href="index.html" class="logo" aria-label="דף הבית — גיל בר-זהר ואריאל טל">
+                    <div class="logo-emblem" aria-hidden="true">
+                        <span class="logo-emblem-text">ב<span style="opacity:0.6;">·</span>ט</span>
+                    </div>
                     <div class="logo-fallback">
                         <div class="logo-text">
                             <span class="logo-name">גיל בר-זהר ואריאל טל</span>
@@ -192,26 +196,69 @@
 
     <main id="main-content">
 
-        <!-- ============ HERO ============ -->
+        <!-- ============ HERO — aluk style with expertise sidebar ============ -->
         <section id="home" class="hero" aria-labelledby="hero-title">
             <div class="container">
-                <div class="hero-content hero-content-centered">
-                    <div class="hero-text hero-text-wide">
-                        <span class="section-tag">משרד עורכי דין בוטיק</span>
-                        <h1 id="hero-title">משרד עורכי דין <span>בוטיק יוקרתי</span><br>ללקוחות פרטיים, בעלי נכסים, אנשי עסקים וחברות</h1>
-                        <p class="hero-tagline">ייצוג משפטי מוקפד, דיסקרטי ואסטרטגי — בתיקים שבהם נדרשת רמה מקצועית גבוהה במיוחד</p>
+                <div class="hero-layout">
+
+                    <!-- ===== Side panel: 4 main expertise areas ===== -->
+                    <aside class="hero-expertise" aria-label="תחומי התמחות מרכזיים">
+                        <div class="hero-expertise-title">תחומי התמחות</div>
+
+                        <a href="#housing" class="expertise-card flagship">
+                            <i class="fas fa-house-circle-check" aria-hidden="true"></i>
+                            <div class="ex-text">
+                                <strong>דיור ציבורי</strong>
+                                <small>נפגעי עמידר ופרזות — תחום דגל</small>
+                            </div>
+                        </a>
+
+                        <a href="#services" class="expertise-card">
+                            <i class="fas fa-house-user" aria-hidden="true"></i>
+                            <div class="ex-text">
+                                <strong>דיני משפחה ורכוש</strong>
+                                <small>גירושין · ירושות · נכסים</small>
+                            </div>
+                        </a>
+
+                        <a href="#services" class="expertise-card">
+                            <i class="fas fa-gavel" aria-hidden="true"></i>
+                            <div class="ex-text">
+                                <strong>בית דין רבני</strong>
+                                <small>בהובלת רב מוסמך</small>
+                            </div>
+                        </a>
+
+                        <a href="#services" class="expertise-card">
+                            <i class="fas fa-user-injured" aria-hidden="true"></i>
+                            <div class="ex-text">
+                                <strong>נזיקין</strong>
+                                <small>ביטוח לאומי · רשלנות רפואית</small>
+                            </div>
+                        </a>
+                    </aside>
+
+                    <!-- ===== Main hero content ===== -->
+                    <div class="hero-main">
+                        <span class="hero-eyebrow">משרד עורכי דין בוטיק</span>
+                        <h1 id="hero-title" class="hero-title">
+                            <span class="title-row small">גיל בר-זהר ואריאל טל</span>
+                            <span class="title-row big">משרד <span class="title-row accent" style="display:inline;">בוטיק יוקרתי</span></span>
+                            <span class="title-row sub">ייצוג משפטי מוקפד, דיסקרטי ואסטרטגי — בתיקים שבהם נדרשת רמה מקצועית גבוהה במיוחד</span>
+                        </h1>
                         <div class="hero-buttons hero-buttons-centered">
                             <a href="#contact" class="btn btn-primary"><i class="fas fa-phone" aria-hidden="true"></i> תיאום פגישה</a>
-                            <a href="#services" class="btn btn-secondary">תחומי התמחות</a>
+                            <a href="#housing" class="btn btn-secondary"><i class="fas fa-bullhorn" aria-hidden="true"></i> דיור ציבורי — תחום דגל</a>
                         </div>
                         <div class="hero-stats hero-stats-inline">
                             <div class="stat-item"><div class="stat-number">30+</div><div class="stat-label">שנות ניסיון</div></div>
                             <div class="stat-divider" aria-hidden="true"></div>
-                            <div class="stat-item"><div class="stat-number">2</div><div class="stat-label">סניפים בארץ</div></div>
+                            <div class="stat-item"><div class="stat-number">2</div><div class="stat-label">סניפים</div></div>
                             <div class="stat-divider" aria-hidden="true"></div>
                             <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">דיסקרטיות</div></div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -244,6 +291,11 @@
         <section id="housing" class="section section-housing" aria-labelledby="housing-title">
             <div class="container">
                 <div class="housing-wrap">
+                    <div class="housing-visual" aria-hidden="true">
+                        <span class="icon-burst"><i class="fas fa-key"></i></span>
+                        <span class="icon-burst" style="animation-delay:0.4s;"><i class="fas fa-house-circle-check"></i></span>
+                        <span class="icon-burst" style="animation-delay:0.8s;"><i class="fas fa-scale-balanced"></i></span>
+                    </div>
                     <span class="housing-badge"><i class="fas fa-bullhorn" aria-hidden="true"></i> תחום דגל</span>
                     <h2 id="housing-title">נפגעי דיור ציבורי? <span>אנחנו נלחמים עבורכם</span></h2>
                     <p class="housing-lead">
@@ -455,6 +507,48 @@
                         <button class="faq-question" aria-expanded="false">האם הפנייה למשרד דיסקרטית? <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
                         <div class="faq-answer"><div class="faq-answer-content">בהחלט. דיסקרטיות מלאה היא ערך יסוד במשרד. כל פנייה מטופלת באופן מקצועי ובסודיות מוחלטת.</div></div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ TESTIMONIALS HERO — בולט ויוקרתי ============ -->
+        <section class="section-testimonial-hero" aria-labelledby="testimonial-hero-title">
+            <div class="container">
+                <div class="testimonial-hero-wrap">
+                    <span class="testimonial-hero-eyebrow">המלצות מאנשי שם</span>
+                    <h2 id="testimonial-hero-title" class="sr-only">המלצות</h2>
+                    <p class="testimonial-hero-quote">
+                        "ראיתי הספרים <strong>'משפט אריאל'</strong> שהוציא לאור הרב אריאל טל…
+                        הספר נועד להיות לעזר לטוענים רבניים, ובו כל החומר הנדרש למלאכה זו.
+                        <strong>הספר יביא ברכה לכל העוסקים במלאכה זו.</strong>"
+                    </p>
+                    <div class="testimonial-hero-author">
+                        <strong>הראשון לציון הרב אליהו בקשי-דורון זצ״ל</strong>
+                        <span>נשיא מוסדות "בנין אב" · הסכמה לספר, תשס״ד</span>
+                    </div>
+
+                    <div class="testimonial-mini-strip">
+                        <div class="testimonial-mini">
+                            <strong>הרב הראשי לירושלים הרב יצחק קוליץ זצ״ל</strong>
+                            <span>"נסמך בסמיכת חכמים — יורה יורה כדת של תורה"</span>
+                        </div>
+                        <div class="testimonial-mini">
+                            <strong>פרופ׳ אבנר חי שאקי ז״ל</strong>
+                            <span>"חשיבה מקורית, מרץ חיובי, יצירתיות בולטת"</span>
+                        </div>
+                        <div class="testimonial-mini">
+                            <strong>פרופ׳ מיכאל קורינאלדי ז״ל</strong>
+                            <span>"חומר הכנה ראוי לבחינות לטוענים רבניים"</span>
+                        </div>
+                        <div class="testimonial-mini">
+                            <strong>הרב שלום משאש זצ״ל</strong>
+                            <span>הראשון לציון לירושלים — סמיכה רבנית</span>
+                        </div>
+                    </div>
+
+                    <p style="margin-top:2.5rem;">
+                        <a href="pages/about.html#endorse-title" class="btn btn-primary">לכל ההמלצות והסריקות המקוריות <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    </p>
                 </div>
             </div>
         </section>
