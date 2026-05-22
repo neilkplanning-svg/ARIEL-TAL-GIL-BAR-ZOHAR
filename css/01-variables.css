@@ -5,29 +5,29 @@
    ============================================================ */
 
 :root {
-    /* ===== COLORS — מותג (סגנון משפטי-יוקרתי aluk-firm) ===== */
-    --primary:        #1a2332;   /* נייבי-דיו עמוק וחד */
-    --primary-light:  #2c3a4f;
-    --primary-dark:   #0f1620;
+    /* ===== COLORS — מותג (aluk-firm style: פטרול + טורקיז + לבן) ===== */
+    --primary:        #105675;   /* פטרול עמוק */
+    --primary-light:  #1c6e96;
+    --primary-dark:   #0a3f59;
 
-    --accent:         #b8956a;   /* זהב מאופק ויוקרתי (warm copper) */
-    --accent-light:   #d0b189;
-    --accent-dark:    #967649;
+    --accent:         #177fab;   /* טורקיז ל-CTA */
+    --accent-light:   #2ba6cb;
+    --accent-dark:    #115a7c;
 
-    /* אקסנט משני — סלייט מאוזן */
-    --secondary:      #5a6478;
-    --secondary-light:#7c8699;
-    --secondary-dark: #3e4659;
+    /* אקסנט משני — אפור נייטרלי */
+    --secondary:      #636363;
+    --secondary-light:#8a8a8a;
+    --secondary-dark: #404040;
 
-    /* ===== COLORS — רקעים (לבן חד + אפור עדין) ===== */
-    --bg-cream:       #f7f8fa;   /* לבן-אפור עדין */
-    --bg-cream-dark:  #eaedf2;
+    /* ===== COLORS — רקעים (לבן + אפור עדין aluk) ===== */
+    --bg-cream:       #f6f6f6;   /* אפור-בהיר רקע סקציה */
+    --bg-cream-dark:  #ebebeb;
     --surface:        #ffffff;
 
-    /* ===== COLORS — טקסט (חד וקריא) ===== */
-    --text:           #1a2332;
-    --text-light:     #5a6478;
-    --text-muted:     #8b95a8;
+    /* ===== COLORS — טקסט (שחור על לבן) ===== */
+    --text:           #1a1a1a;
+    --text-light:     #636363;
+    --text-muted:     #999999;
 
     /* ===== COLORS — סטטוס ===== */
     --success:        #28a745;
@@ -48,16 +48,16 @@
     --shadow-sm:      0 2px 10px rgba(0,0,0,0.06);
     --shadow:         0 4px 30px rgba(0,0,0,0.08);
     --shadow-lg:      0 10px 50px rgba(0,0,0,0.12);
-    --shadow-accent:  0 10px 30px rgba(184, 149, 106, 0.28);
+    --shadow-accent:  0 10px 30px rgba(23, 127, 171, 0.30);
 
     /* ===== TRANSITIONS ===== */
     --transition:      all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.2s ease;
 
-    /* ===== BORDER RADIUS (חד יותר — סגנון יוקרתי-משפטי) ===== */
-    --radius-sm:   4px;
-    --radius:      8px;
-    --radius-lg:   12px;
+    /* ===== BORDER RADIUS (סגנון aluk — חד ומלבני) ===== */
+    --radius-sm:   3px;
+    --radius:      6px;
+    --radius-lg:   10px;
     --radius-full: 9999px;
 
     /* ===== SPACING ===== */
