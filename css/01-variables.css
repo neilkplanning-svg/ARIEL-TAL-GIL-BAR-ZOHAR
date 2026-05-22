@@ -5,29 +5,29 @@
    ============================================================ */
 
 :root {
-    /* ===== COLORS — מותג (נייבי עמוק + זהב עשיר) ===== */
-    --primary:        #11335c;   /* כחול נייבי עמוק ומלכותי */
-    --primary-light:  #1c4d82;
-    --primary-dark:   #0a2240;
+    /* ===== COLORS — מותג (סגנון משפטי-יוקרתי aluk-firm) ===== */
+    --primary:        #1a2332;   /* נייבי-דיו עמוק וחד */
+    --primary-light:  #2c3a4f;
+    --primary-dark:   #0f1620;
 
-    --accent:         #c9962f;   /* זהב עשיר וחד */
-    --accent-light:   #e3b04a;
-    --accent-dark:    #a8791f;
+    --accent:         #b8956a;   /* זהב מאופק ויוקרתי (warm copper) */
+    --accent-light:   #d0b189;
+    --accent-dark:    #967649;
 
-    /* אקסנט משני — בורדו עמוק לפופ ולחדות */
-    --secondary:      #9b2c3a;
-    --secondary-light:#bb3a4a;
-    --secondary-dark: #7a1f2b;
+    /* אקסנט משני — סלייט מאוזן */
+    --secondary:      #5a6478;
+    --secondary-light:#7c8699;
+    --secondary-dark: #3e4659;
 
-    /* ===== COLORS — רקעים (לבן חד וקריר) ===== */
-    --bg-cream:       #f3f6fa;   /* תכלת-לבן קריר במקום קרם חם */
-    --bg-cream-dark:  #e7edf4;
+    /* ===== COLORS — רקעים (לבן חד + אפור עדין) ===== */
+    --bg-cream:       #f7f8fa;   /* לבן-אפור עדין */
+    --bg-cream-dark:  #eaedf2;
     --surface:        #ffffff;
 
-    /* ===== COLORS — טקסט (כהה וחד על לבן) ===== */
-    --text:           #1b2a3a;
-    --text-light:     #51637a;
-    --text-muted:     #8493a6;
+    /* ===== COLORS — טקסט (חד וקריא) ===== */
+    --text:           #1a2332;
+    --text-light:     #5a6478;
+    --text-muted:     #8b95a8;
 
     /* ===== COLORS — סטטוס ===== */
     --success:        #28a745;
@@ -48,16 +48,16 @@
     --shadow-sm:      0 2px 10px rgba(0,0,0,0.06);
     --shadow:         0 4px 30px rgba(0,0,0,0.08);
     --shadow-lg:      0 10px 50px rgba(0,0,0,0.12);
-    --shadow-accent:  0 10px 30px rgba(201, 150, 47, 0.35);
+    --shadow-accent:  0 10px 30px rgba(184, 149, 106, 0.28);
 
     /* ===== TRANSITIONS ===== */
     --transition:      all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.2s ease;
 
-    /* ===== BORDER RADIUS ===== */
-    --radius-sm:   8px;
-    --radius:      16px;
-    --radius-lg:   24px;
+    /* ===== BORDER RADIUS (חד יותר — סגנון יוקרתי-משפטי) ===== */
+    --radius-sm:   4px;
+    --radius:      8px;
+    --radius-lg:   12px;
     --radius-full: 9999px;
 
     /* ===== SPACING ===== */
