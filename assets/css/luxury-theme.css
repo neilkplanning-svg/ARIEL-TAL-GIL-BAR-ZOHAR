@@ -1,0 +1,1362 @@
+/* ============================================================
+   luxury-theme.css
+   Dark luxury theme override — נטען אחרי כל ה-CSS הקיים.
+   Inspired by aluk-firm.com aesthetics.
+   ============================================================ */
+
+/* ============================================================
+   1. VARIABLES — דריסה מלאה של הפלטה הקיימת
+   ============================================================ */
+:root {
+    /* Brand new dark palette */
+    --bg-primary:        #0A1520;
+    --bg-secondary:      #0F1E2E;
+    --bg-tertiary:       #142838;
+    --bg-elevated:       #1a3043;
+
+    --accent-gold:        #C9A961;
+    --accent-gold-bright: #E5C77B;
+    --accent-gold-dark:   #A88947;
+    --accent-gold-glow:   rgba(201, 169, 97, 0.35);
+
+    --brand-teal:        #105675;
+    --brand-teal-bright: #177fab;
+
+    --text-primary:      #F5F1E8;
+    --text-secondary:    #B8B0A0;
+    --text-muted:        #7a7468;
+
+    --border-subtle:     rgba(201, 169, 97, 0.22);
+    --border-strong:     rgba(201, 169, 97, 0.45);
+
+    /* Override existing system tokens so cascade reaches everything */
+    --primary:           var(--brand-teal);
+    --primary-light:     var(--brand-teal-bright);
+    --primary-dark:      var(--bg-primary);
+
+    --accent:            var(--accent-gold);
+    --accent-light:      var(--accent-gold-bright);
+    --accent-dark:       var(--accent-gold-dark);
+
+    --tertiary:          #8fb4da;
+    --tertiary-light:    #b3cbe5;
+    --tertiary-dark:     #6d97c2;
+
+    --secondary:         var(--text-secondary);
+    --secondary-light:   #c8c0b0;
+    --secondary-dark:    #888273;
+
+    /* CRITICAL: every "white background" becomes dark navy */
+    --bg-cream:          var(--bg-secondary);
+    --bg-cream-dark:     var(--bg-tertiary);
+    --surface:           var(--bg-tertiary);
+    --bg-dark:           var(--bg-primary);
+    --bg-dark-deeper:    #050d15;
+
+    --text:              var(--text-primary);
+    --text-light:        var(--text-secondary);
+
+    /* Fonts per brief */
+    --font-primary:   'Heebo', 'Assistant', 'Open Sans Hebrew', -apple-system, sans-serif;
+    --font-secondary: 'Frank Ruhl Libre', 'David Libre', 'Heebo', serif;
+    --font-display:   'Playfair Display', 'Frank Ruhl Libre', serif;
+
+    /* Sharper radii */
+    --radius-sm:   4px;
+    --radius:      8px;
+    --radius-lg:   12px;
+
+    /* Luxury shadows */
+    --shadow-sm:      0 2px 8px rgba(0,0,0,0.30);
+    --shadow:         0 6px 24px rgba(0,0,0,0.40);
+    --shadow-lg:      0 12px 48px rgba(0,0,0,0.55);
+    --shadow-accent:  0 8px 28px var(--accent-gold-glow);
+}
+
+/* Load Playfair Display for numerals */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&display=swap');
+
+/* ============================================================
+   2. BASE — body, html, links, headings
+   ============================================================ */
+html, body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+body {
+    background:
+        radial-gradient(ellipse at top right, rgba(16,86,117,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at bottom left, rgba(201,169,97,0.06) 0%, transparent 50%),
+        var(--bg-primary) !important;
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-family: var(--font-primary);
+    font-weight: 300;
+}
+
+/* Disable the old body::before overlay if present */
+body::before { background: none !important; opacity: 0 !important; }
+
+main { background: transparent; }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; line-height: 1.1; }
+h2 { font-size: clamp(2rem, 3.5vw, 3rem); }
+h3 { font-size: clamp(1.3rem, 2vw + 0.5rem, 1.7rem); font-weight: 600; }
+
+p { color: var(--text-secondary); line-height: 1.75; }
+
+a { color: var(--accent-gold); }
+a:hover { color: var(--accent-gold-bright); }
+
+::selection { background: var(--accent-gold); color: var(--bg-primary); }
+
+/* ============================================================
+   3. HEADER — top bar with thin gold strip
+   ============================================================ */
+#header,
+header#header {
+    background: rgba(10, 21, 32, 0.92) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    backdrop-filter: blur(14px) saturate(140%);
+    border-top: 3px solid var(--accent-gold);
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: 0 2px 18px rgba(0,0,0,0.35);
+}
+
+#header.header-scrolled {
+    background: rgba(10, 21, 32, 0.98) !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.55);
+}
+
+.logo-name { color: var(--text-primary); font-family: var(--font-secondary); }
+.logo-title { color: var(--text-secondary); }
+.logo-emblem {
+    background: linear-gradient(135deg, var(--accent-gold-dark), var(--accent-gold-bright));
+    color: var(--bg-primary);
+    font-family: var(--font-display);
+    box-shadow: 0 4px 14px rgba(201, 169, 97, 0.40);
+}
+
+nav ul a {
+    color: var(--text-primary) !important;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    font-size: 0.95rem;
+    transition: color 0.25s ease;
+}
+nav ul a:hover { color: var(--accent-gold-bright) !important; }
+nav ul a::after { background: var(--accent-gold) !important; height: 1px; }
+
+.mobile-toggle span { background: var(--accent-gold) !important; }
+
+/* CTA in header */
+.cta-btn {
+    background: var(--accent-gold) !important;
+    color: var(--bg-primary) !important;
+    border-radius: 3px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    padding: 0.65rem 1.3rem !important;
+}
+.cta-btn:hover {
+    background: var(--accent-gold-bright) !important;
+    box-shadow: var(--shadow-accent);
+}
+
+/* ============================================================
+   4. SECTIONS — backgrounds replaced (NO WHITE LEFT)
+   ============================================================ */
+.section-light,
+.section-cream {
+    background: var(--bg-secondary) !important;
+    color: var(--text-primary);
+}
+
+.section-cream {
+    background: var(--bg-tertiary) !important;
+}
+
+.section-dark {
+    background: var(--bg-primary) !important;
+    color: var(--text-primary);
+}
+
+.section-light::before,
+.section-cream::before,
+.section + .section::before { display: none !important; }
+
+.section-light h2, .section-light h3,
+.section-cream h2, .section-cream h3 {
+    color: var(--text-primary) !important;
+}
+
+.section-light p, .section-cream p {
+    color: var(--text-secondary) !important;
+}
+
+/* Section eyebrow + gold underline */
+.section-header { text-align: center; margin-bottom: 3rem; }
+
+.section-tag {
+    background: transparent !important;
+    color: var(--accent-gold) !important;
+    border: 1px solid var(--border-subtle) !important;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    padding: 0.45rem 1.4rem !important;
+    border-radius: 2px !important;
+    display: inline-block;
+    margin-bottom: 1.25rem;
+}
+
+.section-title {
+    color: var(--text-primary) !important;
+    font-family: var(--font-secondary);
+    position: relative;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.section-title::before,
+.section-title::after { display: none !important; }
+
+.section-title {
+    background: none !important;
+}
+
+/* Gold underline below H2 */
+.section-header .section-title::after,
+.section-title::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    width: 70px;
+    height: 2px;
+    background: var(--accent-gold) !important;
+    display: block !important;
+    left: auto;
+    top: auto;
+    opacity: 1;
+}
+
+.section-subtitle {
+    color: var(--text-secondary) !important;
+    margin-top: 0.8rem;
+}
+
+/* ============================================================
+   5. HERO — centered + video background
+   ============================================================ */
+.hero {
+    min-height: 100vh !important;
+    padding: calc(var(--header-height) + 5rem) 0 4rem !important;
+    background: var(--bg-primary) !important;
+    color: var(--text-primary);
+    overflow: hidden;
+    position: relative;
+}
+
+.hero::before, .hero::after { display: none !important; }
+
+.hero-video,
+.hero-video-poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-video { z-index: 1; }
+.hero-video-poster { z-index: 0; }
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+        rgba(10,21,32,0.55) 0%,
+        rgba(10,21,32,0.75) 50%,
+        rgba(10,21,32,0.92) 100%);
+    z-index: 2;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 3;
+}
+
+/* Centered hero layout */
+.hero-center {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-eyebrow {
+    display: inline-block;
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.hero-eyebrow::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 1px;
+    background: var(--accent-gold);
+    margin: 1.2rem auto 0;
+}
+
+.hero h1,
+.hero-title {
+    color: var(--text-primary) !important;
+    font-family: var(--font-secondary) !important;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.5);
+}
+
+.hero h1 span,
+.hero-title span,
+.hero-title .accent {
+    color: var(--accent-gold-bright) !important;
+    font-weight: 700;
+}
+
+.hero-sub {
+    font-family: var(--font-primary);
+    font-size: clamp(1.05rem, 1.2vw + 0.5rem, 1.35rem);
+    color: var(--text-primary);
+    opacity: 0.92;
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+.hero-buttons,
+.hero-buttons-centered {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+}
+
+/* Hero stats at bottom */
+.hero-stats,
+.hero-stats-inline {
+    display: inline-flex;
+    gap: 3rem;
+    align-items: center;
+    background: rgba(20, 40, 56, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 1.5rem 2.5rem;
+    margin: 0 auto;
+    position: relative;
+    bottom: auto !important;
+    left: auto !important;
+}
+
+.hero-stats .stat-item { text-align: center; }
+
+.hero-stats .stat-number,
+.stat-number {
+    font-family: var(--font-display) !important;
+    font-size: clamp(1.8rem, 2vw + 1rem, 2.5rem);
+    font-weight: 700;
+    color: var(--accent-gold) !important;
+    line-height: 1;
+    display: block;
+}
+
+.stat-label {
+    color: var(--text-secondary) !important;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--accent-gold);
+    opacity: 0.35;
+}
+
+/* ============================================================
+   6. EXPERTISE STRIP — 4 main areas (moved out of hero)
+   ============================================================ */
+.expertise-strip {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0 !important;
+    position: relative;
+    z-index: 5;
+}
+
+.expertise-strip-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+}
+
+.expertise-strip-item {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: var(--text-primary);
+    border-left: 1px solid var(--border-subtle);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+
+.expertise-strip-item:last-child { border-left: 0; }
+
+.expertise-strip-item::before {
+    content: '';
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 0;
+    background: linear-gradient(to top, var(--accent-gold-glow), transparent);
+    transition: height 0.4s ease;
+    z-index: 0;
+}
+
+.expertise-strip-item:hover::before { height: 100%; }
+
+.expertise-strip-item > * { position: relative; z-index: 1; }
+
+.expertise-strip-item i {
+    font-size: 2rem;
+    color: var(--accent-gold);
+    margin-bottom: 0.85rem;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.expertise-strip-item:hover i {
+    transform: translateY(-4px);
+    color: var(--accent-gold-bright);
+}
+
+.expertise-strip-item strong {
+    font-family: var(--font-secondary);
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+.expertise-strip-item small {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.expertise-strip-item.flagship {
+    background: linear-gradient(135deg, rgba(201,169,97,0.10), transparent);
+}
+.expertise-strip-item.flagship i { color: var(--accent-gold-bright); }
+
+/* ============================================================
+   7. INTRO SECTION — dark
+   ============================================================ */
+.section-intro {
+    background: var(--bg-secondary) !important;
+    padding: 5rem 0 !important;
+}
+
+.section-intro::before, .section-intro::after { display: none !important; }
+
+.intro-block { max-width: 800px; margin: 0 auto; text-align: center; }
+
+.intro-title {
+    color: var(--text-primary) !important;
+    font-family: var(--font-secondary);
+    font-size: clamp(1.6rem, 2vw + 0.7rem, 2.4rem);
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1.25rem;
+}
+
+.intro-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 2px;
+    background: var(--accent-gold);
+}
+
+.intro-title::before { display: none !important; }
+
+.intro-paragraph {
+    color: var(--text-secondary) !important;
+    font-family: var(--font-primary) !important;
+    font-size: 1.1rem !important;
+    line-height: 1.85 !important;
+    font-weight: 300;
+}
+
+.intro-paragraph strong { color: var(--accent-gold-bright) !important; font-weight: 600; }
+
+/* ============================================================
+   8. PUBLIC HOUSING FLAG — dramatic dark
+   ============================================================ */
+.section-housing {
+    background:
+        linear-gradient(135deg, rgba(10,21,32,0.92), rgba(15,30,46,0.85)),
+        var(--bg-primary) !important;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    position: relative;
+    padding: 5rem 0 !important;
+}
+
+.section-housing::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+}
+
+.housing-badge {
+    background: var(--accent-gold) !important;
+    color: var(--bg-primary) !important;
+    font-family: var(--font-primary);
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    padding: 0.5rem 1.4rem;
+    border-radius: 3px;
+}
+
+.section-housing h2 {
+    color: var(--text-primary) !important;
+    font-family: var(--font-secondary);
+}
+
+.section-housing h2 span { color: var(--accent-gold-bright); }
+
+.housing-lead {
+    color: var(--text-primary) !important;
+    font-family: var(--font-secondary) !important;
+    font-style: normal;
+}
+
+.housing-lead strong { color: var(--accent-gold-bright); }
+
+.housing-body { color: var(--text-secondary) !important; }
+
+.housing-item {
+    background: rgba(201, 169, 97, 0.06) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 3px !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font-primary);
+}
+
+.housing-item i { color: var(--accent-gold) !important; }
+
+.section-housing .btn-primary {
+    background: var(--accent-gold) !important;
+    color: var(--bg-primary) !important;
+    border-color: var(--accent-gold) !important;
+}
+.section-housing .btn-primary:hover {
+    background: var(--accent-gold-bright) !important;
+    color: var(--bg-primary) !important;
+}
+
+.icon-burst {
+    background: radial-gradient(circle, rgba(201,169,97,0.25), rgba(16,86,117,0.10) 60%, transparent) !important;
+    color: var(--accent-gold-bright) !important;
+}
+
+/* ============================================================
+   9. SERVICES GRID — numbered cards with video on hover
+   ============================================================ */
+#services { padding: 6rem 0; }
+
+.services-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.25rem !important;
+    margin-top: 2rem;
+}
+
+.service-card {
+    background: var(--bg-tertiary) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 6px !important;
+    padding: 0 !important;
+    min-height: 360px;
+    position: relative;
+    overflow: hidden;
+    text-align: right !important;
+    color: var(--text-primary) !important;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-gold) !important;
+    box-shadow: var(--shadow-lg), 0 0 0 1px var(--accent-gold-glow);
+}
+
+/* Video & overlay layers */
+.service-card-video,
+.service-card-poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: opacity 0.5s ease;
+}
+
+.service-card-video {
+    opacity: 0;
+}
+
+.service-card:hover .service-card-video,
+.service-card.is-mobile .service-card-video {
+    opacity: 1;
+}
+
+.service-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+        rgba(10,21,32,0.30) 0%,
+        rgba(10,21,32,0.70) 60%,
+        rgba(10,21,32,0.95) 100%);
+    z-index: 1;
+    transition: background 0.5s ease;
+}
+
+.service-card:hover .service-card-overlay {
+    background: linear-gradient(180deg,
+        rgba(10,21,32,0.10) 0%,
+        rgba(10,21,32,0.55) 60%,
+        rgba(10,21,32,0.92) 100%);
+}
+
+/* Card content */
+.service-card > .service-icon,
+.service-card > h3,
+.service-card > p,
+.service-card > .service-link {
+    position: relative;
+    z-index: 2;
+}
+
+.service-card .service-icon {
+    background: transparent !important;
+    color: var(--accent-gold) !important;
+    font-size: 1.5rem !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    position: absolute !important;
+    top: 1.25rem;
+    right: 1.25rem;
+    z-index: 3;
+}
+
+/* Big number in corner — Playfair Display */
+.service-card .service-number {
+    position: absolute;
+    top: 1rem;
+    left: 1.25rem;
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    opacity: 0.35;
+    line-height: 1;
+    z-index: 3;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+}
+
+.service-card:hover .service-number {
+    opacity: 0.85;
+    transform: translateY(-3px);
+}
+
+.service-card h3 {
+    font-family: var(--font-secondary) !important;
+    color: var(--text-primary) !important;
+    font-size: 1.35rem !important;
+    margin: 0 1.5rem 0.5rem !important;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+.service-card p {
+    color: var(--text-secondary) !important;
+    margin: 0 1.5rem 1rem !important;
+    font-size: 0.93rem;
+    line-height: 1.65;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease, margin 0.5s ease;
+}
+
+.service-card:hover p {
+    max-height: 200px;
+    opacity: 1;
+    margin-bottom: 1rem !important;
+}
+
+.service-card .service-link {
+    color: var(--accent-gold) !important;
+    font-weight: 600;
+    margin: 0 1.5rem 1.5rem !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.92rem;
+    align-self: flex-start;
+}
+
+.service-card .service-link:hover { color: var(--accent-gold-bright) !important; }
+
+.service-card::before { display: none !important; }
+
+/* Gold corner accent on card */
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent-gold);
+    transition: width 0.5s ease;
+    z-index: 3;
+}
+.service-card:hover::after { width: 100%; }
+
+/* ============================================================
+   10. CREDENTIALS — gold value chips
+   ============================================================ */
+#credentials .section-tag,
+.credentials .section-tag {
+    background: transparent !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-subtle) !important;
+    padding: 0.6rem 1.2rem !important;
+    border-radius: 3px !important;
+    font-family: var(--font-primary);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    text-transform: none;
+}
+
+#credentials .section-tag i,
+.credentials .section-tag i { color: var(--accent-gold); }
+
+/* ============================================================
+   11. ABOUT TEASER
+   ============================================================ */
+.about-teaser p, .about-teaser-text p {
+    color: var(--text-secondary) !important;
+}
+
+.about-teaser-text strong { color: var(--accent-gold-bright) !important; }
+
+/* ============================================================
+   12. OFFICE TOUR — video card
+   ============================================================ */
+#office-tour {
+    background: var(--bg-secondary) !important;
+}
+
+.video-frame {
+    background:
+        linear-gradient(135deg, rgba(10,21,32,0.60), rgba(20,40,56,0.50)),
+        url('../../images/video-poster.jpg') center/cover no-repeat !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-color: var(--accent-gold) !important;
+    border-radius: 4px !important;
+}
+
+.video-frame .play-btn {
+    background: var(--accent-gold) !important;
+    color: var(--bg-primary) !important;
+    box-shadow: 0 0 0 0 rgba(201,169,97,0.7);
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-ring {
+    0%   { box-shadow: 0 0 0 0 rgba(201,169,97,0.7); }
+    70%  { box-shadow: 0 0 0 24px rgba(201,169,97,0); }
+    100% { box-shadow: 0 0 0 0 rgba(201,169,97,0); }
+}
+
+.video-frame:hover .play-btn { background: var(--accent-gold-bright) !important; }
+
+/* ============================================================
+   13. FAQ — dark cards with gold accent
+   ============================================================ */
+#faq, .faq-section {
+    background: var(--bg-primary) !important;
+}
+
+.faq-container { max-width: 860px; margin: 0 auto; }
+
+.faq-item {
+    background: var(--bg-tertiary) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 4px !important;
+    margin-bottom: 0.85rem;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.faq-item:hover { border-color: var(--accent-gold) !important; }
+
+.faq-question {
+    color: var(--text-primary) !important;
+    font-family: var(--font-secondary) !important;
+    font-weight: 600 !important;
+    padding: 1.35rem 1.5rem !important;
+    background: transparent !important;
+    width: 100%;
+    text-align: right;
+    transition: background 0.3s ease;
+}
+
+.faq-question:hover { background: rgba(201,169,97,0.05) !important; }
+
+.faq-question i {
+    color: var(--accent-gold) !important;
+    transition: transform 0.4s ease;
+}
+
+.faq-item.active .faq-question i { transform: rotate(180deg); }
+
+.faq-answer-content {
+    color: var(--text-secondary) !important;
+    padding: 0 1.5rem 1.5rem !important;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 1rem !important;
+    font-size: 0.98rem;
+    line-height: 1.75;
+}
+
+/* ============================================================
+   14. TESTIMONIALS — bold prominent
+   ============================================================ */
+.section-testimonial-hero {
+    background:
+        linear-gradient(135deg, rgba(10,21,32,0.94), rgba(15,30,46,0.88)),
+        url('../../images/about.jpg') center 30%/cover no-repeat !important;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-testimonial-hero::before,
+.section-testimonial-hero::after {
+    color: var(--accent-gold) !important;
+    opacity: 0.10;
+}
+
+.testimonial-hero-eyebrow {
+    background: transparent;
+    color: var(--accent-gold) !important;
+    border-color: var(--border-strong) !important;
+}
+
+.testimonial-hero-quote {
+    color: var(--text-primary) !important;
+    font-family: var(--font-secondary) !important;
+    font-style: italic;
+}
+
+.testimonial-hero-quote strong { color: var(--accent-gold-bright) !important; }
+
+.testimonial-hero-author {
+    border-top-color: var(--accent-gold) !important;
+}
+
+.testimonial-hero-author strong { color: var(--text-primary) !important; }
+.testimonial-hero-author span { color: var(--text-secondary) !important; }
+
+.testimonial-mini {
+    background: rgba(20, 40, 56, 0.55) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 3px !important;
+}
+
+.testimonial-mini:hover {
+    background: rgba(201, 169, 97, 0.10) !important;
+    border-color: var(--accent-gold) !important;
+}
+
+.testimonial-mini strong { color: var(--accent-gold-bright) !important; }
+.testimonial-mini span { color: var(--text-primary) !important; opacity: 0.85; }
+
+/* ============================================================
+   15. CONTACT — dark form
+   ============================================================ */
+#contact {
+    background:
+        linear-gradient(135deg, var(--bg-primary), var(--bg-secondary)) !important;
+}
+
+#contact h2, .contact-info h2 { color: var(--text-primary) !important; }
+.contact-info p { color: var(--text-secondary) !important; }
+
+.contact-item-icon {
+    background: rgba(201, 169, 97, 0.10) !important;
+    color: var(--accent-gold) !important;
+    border-radius: 3px;
+    border: 1px solid var(--border-subtle);
+}
+
+.contact-item-text h4 {
+    color: var(--accent-gold) !important;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.78rem !important;
+    font-weight: 700;
+}
+
+.contact-item-text p,
+.contact-item-text a { color: var(--text-primary) !important; }
+.contact-item-text a:hover { color: var(--accent-gold-bright) !important; }
+
+.social-link {
+    background: rgba(201, 169, 97, 0.10) !important;
+    border: 1px solid var(--border-subtle);
+    color: var(--accent-gold) !important;
+}
+
+.social-link:hover {
+    background: var(--accent-gold) !important;
+    color: var(--bg-primary) !important;
+    border-color: var(--accent-gold);
+}
+
+/* Branch cards */
+.branch-card {
+    background: rgba(20, 40, 56, 0.55) !important;
+    border: 1px solid var(--border-subtle) !important;
+}
+
+.branch-card:hover {
+    background: rgba(201, 169, 97, 0.08) !important;
+    border-color: var(--accent-gold) !important;
+}
+
+.branch-card h4 { color: var(--accent-gold) !important; }
+.branch-card p { color: var(--text-primary) !important; }
+
+.btn-waze {
+    background: var(--accent-gold) !important;
+    color: var(--bg-primary) !important;
+    border-radius: 3px !important;
+}
+.btn-waze:hover { background: var(--accent-gold-bright) !important; }
+
+/* Form */
+.contact-form {
+    background: var(--bg-tertiary) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 4px !important;
+    padding: 2.5rem !important;
+    color: var(--text-primary) !important;
+    box-shadow: var(--shadow);
+}
+
+.contact-form h3 {
+    color: var(--text-primary) !important;
+    font-family: var(--font-secondary);
+}
+
+.contact-form > p {
+    color: var(--text-secondary) !important;
+}
+
+.form-group label {
+    color: var(--accent-gold) !important;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    background: rgba(10, 21, 32, 0.55) !important;
+    border: 1px solid var(--border-subtle) !important;
+    color: var(--text-primary) !important;
+    border-radius: 3px !important;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-muted) !important;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--accent-gold-bright) !important;
+    box-shadow: 0 0 0 3px rgba(201,169,97,0.15) !important;
+    background: rgba(10, 21, 32, 0.85) !important;
+}
+
+.submit-btn {
+    background: var(--accent-gold) !important;
+    color: var(--bg-primary) !important;
+    border-radius: 3px !important;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.submit-btn:hover {
+    background: var(--accent-gold-bright) !important;
+    box-shadow: var(--shadow-accent);
+}
+
+.form-note { color: var(--text-secondary) !important; }
+.form-note i { color: var(--accent-gold); }
+
+/* ============================================================
+   16. FOOTER — deepest dark
+   ============================================================ */
+footer {
+    background: var(--bg-dark-deeper) !important;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--accent-gold);
+    padding: 4rem 0 1rem !important;
+}
+
+.footer-brand p { color: var(--text-secondary) !important; }
+
+.footer-links h4,
+.footer-contact h4 {
+    color: var(--accent-gold) !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: var(--font-primary);
+}
+
+.footer-links a { color: var(--text-primary) !important; opacity: 0.85; }
+.footer-links a:hover { color: var(--accent-gold-bright) !important; opacity: 1; }
+
+.footer-contact p { color: var(--text-secondary) !important; }
+.footer-contact p i { color: var(--accent-gold); }
+
+.footer-bottom {
+    border-top: 1px solid var(--border-subtle) !important;
+    color: var(--text-muted) !important;
+}
+
+.footer-legal-links a { color: var(--text-secondary) !important; }
+.footer-legal-links a:hover { color: var(--accent-gold-bright) !important; }
+
+/* ============================================================
+   17. SIDE ACTIONS — luxury floating bar
+   ============================================================ */
+.side-actions {
+    box-shadow: 4px 0 24px rgba(0,0,0,0.55);
+    border-radius: 0 4px 4px 0;
+}
+
+.side-action-btn.whatsapp { background: #1f8c4a !important; }
+.side-action-btn.whatsapp:hover { background: #25a258 !important; }
+
+.side-action-btn.phone { background: var(--accent-gold) !important; color: var(--bg-primary) !important; }
+.side-action-btn.phone:hover { background: var(--accent-gold-bright) !important; }
+
+.side-action-btn:not(.whatsapp):not(.phone) {
+    background: var(--brand-teal) !important;
+}
+.side-action-btn:not(.whatsapp):not(.phone):hover {
+    background: var(--brand-teal-bright) !important;
+}
+
+.side-action-btn .label {
+    background: var(--bg-primary) !important;
+    color: var(--accent-gold-bright) !important;
+    border: 1px solid var(--border-subtle);
+}
+
+/* WhatsApp pulse */
+.side-action-btn.whatsapp {
+    animation: wa-pulse 3s ease-in-out infinite;
+}
+@keyframes wa-pulse {
+    0%, 100% { box-shadow: inset 0 0 0 0 transparent; }
+    50% { box-shadow: inset 0 0 22px rgba(255,255,255,0.18); }
+}
+
+/* ============================================================
+   18. BUTTONS — refined luxury
+   ============================================================ */
+.btn,
+.btn-primary,
+.btn-secondary {
+    border-radius: 3px !important;
+    font-family: var(--font-primary);
+    text-transform: none;
+    letter-spacing: 0.3px;
+}
+
+.btn-primary {
+    background: var(--accent-gold) !important;
+    color: var(--bg-primary) !important;
+    border-color: var(--accent-gold) !important;
+    font-weight: 700;
+}
+
+.btn-primary:hover {
+    background: var(--accent-gold-bright) !important;
+    border-color: var(--accent-gold-bright) !important;
+    color: var(--bg-primary) !important;
+    box-shadow: var(--shadow-accent);
+}
+
+.btn-secondary {
+    background: transparent !important;
+    color: var(--text-primary) !important;
+    border-color: var(--accent-gold) !important;
+    font-weight: 600;
+}
+
+.btn-secondary:hover {
+    background: var(--accent-gold) !important;
+    color: var(--bg-primary) !important;
+    border-color: var(--accent-gold) !important;
+}
+
+/* ============================================================
+   19. PAGE HEADER (inner pages)
+   ============================================================ */
+.page-header {
+    background:
+        linear-gradient(135deg, rgba(10,21,32,0.92), rgba(15,30,46,0.85)),
+        url('../../images/page-header-bg.jpg') center/cover no-repeat !important;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--accent-gold);
+}
+
+.page-header h1 {
+    color: var(--text-primary) !important;
+    font-family: var(--font-secondary) !important;
+}
+
+.breadcrumb a { color: var(--accent-gold) !important; }
+.breadcrumb { color: var(--text-secondary) !important; }
+
+.page-about .page-header {
+    background:
+        linear-gradient(135deg, rgba(10,21,32,0.90), rgba(15,30,46,0.82)),
+        url('../../images/about.jpg') center 25%/cover no-repeat !important;
+}
+
+/* About page article content */
+.article-content { color: var(--text-primary); }
+.article-content h2, .article-content h3 { color: var(--accent-gold) !important; }
+.article-content p, .article-content li { color: var(--text-secondary) !important; }
+.article-content strong { color: var(--text-primary); }
+.article-content a { color: var(--accent-gold-bright); }
+
+/* Bio grid */
+.bio-text p { color: var(--text-secondary) !important; }
+.bio-text strong { color: var(--accent-gold-bright) !important; }
+.bio-text h4 { color: var(--accent-gold) !important; }
+
+/* Credentials list */
+.credential-item {
+    background: rgba(20, 40, 56, 0.55) !important;
+    border-right-color: var(--accent-gold) !important;
+}
+
+.credential-item strong { color: var(--text-primary) !important; }
+.credential-item span { color: var(--text-secondary) !important; }
+.credential-item i { color: var(--accent-gold) !important; }
+
+/* Certificate cards */
+.cert-card {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-subtle) !important;
+    border-inline-start-color: var(--accent-gold) !important;
+}
+
+.cert-card strong { color: var(--text-primary) !important; }
+.cert-card span { color: var(--text-secondary) !important; }
+.cert-card i { color: var(--accent-gold) !important; }
+
+.cert-card:hover { background: rgba(201,169,97,0.06) !important; }
+
+/* Certificate gallery */
+.cert-image-card {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-subtle) !important;
+}
+
+.cert-image-card:hover { border-color: var(--accent-gold) !important; }
+
+.cert-icon-badge {
+    background: var(--accent-gold) !important;
+    color: var(--bg-primary) !important;
+}
+
+/* Endorsements */
+.endorsement-card {
+    background: var(--bg-tertiary) !important;
+    border-top-color: var(--accent-gold) !important;
+    border: 1px solid var(--border-subtle);
+}
+
+.endorsement-card::before { color: var(--accent-gold) !important; opacity: 0.30; }
+
+.endorsement-quote {
+    color: var(--text-primary) !important;
+    font-family: var(--font-secondary) !important;
+}
+
+.endorsement-author strong { color: var(--accent-gold-bright) !important; }
+.endorsement-author span { color: var(--text-secondary) !important; }
+.endorsement-author { border-top-color: var(--border-subtle) !important; }
+
+/* Article cards */
+.article-card {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-subtle) !important;
+    border-top-color: var(--accent-gold) !important;
+}
+
+.article-card h3 { color: var(--text-primary) !important; }
+.article-card p { color: var(--text-secondary) !important; }
+.article-card .article-card-meta { color: var(--accent-gold) !important; }
+.article-card .read-more { color: var(--accent-gold-bright) !important; }
+
+/* ============================================================
+   20. CURSOR GLOW — refined
+   ============================================================ */
+.cursor-glow {
+    background: radial-gradient(circle,
+        rgba(201,169,97,0.18) 0%,
+        rgba(229,199,123,0.10) 30%,
+        transparent 70%) !important;
+}
+
+/* ============================================================
+   21. RESPONSIVE — mobile
+   ============================================================ */
+@media (max-width: 968px) {
+    .services-grid { grid-template-columns: 1fr 1fr !important; }
+    .expertise-strip-grid { grid-template-columns: 1fr 1fr !important; }
+    .expertise-strip-item { border-bottom: 1px solid var(--border-subtle); }
+    .expertise-strip-item:nth-child(2) { border-left: 0; }
+}
+
+@media (max-width: 768px) {
+    .hero { padding: calc(var(--header-height) + 2rem) 0 3rem !important; min-height: 92vh !important; }
+    .hero-video { display: none; }  /* save bandwidth on mobile */
+    .hero-video-poster { display: block; }
+    .hero-stats, .hero-stats-inline {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    .stat-divider { width: 40px; height: 1px; }
+
+    .services-grid { grid-template-columns: 1fr !important; }
+    .service-card { min-height: 280px; }
+    /* on mobile show description always */
+    .service-card p {
+        max-height: 200px !important;
+        opacity: 1 !important;
+        margin-bottom: 1rem !important;
+    }
+    /* Mobile videos play always (handled by JS adding .is-mobile class) */
+    .service-card .service-card-video { opacity: 0.5; }
+    .service-card-overlay {
+        background: linear-gradient(180deg,
+            rgba(10,21,32,0.55) 0%,
+            rgba(10,21,32,0.85) 60%,
+            rgba(10,21,32,0.97) 100%) !important;
+    }
+
+    .expertise-strip-grid { grid-template-columns: 1fr !important; }
+    .expertise-strip-item {
+        border-left: 0 !important;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1, .hero-title { font-size: clamp(1.8rem, 8vw, 2.6rem) !important; }
+}
+
+/* ============================================================
+   22. ACCESSIBILITY — prefers-reduced-motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    .hero-video,
+    .service-card-video { display: none !important; }
+    .icon-burst,
+    .icon-burst::after,
+    .video-frame .play-btn { animation: none !important; }
+    .side-action-btn.whatsapp { animation: none !important; }
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
