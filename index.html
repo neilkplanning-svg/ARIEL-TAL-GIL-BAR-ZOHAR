@@ -71,6 +71,8 @@
 
     <!-- ===== Stylesheets ===== -->
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Luxury dark theme override (טוען אחרי styles.css ועוקף) -->
+    <link rel="stylesheet" href="assets/css/luxury-theme.css">
 
     <!-- ===== Schema.org JSON-LD: LegalService ===== -->
     <script type="application/ld+json">
@@ -196,69 +198,73 @@
 
     <main id="main-content">
 
-        <!-- ============ HERO — aluk style with expertise sidebar ============ -->
+        <!-- ============ HERO — centered with video background ============ -->
         <section id="home" class="hero" aria-labelledby="hero-title">
+            <!-- Background video (autoplay, muted, loop) — desktop only via JS -->
+            <video class="hero-video"
+                   data-src="assets/videos/hero.mp4"
+                   poster="assets/videos/hero-poster.jpg"
+                   autoplay muted loop playsinline
+                   preload="metadata"
+                   aria-hidden="true"></video>
+            <!-- Static poster fallback (always rendered as base layer) -->
+            <img class="hero-video-poster"
+                 src="assets/videos/hero-poster.jpg"
+                 alt=""
+                 aria-hidden="true"
+                 onerror="this.style.display='none'">
+            <!-- Dark gradient overlay for legibility -->
+            <div class="hero-overlay" aria-hidden="true"></div>
+
             <div class="container">
-                <div class="hero-layout">
-
-                    <!-- ===== Side panel: 4 main expertise areas ===== -->
-                    <aside class="hero-expertise" aria-label="תחומי התמחות מרכזיים">
-                        <div class="hero-expertise-title">תחומי התמחות</div>
-
-                        <a href="#housing" class="expertise-card flagship">
-                            <i class="fas fa-house-circle-check" aria-hidden="true"></i>
-                            <div class="ex-text">
-                                <strong>דיור ציבורי</strong>
-                                <small>נפגעי עמידר ופרזות — תחום דגל</small>
-                            </div>
-                        </a>
-
-                        <a href="#services" class="expertise-card">
-                            <i class="fas fa-house-user" aria-hidden="true"></i>
-                            <div class="ex-text">
-                                <strong>דיני משפחה ורכוש</strong>
-                                <small>גירושין · ירושות · נכסים</small>
-                            </div>
-                        </a>
-
-                        <a href="#services" class="expertise-card">
-                            <i class="fas fa-gavel" aria-hidden="true"></i>
-                            <div class="ex-text">
-                                <strong>בית דין רבני</strong>
-                                <small>בהובלת רב מוסמך</small>
-                            </div>
-                        </a>
-
-                        <a href="#services" class="expertise-card">
-                            <i class="fas fa-user-injured" aria-hidden="true"></i>
-                            <div class="ex-text">
-                                <strong>נזיקין</strong>
-                                <small>ביטוח לאומי · רשלנות רפואית</small>
-                            </div>
-                        </a>
-                    </aside>
-
-                    <!-- ===== Main hero content ===== -->
-                    <div class="hero-main">
-                        <span class="hero-eyebrow">משרד עורכי דין בוטיק</span>
-                        <h1 id="hero-title" class="hero-title">
-                            <span class="title-row small">גיל בר-זהר ואריאל טל</span>
-                            <span class="title-row big">משרד <span class="title-row accent" style="display:inline;">בוטיק יוקרתי</span></span>
-                            <span class="title-row sub">ייצוג משפטי מוקפד, דיסקרטי ואסטרטגי — בתיקים שבהם נדרשת רמה מקצועית גבוהה במיוחד</span>
-                        </h1>
-                        <div class="hero-buttons hero-buttons-centered">
-                            <a href="#contact" class="btn btn-primary"><i class="fas fa-phone" aria-hidden="true"></i> תיאום פגישה</a>
-                            <a href="#housing" class="btn btn-secondary"><i class="fas fa-bullhorn" aria-hidden="true"></i> דיור ציבורי — תחום דגל</a>
-                        </div>
-                        <div class="hero-stats hero-stats-inline">
-                            <div class="stat-item"><div class="stat-number">30+</div><div class="stat-label">שנות ניסיון</div></div>
-                            <div class="stat-divider" aria-hidden="true"></div>
-                            <div class="stat-item"><div class="stat-number">2</div><div class="stat-label">סניפים</div></div>
-                            <div class="stat-divider" aria-hidden="true"></div>
-                            <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">דיסקרטיות</div></div>
-                        </div>
+                <div class="hero-center">
+                    <span class="hero-eyebrow">משרד עורכי דין בוטיק</span>
+                    <h1 id="hero-title" class="hero-title">
+                        גיל בר-זהר ו<span>אריאל טל</span>
+                    </h1>
+                    <p class="hero-sub">
+                        ייצוג משפטי מוקפד, דיסקרטי ואסטרטגי — בתיקים שבהם נדרשת רמה מקצועית גבוהה במיוחד.
+                        סניפים בתל אביב וירושלים.
+                    </p>
+                    <div class="hero-buttons hero-buttons-centered">
+                        <a href="#contact" class="btn btn-primary"><i class="fas fa-phone" aria-hidden="true"></i> תיאום פגישה</a>
+                        <a href="#housing" class="btn btn-secondary"><i class="fas fa-bullhorn" aria-hidden="true"></i> דיור ציבורי — תחום דגל</a>
                     </div>
+                    <div class="hero-stats hero-stats-inline">
+                        <div class="stat-item"><span class="stat-number">30+</span><span class="stat-label">שנות ניסיון</span></div>
+                        <div class="stat-divider" aria-hidden="true"></div>
+                        <div class="stat-item"><span class="stat-number">2</span><span class="stat-label">סניפים בארץ</span></div>
+                        <div class="stat-divider" aria-hidden="true"></div>
+                        <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">דיסקרטיות</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- ============ EXPERTISE STRIP — 4 areas (היה ב-hero, עכשיו עצמאי) ============ -->
+        <section class="section expertise-strip" aria-label="תחומי דגל">
+            <div class="container" style="max-width:none;padding:0;">
+                <div class="expertise-strip-grid">
+                    <a href="#housing" class="expertise-strip-item flagship">
+                        <i class="fas fa-house-circle-check" aria-hidden="true"></i>
+                        <strong>דיור ציבורי</strong>
+                        <small>נפגעי עמידר ופרזות · תחום דגל</small>
+                    </a>
+                    <a href="#services" class="expertise-strip-item">
+                        <i class="fas fa-house-user" aria-hidden="true"></i>
+                        <strong>דיני משפחה ורכוש</strong>
+                        <small>גירושין · ירושות · נכסים</small>
+                    </a>
+                    <a href="#services" class="expertise-strip-item">
+                        <i class="fas fa-gavel" aria-hidden="true"></i>
+                        <strong>בית דין רבני</strong>
+                        <small>בהובלת רב מוסמך</small>
+                    </a>
+                    <a href="#services" class="expertise-strip-item">
+                        <i class="fas fa-user-injured" aria-hidden="true"></i>
+                        <strong>נזיקין</strong>
+                        <small>ביטוח לאומי · רשלנות רפואית</small>
+                    </a>
                 </div>
             </div>
         </section>
@@ -348,78 +354,117 @@
                 </div>
                 <div class="services-grid">
                     <article class="service-card reveal">
+                        <video class="service-card-video" data-src="assets/videos/services/service-01.mp4" poster="assets/videos/services/service-01-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                        <div class="service-card-overlay" aria-hidden="true"></div>
+                        <span class="service-number" aria-hidden="true">01</span>
                         <div class="service-icon"><i class="fas fa-house-user" aria-hidden="true"></i></div>
                         <h3>דיני משפחה ורכוש</h3>
                         <p>ייצוג בהליכי גירושין, חלוקת רכוש, מזונות, זמני שהות והסכמי ממון. התמחות בתיקים בהם מעורבים נכסי נדל״ן, חברות, עסקים ורכוש משמעותי.</p>
                         <a href="#contact" class="service-link">לפרטים נוספים <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                     </article>
                     <article class="service-card reveal">
+                        <video class="service-card-video" data-src="assets/videos/services/service-02.mp4" poster="assets/videos/services/service-02-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                        <div class="service-card-overlay" aria-hidden="true"></div>
+                        <span class="service-number" aria-hidden="true">02</span>
                         <div class="service-icon"><i class="fas fa-scroll" aria-hidden="true"></i></div>
                         <h3>ירושה, צוואות וסכסוכי יורשים</h3>
                         <p>טיפול בצווי ירושה וקיום צוואה, התנגדויות, סכסוכי יורשים וניהול עיזבונות מורכבים שבהם מעורבים נכסים, כספים ועסקים משפחתיים.</p>
                         <a href="#contact" class="service-link">לפרטים נוספים <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                     </article>
                     <article class="service-card reveal">
+                        <video class="service-card-video" data-src="assets/videos/services/service-03.mp4" poster="assets/videos/services/service-03-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                        <div class="service-card-overlay" aria-hidden="true"></div>
+                        <span class="service-number" aria-hidden="true">03</span>
                         <div class="service-icon"><i class="fas fa-gavel" aria-hidden="true"></i></div>
                         <h3>בתי דין רבניים</h3>
                         <p>ייצוג בהליכי גירושין, כתובה, חלוקת רכוש, סמכות שיפוט וסוגיות מעמד אישי בפני בתי הדין הרבניים — מתוך היכרות עמוקה עם ההליך והשפה התורנית.</p>
                         <a href="#contact" class="service-link">לפרטים נוספים <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                     </article>
                     <article class="service-card reveal">
+                        <video class="service-card-video" data-src="assets/videos/services/service-04.mp4" poster="assets/videos/services/service-04-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                        <div class="service-card-overlay" aria-hidden="true"></div>
+                        <span class="service-number" aria-hidden="true">04</span>
                         <div class="service-icon"><i class="fas fa-scale-balanced" aria-hidden="true"></i></div>
                         <h3>עתירות לבג״ץ</h3>
                         <p>טיפול בעתירות לבג״ץ נגד החלטות בתי דין רבניים, במקרים של חריגה מסמכות, פגיעה בזכויות יסוד או טעויות משפטיות מהותיות.</p>
                         <a href="#contact" class="service-link">לפרטים נוספים <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                     </article>
                     <article class="service-card reveal">
+                        <video class="service-card-video" data-src="assets/videos/services/service-05.mp4" poster="assets/videos/services/service-05-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                        <div class="service-card-overlay" aria-hidden="true"></div>
+                        <span class="service-number" aria-hidden="true">05</span>
                         <div class="service-icon"><i class="fas fa-user-injured" aria-hidden="true"></i></div>
                         <h3>נזיקין</h3>
                         <p>משרדנו <strong>נציג של חברת עורכי הדין הגדולה בישראל</strong> בתחום הנזיקין. פנייה אלינו להערכת התיק והעברתו בפיקוח משרדנו לטיפול משפטי — ביטוח לאומי, תאונות, רשלנות רפואית ועוד.</p>
                         <a href="#contact" class="service-link">לפרטים נוספים <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                     </article>
                     <article class="service-card reveal">
+                        <video class="service-card-video" data-src="assets/videos/services/service-06.mp4" poster="assets/videos/services/service-06-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                        <div class="service-card-overlay" aria-hidden="true"></div>
+                        <span class="service-number" aria-hidden="true">06</span>
                         <div class="service-icon"><i class="fas fa-briefcase" aria-hidden="true"></i></div>
                         <h3>עסקים וסכסוכים מסחריים</h3>
                         <p>ייצוג אנשי עסקים, חברות ושותפים בסכסוכים מסחריים, תביעות, חובות ומחלוקות עם ספקים, לקוחות, עובדים או שותפים.</p>
                         <a href="#contact" class="service-link">לפרטים נוספים <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                     </article>
                     <article class="service-card reveal">
+                        <video class="service-card-video" data-src="assets/videos/services/service-07.mp4" poster="assets/videos/services/service-07-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                        <div class="service-card-overlay" aria-hidden="true"></div>
+                        <span class="service-number" aria-hidden="true">07</span>
                         <div class="service-icon"><i class="fas fa-chart-line" aria-hidden="true"></i></div>
                         <h3>הבראת עסקים</h3>
                         <p>ליווי עסקים במשבר — הסדרת חובות, משא ומתן מול נושים, הגנה מפני תביעות ובניית מתווה להמשך פעילות העסק.</p>
                         <a href="#contact" class="service-link">לפרטים נוספים <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                     </article>
                     <article class="service-card reveal">
+                        <video class="service-card-video" data-src="assets/videos/services/service-08.mp4" poster="assets/videos/services/service-08-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                        <div class="service-card-overlay" aria-hidden="true"></div>
+                        <span class="service-number" aria-hidden="true">08</span>
                         <div class="service-icon"><i class="fas fa-handshake" aria-hidden="true"></i></div>
                         <h3>פירוק שותפויות</h3>
                         <p>ייצוג בהליכי פירוק שותפויות, סכסוכי שותפים, חלוקת נכסים, הסדרת התחייבויות והגנה על זכויות כלכליות.</p>
                         <a href="#contact" class="service-link">לפרטים נוספים <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                     </article>
                     <article class="service-card reveal">
+                        <video class="service-card-video" data-src="assets/videos/services/service-09.mp4" poster="assets/videos/services/service-09-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                        <div class="service-card-overlay" aria-hidden="true"></div>
+                        <span class="service-number" aria-hidden="true">09</span>
                         <div class="service-icon"><i class="fas fa-house-circle-check" aria-hidden="true"></i></div>
                         <h3>דיור ציבורי — נפגעי עמידר ופרזות</h3>
                         <p>ייצוג נפגעי דיור ציבורי בעתירות מנהליות לבית המשפט המחוזי — להשגת דירות לזכאים ולמימוש זכויות, נגד עמידר, פרזות ומשרד השיכון.</p>
                         <a href="#housing" class="service-link">לתחום הדגל <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                     </article>
                     <article class="service-card reveal">
+                        <video class="service-card-video" data-src="assets/videos/services/service-10.mp4" poster="assets/videos/services/service-10-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                        <div class="service-card-overlay" aria-hidden="true"></div>
+                        <span class="service-number" aria-hidden="true">10</span>
                         <div class="service-icon"><i class="fas fa-city" aria-hidden="true"></i></div>
                         <h3>נדל״ן ומקרקעין</h3>
                         <p>ניסיון של למעלה מ־40 שנה בתחום הנדל״ן: רכישה ומכירה של נכסים גדולים ומורכבים, פינוי בינוי, דיור מוגן, רישום קרקעות ודמי מפתח.</p>
                         <a href="#contact" class="service-link">לפרטים נוספים <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                     </article>
                     <article class="service-card reveal">
+                        <video class="service-card-video" data-src="assets/videos/services/service-11.mp4" poster="assets/videos/services/service-11-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                        <div class="service-card-overlay" aria-hidden="true"></div>
+                        <span class="service-number" aria-hidden="true">11</span>
                         <div class="service-icon"><i class="fas fa-ruler-combined" aria-hidden="true"></i></div>
                         <h3>תכנון ובנייה</h3>
                         <p>ליווי בהליכי תכנון ובנייה, פינוי בינוי והתחדשות עירונית, מול ועדות התכנון והרשויות — בתיקים מורכבים ובעלי חשיבות כלכלית.</p>
                         <a href="#contact" class="service-link">לפרטים נוספים <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                     </article>
                     <article class="service-card reveal">
+                        <video class="service-card-video" data-src="assets/videos/services/service-12.mp4" poster="assets/videos/services/service-12-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                        <div class="service-card-overlay" aria-hidden="true"></div>
+                        <span class="service-number" aria-hidden="true">12</span>
                         <div class="service-icon"><i class="fas fa-landmark" aria-hidden="true"></i></div>
                         <h3>עתירות מנהליות ומשפט מנהלי</h3>
                         <p>עתירות מנהליות לבית המשפט המחוזי, משפט מנהלי וביטול החלטות שרירותיות של רשויות וגופים ציבוריים.</p>
                         <a href="#contact" class="service-link">לפרטים נוספים <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                     </article>
                     <article class="service-card reveal">
+                        <video class="service-card-video" data-src="assets/videos/services/service-13.mp4" poster="assets/videos/services/service-13-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                        <div class="service-card-overlay" aria-hidden="true"></div>
+                        <span class="service-number" aria-hidden="true">13</span>
                         <div class="service-icon"><i class="fas fa-file-shield" aria-hidden="true"></i></div>
                         <h3>הוצאה לפועל וכינוס נכסים</h3>
                         <p>הגנה בהליכי הוצאה לפועל, ביטול כינוס נכסים, התנגדויות וביטול ארנונה — הגנה על נכסיכם וזכויותיכם הכלכליות.</p>
@@ -732,5 +777,6 @@
 
     <script src="js/main.js"></script>
     <script src="js/form-handler.js"></script>
+    <script src="assets/js/video-hover.js" defer></script>
 </body>
 </html>
