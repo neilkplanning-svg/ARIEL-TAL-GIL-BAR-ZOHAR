@@ -15,7 +15,35 @@ document.addEventListener('DOMContentLoaded', () => {
     initImageFallbacks();
     initCursorGlow();
     initHeroParallax();
+    initBackToTop();
 });
+
+/**
+ * Back to top — כפתור צף שמופיע אחרי גלילה
+ */
+function initBackToTop() {
+    // צור אם לא קיים ב-HTML
+    let btn = document.querySelector('.back-to-top');
+    if (!btn) {
+        btn = document.createElement('button');
+        btn.className = 'back-to-top';
+        btn.type = 'button';
+        btn.setAttribute('aria-label', 'חזרה לראש העמוד');
+        btn.innerHTML = '<i class="fas fa-chevron-up" aria-hidden="true"></i>';
+        document.body.appendChild(btn);
+    }
+
+    const threshold = 500;
+    function onScroll() {
+        btn.classList.toggle('visible', window.scrollY > threshold);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
 
 /**
  * Cursor glow — תאורה רכה אחרי סמן העכבר (אפקט יוקרה)
@@ -177,7 +205,7 @@ function initSmoothScroll() {
 }
 
 /**
- * FAQ — accordion
+ * FAQ — toggle עצמאי לכל פריט (לא accordion — מונע קפיצות תצוגה)
  */
 function initFAQ() {
     const items = document.querySelectorAll('.faq-item');
@@ -185,10 +213,13 @@ function initFAQ() {
         const q = item.querySelector('.faq-question');
         if (!q) return;
 
-        q.addEventListener('click', () => {
-            const wasActive = item.classList.contains('active');
-            items.forEach(i => i.classList.remove('active'));
-            if (!wasActive) item.classList.add('active');
+        // a11y
+        q.setAttribute('aria-expanded', 'false');
+
+        q.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isOpen = item.classList.toggle('active');
+            q.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
     });
 }
