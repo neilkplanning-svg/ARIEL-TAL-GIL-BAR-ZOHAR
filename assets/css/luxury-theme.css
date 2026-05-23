@@ -1797,6 +1797,47 @@ footer {
 #office-tour .container { max-width: 1200px; }
 
 /* ============================================================
+   23B. LOGO IMAGE — header & footer (replaces text emblem)
+   ============================================================ */
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    text-decoration: none;
+}
+.logo-image {
+    height: 56px;
+    width: auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.35), 0 0 0 1px rgba(201,169,97,0.15);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    object-fit: contain;
+}
+.logo:hover .logo-image {
+    transform: scale(1.03);
+    box-shadow: 0 6px 22px rgba(201,169,97,0.30), 0 0 0 1px rgba(201,169,97,0.35);
+}
+
+/* Footer logo — slightly larger, no extra background */
+.logo-footer .logo-image {
+    height: 72px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.45);
+}
+
+/* Hide legacy emblem/fallback if any markup remains */
+.logo .logo-emblem,
+.logo .logo-fallback { display: none !important; }
+
+@media (max-width: 768px) {
+    .logo-image { height: 46px; }
+    .logo-footer .logo-image { height: 60px; }
+}
+@media (max-width: 380px) {
+    .logo-image { height: 40px; }
+}
+
+/* ============================================================
    24. ROUND 4 — FAQ visibility fix + mobile polish
    ============================================================ */
 
