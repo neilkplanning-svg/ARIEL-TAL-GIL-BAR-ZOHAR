@@ -587,7 +587,7 @@ nav ul a:hover::after {
     transition: transform 0.3s;
 }
 
-.faq-item.active .faq-question i {
+.faq-item.is-open .faq-question i {
     transform: rotate(180deg);
 }
 
@@ -597,7 +597,7 @@ nav ul a:hover::after {
     transition: max-height 0.3s ease;
 }
 
-.faq-item.active .faq-answer {
+.faq-item.is-open .faq-answer {
     max-height: 500px;
 }
 
