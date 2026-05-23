@@ -1360,3 +1360,308 @@ footer {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* ============================================================
+   23. FIXES (round 2) — based on client feedback
+   ============================================================ */
+
+/* (4) Service card video — poster visible dimmed until video plays */
+.service-card-video {
+    opacity: 0.45 !important;
+    transition: opacity 0.5s ease !important;
+    filter: brightness(0.75) saturate(0.85);
+}
+.service-card:hover .service-card-video,
+.service-card.is-mobile .service-card-video {
+    opacity: 1 !important;
+    filter: brightness(1) saturate(1);
+}
+
+/* (2) FAQ — stronger visual presence + smoother animation + no layout jump */
+.faq-item {
+    background: var(--bg-tertiary) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-right: 3px solid var(--accent-gold-dark) !important;
+    border-radius: 4px !important;
+    margin-bottom: 0.85rem;
+    transition: border-color 0.3s ease, background 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.20);
+}
+.faq-item:hover { border-color: var(--accent-gold) !important; }
+.faq-item.active {
+    border-right-color: var(--accent-gold-bright) !important;
+    background: var(--bg-elevated) !important;
+}
+
+.faq-answer {
+    max-height: 0 !important;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.faq-item.active .faq-answer {
+    max-height: 800px !important;  /* enough for long content */
+}
+
+.faq-answer-content {
+    padding: 0.25rem 1.5rem 1.5rem !important;
+    border-top: 1px solid var(--border-subtle);
+    color: var(--text-secondary) !important;
+    line-height: 1.75;
+}
+
+/* (3) Asymmetric layout helpers */
+.section-asym-right .container > * { text-align: right; }
+.section-asym-left  .container > * { text-align: left; }
+.section-asym-right .section-header,
+.section-asym-left  .section-header { max-width: 580px; margin-bottom: 2.5rem; margin-left: 0; margin-right: 0; }
+.section-asym-right .section-header { margin-right: 0; margin-left: auto; }
+.section-asym-left  .section-header { margin-left: 0; margin-right: auto; }
+.section-asym-right .section-title::after { right: 0; transform: none; left: auto; }
+.section-asym-left  .section-title::after { right: auto; left: 0; transform: none; }
+
+/* INTRO — asymmetric — content right-aligned */
+.section-intro .intro-block {
+    margin: 0 !important;
+    margin-right: 0 !important;
+    margin-left: auto !important;
+    text-align: right !important;
+    max-width: 720px;
+}
+.section-intro .intro-title { display: inline-block; padding-bottom: 1rem; }
+.section-intro .intro-title::after { right: 0; transform: none; left: auto; }
+
+/* HOUSING — content centered, but visual element offset */
+.section-housing .housing-wrap { max-width: 1000px; margin: 0 auto; }
+
+/* CREDENTIALS section — left-aligned chips */
+#credentials .section-header,
+.credentials .section-header {
+    max-width: 580px;
+    margin-right: auto;
+    margin-left: 0;
+    text-align: right;
+}
+#credentials .section-title::after,
+.credentials .section-title::after {
+    right: 0; transform: none; left: auto;
+}
+
+/* About-teaser — asymmetric right */
+#about-teaser .about-teaser {
+    margin: 0;
+    margin-right: 0;
+    margin-left: auto;
+    text-align: right;
+    max-width: 720px;
+}
+#about-teaser .section-title { display: inline-block; }
+#about-teaser .section-title::after { right: 0; transform: none; left: auto; }
+
+/* Office tour — left-aligned with video right (asymmetric grid) */
+#office-tour { padding: 5rem 0; }
+#office-tour .container { max-width: 1200px; }
+#office-tour .section-header {
+    text-align: right;
+    max-width: 600px;
+    margin-right: 0;
+    margin-left: auto;
+    margin-bottom: 2.5rem;
+}
+#office-tour .section-title::after { right: 0; transform: none; left: auto; }
+#office-tour .video-cta {
+    margin-right: auto;
+    margin-left: 0;
+    max-width: 720px;
+    text-align: right;
+}
+
+/* (7) Hero title — clean separator between names */
+.hero-title-sep {
+    color: var(--accent-gold) !important;
+    font-weight: 300;
+    margin: 0 1.2rem;
+    font-size: 0.7em;
+    vertical-align: middle;
+    opacity: 0.8;
+    display: inline-block;
+}
+.hero h1 span:not(.hero-title-sep),
+.hero-title span:not(.hero-title-sep) {
+    color: var(--text-primary) !important;  /* both names same color */
+    font-weight: 700;
+}
+
+/* (5) Back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    background: var(--accent-gold);
+    color: var(--bg-primary);
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.45), 0 0 0 1px var(--accent-gold-bright) inset;
+    cursor: pointer;
+    z-index: 9990;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
+}
+.back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+.back-to-top:hover {
+    background: var(--accent-gold-bright);
+    transform: translateY(-3px);
+}
+
+/* mobile: don't conflict with bottom side-actions */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 76px;   /* leave room for side-actions bar (64px) + margin */
+        right: 16px;
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* (6) MOBILE FIX — top header bar polish */
+@media (max-width: 768px) {
+    #header {
+        background: rgba(10, 21, 32, 0.97) !important;
+        border-top-width: 2px;
+    }
+    #header .logo-name {
+        color: var(--text-primary) !important;
+        font-size: 0.92rem;
+    }
+    #header .logo-title {
+        color: var(--accent-gold) !important;
+        font-size: 0.7rem;
+        letter-spacing: 1.5px;
+    }
+    .mobile-toggle span { background: var(--accent-gold) !important; }
+
+    /* (6) Mobile bottom side-actions — clean: no extra label background */
+    .side-action-btn .label {
+        background: transparent !important;
+        border: 0 !important;
+        color: var(--surface) !important;
+        padding: 0 !important;
+        font-size: 0.72rem !important;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        line-height: 1.1;
+    }
+    /* Each colored button has white-on-color label — clear contrast */
+    .side-action-btn.whatsapp .label,
+    .side-action-btn.phone .label,
+    .side-action-btn:not(.whatsapp):not(.phone) .label {
+        color: var(--surface) !important;
+    }
+    .side-action-btn.phone .label {
+        color: var(--bg-primary) !important;   /* gold bg → dark text */
+    }
+}
+
+/* (8) Success stories teaser cards (homepage) */
+.section-success-stories {
+    background: var(--bg-secondary) !important;
+    padding: 5rem 0;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-success-stories .section-header { text-align: right; max-width: 600px; margin-right: 0; margin-left: auto; }
+.section-success-stories .section-title::after { right: 0; transform: none; left: auto; }
+
+.success-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.success-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-subtle);
+    border-top: 3px solid var(--accent-gold);
+    border-radius: 4px;
+    padding: 1.75rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    text-align: right;
+}
+.success-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-gold);
+    box-shadow: 0 14px 38px rgba(0,0,0,0.50);
+}
+
+.success-card::before {
+    content: '"';
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    font-family: var(--font-display);
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--accent-gold);
+    opacity: 0.20;
+}
+
+.success-eyebrow {
+    color: var(--accent-gold);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.85rem;
+    display: block;
+}
+
+.success-card h3 {
+    font-family: var(--font-secondary) !important;
+    color: var(--text-primary) !important;
+    font-size: 1.25rem;
+    margin-bottom: 0.85rem;
+    line-height: 1.4;
+}
+
+.success-card p {
+    color: var(--text-secondary) !important;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.success-card-author {
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 0.85rem;
+    margin-top: auto;
+}
+.success-card-author strong { color: var(--accent-gold-bright); font-size: 0.92rem; display: block; }
+.success-card-author span { color: var(--text-secondary); font-size: 0.8rem; }
+
+.success-cta-row {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+@media (max-width: 968px) { .success-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .success-grid { grid-template-columns: 1fr; } }
+
+/* (3) Container max widths for asymmetric sections to feel less centered */
+.section-intro .container,
+#about-teaser .container,
+#office-tour .container { max-width: 1200px; }
