@@ -218,7 +218,7 @@ function initFAQ() {
 
         q.addEventListener('click', (e) => {
             e.preventDefault();
-            const isOpen = item.classList.toggle('active');
+            const isOpen = item.classList.toggle('is-open');
             q.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
     });

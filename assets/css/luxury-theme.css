@@ -881,7 +881,7 @@ nav ul a::after { background: var(--accent-gold) !important; height: 1px; }
     transition: transform 0.4s ease;
 }
 
-.faq-item.active .faq-question i { transform: rotate(180deg); }
+.faq-item.is-open .faq-question i { transform: rotate(180deg); }
 
 .faq-answer-content {
     color: var(--text-secondary) !important;
@@ -1397,7 +1397,7 @@ footer {
     border-color: var(--accent-gold-bright) !important;
     box-shadow: 0 6px 24px rgba(201,169,97,0.20);
 }
-.faq-item.active {
+.faq-item.is-open {
     border-right-color: var(--accent-gold-bright) !important;
     box-shadow: 0 6px 28px rgba(201,169,97,0.28);
 }
@@ -1422,19 +1422,19 @@ footer {
     font-size: 0.85rem;
 }
 
-.faq-item.active .faq-question {
+.faq-item.is-open .faq-question {
     background: rgba(201,169,97,0.06) !important;
     color: var(--accent-gold-bright) !important;
 }
 
-.faq-item.active .faq-question i { transform: rotate(180deg); }
+.faq-item.is-open .faq-question i { transform: rotate(180deg); }
 
 .faq-answer {
     max-height: 0 !important;
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
-.faq-item.active .faq-answer {
+.faq-item.is-open .faq-answer {
     max-height: 800px !important;
 }
 
@@ -1795,3 +1795,183 @@ footer {
 .section-intro .container,
 #about-teaser .container,
 #office-tour .container { max-width: 1200px; }
+
+/* ============================================================
+   24. ROUND 4 — FAQ visibility fix + mobile polish
+   ============================================================ */
+
+/* FAQ — pulse the chevron on closed so it's obvious the item is interactive */
+.faq-item:not(.is-open) .faq-question {
+    /* visible even when closed — extra contrast */
+    background: rgba(201,169,97,0.03) !important;
+}
+.faq-item:not(.is-open):hover .faq-question {
+    background: rgba(201,169,97,0.10) !important;
+}
+.faq-item:not(.is-open) .faq-question i {
+    opacity: 0.85;
+}
+
+/* Make sure faq items inside .reveal scroll-animation stay visible regardless of open state.
+   The bug: .reveal toggled visibility via .active; FAQ used .active too. Now FAQ uses .is-open. */
+.faq-item.reveal { /* opacity controlled only by .reveal.active */ }
+
+/* === MOBILE POLISH === */
+@media (max-width: 768px) {
+    /* Hero — tighter, more readable */
+    .hero-eyebrow {
+        font-size: 0.72rem !important;
+        letter-spacing: 2.5px !important;
+        margin-bottom: 1rem !important;
+    }
+    .hero-eyebrow::after { width: 56px; margin-top: 0.85rem; }
+
+    .hero h1, .hero-title {
+        font-size: clamp(1.9rem, 7.5vw, 2.6rem) !important;
+        letter-spacing: -0.5px !important;
+        line-height: 1.15 !important;
+        margin-bottom: 1.1rem !important;
+    }
+    .hero-title-sep { margin: 0 0.6rem !important; }
+
+    .hero-sub {
+        font-size: 1rem !important;
+        line-height: 1.65 !important;
+        margin-bottom: 1.75rem !important;
+        padding: 0 0.25rem;
+    }
+
+    .hero-buttons, .hero-buttons-centered {
+        gap: 0.75rem !important;
+        margin-bottom: 2.5rem !important;
+        width: 100%;
+    }
+    .hero-buttons .btn, .hero-buttons-centered .btn {
+        width: 100%;
+        max-width: 360px;
+        justify-content: center;
+        padding: 0.95rem 1.25rem !important;
+        font-size: 0.98rem !important;
+    }
+
+    .hero-stats, .hero-stats-inline {
+        gap: 0.85rem !important;
+        padding: 1.1rem 1.25rem !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 420px;
+    }
+    .hero-stats .stat-divider, .stat-divider {
+        width: 1px !important; height: 32px !important;
+        background: var(--accent-gold) !important;
+        opacity: 0.4;
+    }
+    .hero-stats .stat-number, .stat-number {
+        font-size: 1.45rem !important;
+    }
+    .stat-label {
+        font-size: 0.68rem !important;
+        letter-spacing: 0.8px !important;
+        margin-top: 0.25rem !important;
+    }
+
+    /* Expertise strip — 2x2 grid on mobile (more impactful than single column) */
+    .expertise-strip-grid {
+        grid-template-columns: 1fr 1fr !important;
+    }
+    .expertise-strip-item {
+        padding: 1.35rem 0.9rem !important;
+        border-bottom: 1px solid var(--border-subtle);
+        border-left: 1px solid var(--border-subtle) !important;
+    }
+    .expertise-strip-item:nth-child(2n) { border-left: 0 !important; }
+    .expertise-strip-item:nth-last-child(-n+2) { border-bottom: 0; }
+    .expertise-strip-item i { font-size: 1.55rem !important; margin-bottom: 0.6rem !important; }
+    .expertise-strip-item strong { font-size: 0.95rem; display:block; }
+    .expertise-strip-item small { font-size: 0.75rem; opacity: 0.85; }
+
+    /* Section split — better proportions on mobile */
+    .section-split .section-split-visual {
+        min-height: 200px !important;
+        flex: 0 0 200px !important;
+    }
+    .section-split .section-split-content,
+    .section-split.section-split-mirror .section-split-content {
+        padding: 2.5rem 1.25rem !important;
+    }
+    .section-split-content p {
+        font-size: 0.98rem !important;
+        line-height: 1.7 !important;
+    }
+
+    /* Section titles — better hierarchy */
+    .section-title {
+        font-size: 1.6rem !important;
+        line-height: 1.25;
+    }
+    .section-subtitle, .section-header p {
+        font-size: 0.98rem;
+        line-height: 1.6;
+    }
+    .section-tag {
+        font-size: 0.7rem !important;
+        letter-spacing: 2px !important;
+    }
+
+    /* FAQ — bigger tap targets and clearer text on mobile */
+    #faq { padding: 3rem 0 !important; }
+    .faq-item {
+        margin-bottom: 0.7rem !important;
+        border-right-width: 3px !important;
+    }
+    .faq-question {
+        padding: 1.1rem 1.1rem !important;
+        font-size: 1rem !important;
+        line-height: 1.45 !important;
+        gap: 0.75rem;
+        min-height: 56px;
+    }
+    .faq-question i {
+        font-size: 0.95rem !important;
+        flex-shrink: 0;
+    }
+    .faq-answer-content {
+        padding: 0.85rem 1.1rem 1.25rem !important;
+        font-size: 0.94rem !important;
+        line-height: 1.7 !important;
+    }
+
+    /* Success cards — better single column flow */
+    .success-card {
+        padding: 1.75rem 1.35rem 1.5rem !important;
+    }
+    .success-card h3 { font-size: 1.15rem !important; }
+    .success-card p { font-size: 0.93rem !important; line-height: 1.7 !important; }
+    .success-eyebrow { font-size: 0.7rem !important; letter-spacing: 1.5px !important; }
+
+    /* Services — clearer cards */
+    .service-card { min-height: 240px !important; padding: 1.75rem 1.25rem !important; }
+    .service-card h3 { font-size: 1.15rem !important; line-height: 1.35; }
+    .service-card p { font-size: 0.93rem !important; line-height: 1.65 !important; }
+
+    /* Side actions bar — reduce visual weight */
+    .side-actions { padding: 0.5rem !important; }
+
+    /* Section padding */
+    .section { padding: 3rem 0 !important; }
+    .section-header { margin-bottom: 1.75rem !important; }
+}
+
+/* Very small phones — Galaxy Fold etc */
+@media (max-width: 380px) {
+    .hero h1, .hero-title { font-size: 1.7rem !important; }
+    .hero-sub { font-size: 0.95rem !important; }
+    .expertise-strip-grid { grid-template-columns: 1fr !important; }
+    .expertise-strip-item { border-left: 0 !important; }
+    .hero-stats, .hero-stats-inline { gap: 0.5rem !important; padding: 0.9rem 0.85rem !important; }
+    .hero-stats .stat-number, .stat-number { font-size: 1.25rem !important; }
+    .stat-label { font-size: 0.62rem !important; }
+    .faq-question { font-size: 0.95rem !important; padding: 1rem 0.95rem !important; }
+}
