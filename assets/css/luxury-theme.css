@@ -1377,21 +1377,57 @@ footer {
     filter: brightness(1) saturate(1);
 }
 
-/* (2) FAQ — stronger visual presence + smoother animation + no layout jump */
+/* (2) FAQ — חזק ובולט, נשאר גלוי גם בסגור */
+#faq, .faq-section {
+    background: var(--bg-primary) !important;
+    padding: 5rem 0;
+}
+
 .faq-item {
-    background: var(--bg-tertiary) !important;
-    border: 1px solid var(--border-subtle) !important;
-    border-right: 3px solid var(--accent-gold-dark) !important;
+    background: var(--bg-elevated) !important;     /* יותר בהיר מהרקע */
+    border: 1px solid var(--accent-gold-dark) !important;
+    border-right: 4px solid var(--accent-gold) !important;
     border-radius: 4px !important;
     margin-bottom: 0.85rem;
-    transition: border-color 0.3s ease, background 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.20);
+    overflow: hidden;
+    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.35);
 }
-.faq-item:hover { border-color: var(--accent-gold) !important; }
+.faq-item:hover {
+    border-color: var(--accent-gold-bright) !important;
+    box-shadow: 0 6px 24px rgba(201,169,97,0.20);
+}
 .faq-item.active {
     border-right-color: var(--accent-gold-bright) !important;
-    background: var(--bg-elevated) !important;
+    box-shadow: 0 6px 28px rgba(201,169,97,0.28);
 }
+
+.faq-question {
+    color: var(--text-primary) !important;
+    font-family: var(--font-secondary) !important;
+    font-weight: 600 !important;
+    padding: 1.4rem 1.5rem !important;
+    background: transparent !important;
+    width: 100%;
+    text-align: right;
+    transition: background 0.3s ease;
+    font-size: 1.05rem;
+}
+
+.faq-question:hover { background: rgba(201,169,97,0.08) !important; }
+
+.faq-question i {
+    color: var(--accent-gold) !important;
+    transition: transform 0.4s ease;
+    font-size: 0.85rem;
+}
+
+.faq-item.active .faq-question {
+    background: rgba(201,169,97,0.06) !important;
+    color: var(--accent-gold-bright) !important;
+}
+
+.faq-item.active .faq-question i { transform: rotate(180deg); }
 
 .faq-answer {
     max-height: 0 !important;
@@ -1399,80 +1435,90 @@ footer {
     transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 .faq-item.active .faq-answer {
-    max-height: 800px !important;  /* enough for long content */
+    max-height: 800px !important;
 }
 
 .faq-answer-content {
-    padding: 0.25rem 1.5rem 1.5rem !important;
+    padding: 1rem 1.5rem 1.5rem !important;
     border-top: 1px solid var(--border-subtle);
     color: var(--text-secondary) !important;
     line-height: 1.75;
+    font-size: 0.98rem;
 }
 
-/* (3) Asymmetric layout helpers */
-.section-asym-right .container > * { text-align: right; }
-.section-asym-left  .container > * { text-align: left; }
-.section-asym-right .section-header,
-.section-asym-left  .section-header { max-width: 580px; margin-bottom: 2.5rem; margin-left: 0; margin-right: 0; }
-.section-asym-right .section-header { margin-right: 0; margin-left: auto; }
-.section-asym-left  .section-header { margin-left: 0; margin-right: auto; }
-.section-asym-right .section-title::after { right: 0; transform: none; left: auto; }
-.section-asym-left  .section-title::after { right: auto; left: 0; transform: none; }
-
-/* INTRO — asymmetric — content right-aligned */
-.section-intro .intro-block {
-    margin: 0 !important;
-    margin-right: 0 !important;
-    margin-left: auto !important;
-    text-align: right !important;
-    max-width: 720px;
-}
-.section-intro .intro-title { display: inline-block; padding-bottom: 1rem; }
-.section-intro .intro-title::after { right: 0; transform: none; left: auto; }
-
-/* HOUSING — content centered, but visual element offset */
-.section-housing .housing-wrap { max-width: 1000px; margin: 0 auto; }
-
-/* CREDENTIALS section — left-aligned chips */
-#credentials .section-header,
-.credentials .section-header {
-    max-width: 580px;
-    margin-right: auto;
-    margin-left: 0;
-    text-align: right;
-}
-#credentials .section-title::after,
-.credentials .section-title::after {
-    right: 0; transform: none; left: auto;
+/* (3) TRUE 2-column split sections — image fills one side, content the other */
+.section-split {
+    display: flex;
+    align-items: stretch;
+    min-height: 60vh;
+    padding: 0 !important;
+    overflow: hidden;
+    position: relative;
 }
 
-/* About-teaser — asymmetric right */
-#about-teaser .about-teaser {
-    margin: 0;
-    margin-right: 0;
-    margin-left: auto;
-    text-align: right;
-    max-width: 720px;
+.section-split .section-split-content {
+    flex: 1 1 50%;
+    padding: 5rem 4rem 5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--bg-secondary);
+    position: relative;
+    z-index: 1;
 }
-#about-teaser .section-title { display: inline-block; }
-#about-teaser .section-title::after { right: 0; transform: none; left: auto; }
 
-/* Office tour — left-aligned with video right (asymmetric grid) */
-#office-tour { padding: 5rem 0; }
-#office-tour .container { max-width: 1200px; }
-#office-tour .section-header {
-    text-align: right;
-    max-width: 600px;
-    margin-right: 0;
-    margin-left: auto;
-    margin-bottom: 2.5rem;
+.section-split .section-split-visual {
+    flex: 1 1 50%;
+    background-color: var(--bg-primary);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 400px;
 }
-#office-tour .section-title::after { right: 0; transform: none; left: auto; }
-#office-tour .video-cta {
-    margin-right: auto;
-    margin-left: 0;
-    max-width: 720px;
-    text-align: right;
+
+/* dark overlay on visual half */
+.section-split .section-split-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10,21,32,0.55) 0%, rgba(10,21,32,0.20) 100%);
+}
+
+/* mirror variant — content on LEFT, visual on RIGHT */
+.section-split.section-split-mirror {
+    flex-direction: row-reverse;
+}
+.section-split.section-split-mirror .section-split-content {
+    padding: 5rem 3rem 5rem 4rem;
+}
+
+/* Content inside split — typography */
+.section-split-content .section-tag { margin-bottom: 1.25rem; }
+.section-split-content .section-title { display: inline-block; padding-bottom: 1rem; }
+.section-split-content .section-title::after { right: 0; transform: none; left: auto; }
+.section-split-content p {
+    color: var(--text-secondary) !important;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    margin-bottom: 1.1rem;
+}
+.section-split-content p strong { color: var(--accent-gold-bright); }
+
+/* mobile — stack visual on top, content below */
+@media (max-width: 900px) {
+    .section-split, .section-split.section-split-mirror {
+        flex-direction: column;
+    }
+    .section-split .section-split-visual {
+        min-height: 240px;
+        flex: 0 0 240px;
+    }
+    .section-split .section-split-content,
+    .section-split.section-split-mirror .section-split-content {
+        padding: 3rem 1.5rem;
+        flex: 1 1 auto;
+    }
 }
 
 /* (7) Hero title — clean separator between names */
@@ -1573,15 +1619,35 @@ footer {
     }
 }
 
-/* (8) Success stories teaser cards (homepage) */
+/* (8) Success stories — גרפי, מגוון ויזואלית */
 .section-success-stories {
-    background: var(--bg-secondary) !important;
-    padding: 5rem 0;
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
+    background:
+        linear-gradient(135deg, rgba(10,21,32,0.94) 0%, rgba(15,30,46,0.90) 100%),
+        url('../../images/page-header-bg.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    padding: 6rem 0;
+    border-top: 1px solid var(--accent-gold);
+    border-bottom: 1px solid var(--accent-gold);
+    position: relative;
 }
 
-.section-success-stories .section-header { text-align: right; max-width: 600px; margin-right: 0; margin-left: auto; }
+.section-success-stories::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 35%; height: 100%;
+    background: radial-gradient(circle at top right, rgba(201,169,97,0.10), transparent 60%);
+    pointer-events: none;
+}
+
+.section-success-stories .section-header {
+    text-align: right;
+    max-width: 600px;
+    margin-right: 0;
+    margin-left: auto;
+    position: relative;
+    z-index: 1;
+}
 .section-success-stories .section-title::after { right: 0; transform: none; left: auto; }
 
 .success-grid {
@@ -1589,77 +1655,141 @@ footer {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     margin-top: 2.5rem;
+    position: relative;
+    z-index: 1;
 }
 
 .success-card {
-    background: var(--bg-tertiary);
+    background: linear-gradient(165deg, rgba(20,40,56,0.95) 0%, rgba(15,30,46,0.95) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--border-subtle);
-    border-top: 3px solid var(--accent-gold);
-    border-radius: 4px;
-    padding: 1.75rem;
-    transition: all 0.4s ease;
+    border-radius: 6px;
+    padding: 2rem 1.75rem 1.75rem;
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     text-align: right;
 }
+
+/* גוון אקסנט שונה לכל כרטיס */
+.success-card:nth-child(1) { border-top: 3px solid var(--accent-gold); }
+.success-card:nth-child(2) { border-top: 3px solid var(--accent-gold-bright); transform: translateY(2rem); }
+.success-card:nth-child(3) { border-top: 3px solid var(--brand-teal-bright); }
+
 .success-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--accent-gold);
-    box-shadow: 0 14px 38px rgba(0,0,0,0.50);
+    transform: translateY(-8px) !important;
+    border-color: var(--accent-gold) !important;
+    box-shadow: 0 18px 48px rgba(0,0,0,0.60), 0 0 0 1px var(--accent-gold-glow);
 }
 
+.success-card:nth-child(2):hover {
+    transform: translateY(calc(2rem - 8px)) !important;
+}
+
+/* גרשיים זהובות גדולות בפינה */
 .success-card::before {
     content: '"';
     position: absolute;
-    top: 0.5rem;
+    top: -0.5rem;
     left: 1rem;
     font-family: var(--font-display);
-    font-size: 5rem;
+    font-size: 7rem;
     line-height: 1;
     color: var(--accent-gold);
-    opacity: 0.20;
+    opacity: 0.22;
+    font-weight: 700;
 }
+
+/* רקע גרפי דקורטיבי בכל כרטיס — שונה */
+.success-card::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.5s ease;
+}
+
+.success-card:nth-child(1)::after {
+    background: radial-gradient(circle, rgba(201,169,97,0.12), transparent 70%);
+}
+.success-card:nth-child(2)::after {
+    background: radial-gradient(circle, rgba(229,199,123,0.14), transparent 70%);
+    width: 160px; height: 160px;
+}
+.success-card:nth-child(3)::after {
+    background: radial-gradient(circle, rgba(23,127,171,0.18), transparent 70%);
+}
+
+.success-card:hover::after {
+    transform: scale(1.4);
+}
+
+.success-card > * { position: relative; z-index: 1; }
 
 .success-eyebrow {
     color: var(--accent-gold);
     font-size: 0.78rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 0.85rem;
-    display: block;
+    letter-spacing: 2.5px;
+    margin-bottom: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-subtle);
 }
+
+.success-eyebrow i { color: var(--accent-gold); }
 
 .success-card h3 {
     font-family: var(--font-secondary) !important;
     color: var(--text-primary) !important;
-    font-size: 1.25rem;
-    margin-bottom: 0.85rem;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
     line-height: 1.4;
+    font-weight: 700;
 }
 
 .success-card p {
     color: var(--text-secondary) !important;
     font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 1rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
 }
 
 .success-card-author {
     border-top: 1px solid var(--border-subtle);
-    padding-top: 0.85rem;
+    padding-top: 1rem;
     margin-top: auto;
 }
-.success-card-author strong { color: var(--accent-gold-bright); font-size: 0.92rem; display: block; }
-.success-card-author span { color: var(--text-secondary); font-size: 0.8rem; }
+.success-card-author strong { color: var(--accent-gold-bright); font-size: 0.95rem; display: block; margin-bottom: 0.15rem; }
+.success-card-author span { color: var(--text-secondary); font-size: 0.82rem; }
 
 .success-cta-row {
     margin-top: 3rem;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
-@media (max-width: 968px) { .success-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 640px) { .success-grid { grid-template-columns: 1fr; } }
+@media (max-width: 968px) {
+    .success-grid { grid-template-columns: 1fr 1fr; }
+    .success-card:nth-child(2) { transform: none; }
+    .success-card:nth-child(2):hover { transform: translateY(-8px) !important; }
+}
+@media (max-width: 640px) {
+    .success-grid { grid-template-columns: 1fr; }
+    .section-success-stories { background-attachment: scroll; }
+}
 
 /* (3) Container max widths for asymmetric sections to feel less centered */
 .section-intro .container,
