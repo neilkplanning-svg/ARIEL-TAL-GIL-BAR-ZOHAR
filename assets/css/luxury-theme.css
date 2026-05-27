@@ -1837,31 +1837,88 @@ footer {
     gap: 0;
     text-decoration: none;
 }
+/* ============ LOGO IMAGE — חד, גדול, עם רוחב מובהק ============ */
+.logo {
+    display: inline-flex !important;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 4px 0;
+}
 .logo-image {
-    height: 78px;                /* הוגדל מ-56 ל-78 — חד וברור */
+    height: 82px;                /* הוגדל ל-82 לחדות מקסימלית */
     width: auto;
     display: block;
-    border-radius: 4px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.50), 0 0 0 1px rgba(191,158,92,0.22);
+    border-radius: 5px;
+    box-shadow:
+        0 4px 16px rgba(0,0,0,0.55),
+        0 0 0 1px rgba(191,158,92,0.28),
+        0 0 18px rgba(191,158,92,0.08);
     transition: transform 0.35s ease, box-shadow 0.35s ease;
     object-fit: contain;
-    image-rendering: -webkit-optimize-contrast;  /* חידוד תמונה */
+    /* חידוד התמונה */
+    image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);    /* מעורר GPU rendering מדויק יותר */
+    filter: contrast(1.08) saturate(1.05);
 }
 .logo:hover .logo-image {
-    transform: scale(1.04);
-    box-shadow: 0 8px 28px rgba(191,158,92,0.42), 0 0 0 1px rgba(223,185,122,0.50);
+    transform: translateZ(0) scale(1.03);
+    box-shadow:
+        0 6px 22px rgba(191,158,92,0.45),
+        0 0 0 1px rgba(223,185,122,0.55),
+        0 0 22px rgba(223,185,122,0.20);
+    filter: contrast(1.12) saturate(1.10);
 }
 
-/* Header גדל בהתאם */
+/* ============ HEADER — רוחב מורחב + מרווחים חזקים ============ */
 #header {
-    padding: 0.6rem 0;
+    padding: 0.65rem 0 !important;
+    height: auto !important;
 }
-#header .container { min-height: 88px; display: flex; align-items: center; }
+#header .container {
+    max-width: 1500px !important;        /* רחב משמעותית מה-1200 הסטנדרטי */
+    padding: 0 2rem !important;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+}
+#header .nav-wrapper {
+    height: auto !important;
+    gap: 2.5rem;                          /* רווח אחיד בין הלוגו, ניווט, CTA */
+    width: 100%;
+    align-items: center;
+}
+
+/* ניווט — דחיפה לכיוון המרכז עם מרווחים נדיבים */
+#header nav { flex: 1; min-width: 0; }
+#header nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem !important;               /* רווח נראה בין הפריטים */
+    flex-wrap: nowrap;
+    height: auto !important;
+}
+#header nav ul li { white-space: nowrap; }
+#header nav ul a {
+    font-size: 0.92rem !important;
+    padding: 0.4rem 0.2rem;
+    letter-spacing: 0.15px;
+    line-height: 1.2;
+}
+
+/* CTA — מרווח ברור משאר ההדר */
+#header .cta-btn {
+    flex-shrink: 0;
+    padding: 0.7rem 1.4rem !important;
+    font-size: 0.92rem !important;
+    white-space: nowrap;
+}
 
 /* Footer logo — גדול יותר */
 .logo-footer .logo-image {
-    height: 96px;
+    height: 100px;
     box-shadow: 0 6px 22px rgba(0,0,0,0.55);
 }
 
@@ -1869,16 +1926,32 @@ footer {
 .logo .logo-emblem,
 .logo .logo-fallback { display: none !important; }
 
+/* Breakpoints — צמצום הדרגתי כדי שלא יקרסו */
+@media (max-width: 1280px) {
+    #header .container { padding: 0 1.5rem !important; }
+    #header .nav-wrapper { gap: 1.5rem; }
+    #header nav ul { gap: 1.1rem !important; }
+    #header nav ul a { font-size: 0.88rem !important; }
+    .logo-image { height: 72px; }
+}
+@media (max-width: 1100px) {
+    #header nav ul { gap: 0.85rem !important; }
+    #header nav ul a { font-size: 0.85rem !important; }
+    #header .cta-btn { padding: 0.6rem 1rem !important; font-size: 0.86rem !important; }
+    .logo-image { height: 66px; }
+}
 @media (max-width: 968px) {
-    .logo-image { height: 64px; }
+    .logo-image { height: 60px; }
 }
 @media (max-width: 768px) {
-    .logo-image { height: 54px; }
-    .logo-footer .logo-image { height: 72px; }
-    #header .container { min-height: 70px; }
+    .logo-image { height: 56px; }
+    .logo-footer .logo-image { height: 80px; }
+    #header { padding: 0.5rem 0 !important; }
+    #header .container { min-height: 76px; padding: 0 1rem !important; }
+    #header .nav-wrapper { gap: 0.75rem; }
 }
 @media (max-width: 380px) {
-    .logo-image { height: 46px; }
+    .logo-image { height: 48px; }
 }
 
 /* ============================================================
@@ -2322,4 +2395,118 @@ footer {
     .testimonial-card { padding: 2.5rem 1.4rem 1.4rem; }
     .testimonial-mark { font-size: 6rem; top: -0.3rem; }
     .testimonial-quote { font-size: 1rem !important; line-height: 1.75 !important; }
+}
+
+/* ============================================================
+   26. ROUND 6 — Hero partners cutout (תמונת שותפים בשער)
+   ============================================================ */
+.hero-with-portrait {
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-partners-cutout {
+    position: absolute;
+    inset: 0;
+    z-index: 1;                /* מעל ה-video-poster, מתחת ל-overlay */
+    pointer-events: none;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;     /* בצד שמאל (כי RTL — התוכן בימין) */
+    padding: 0 0 0 4%;
+}
+.hero-partners-cutout img {
+    width: auto;
+    height: 92%;
+    max-width: 58%;
+    object-fit: contain;
+    object-position: bottom left;
+    /* fade-out elegant — מטשטש את גבולות התמונה לתוך הרקע */
+    -webkit-mask-image:
+        radial-gradient(ellipse 65% 75% at 38% 55%, #000 35%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.35) 75%, transparent 92%);
+    mask-image:
+        radial-gradient(ellipse 65% 75% at 38% 55%, #000 35%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.35) 75%, transparent 92%);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    /* החתימה הויזואלית: התאמה לפלטה הכהה */
+    filter:
+        contrast(1.10)
+        saturate(0.85)
+        brightness(0.92)
+        drop-shadow(0 18px 36px rgba(0,0,0,0.55));
+    mix-blend-mode: luminosity;       /* מאחד את הצבעים לפלטת האתר */
+    opacity: 0.95;
+}
+
+/* overlay מתואם — כהה יותר בצד התוכן (ימין), בהיר יותר בצד התמונה (שמאל) */
+.hero-with-portrait .hero-overlay {
+    background:
+        linear-gradient(270deg,
+            rgba(8,17,27,0.85) 0%,
+            rgba(8,17,27,0.65) 35%,
+            rgba(8,17,27,0.30) 55%,
+            rgba(8,17,27,0.10) 72%,
+            rgba(8,17,27,0.40) 100%) !important;
+    z-index: 2;
+}
+
+/* התוכן (טקסט) מוצמד לימין עם נוכחות חזקה */
+.hero-with-portrait .container {
+    position: relative;
+    z-index: 3;
+}
+.hero-with-portrait .hero-center {
+    margin-right: 0;
+    margin-left: auto;
+    max-width: 620px;
+    text-align: right;
+}
+.hero-with-portrait .hero-eyebrow::after { margin-right: 0; margin-left: auto; }
+.hero-with-portrait .hero-buttons,
+.hero-with-portrait .hero-buttons-centered {
+    justify-content: flex-start;
+}
+.hero-with-portrait .hero-stats,
+.hero-with-portrait .hero-stats-inline {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+/* טאבלט — תמונה קטנה יותר */
+@media (max-width: 1100px) {
+    .hero-partners-cutout img {
+        height: 80%;
+        max-width: 50%;
+    }
+}
+
+/* מובייל — התמונה הופכת לרקע עדין בעוצמה נמוכה */
+@media (max-width: 768px) {
+    .hero-partners-cutout {
+        opacity: 0.28;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+    }
+    .hero-partners-cutout img {
+        height: 70%;
+        max-width: 100%;
+        -webkit-mask-image:
+            radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, rgba(0,0,0,0.6) 60%, transparent 90%);
+        mask-image:
+            radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, rgba(0,0,0,0.6) 60%, transparent 90%);
+    }
+    .hero-with-portrait .hero-overlay {
+        background:
+            linear-gradient(180deg,
+                rgba(8,17,27,0.70) 0%,
+                rgba(8,17,27,0.92) 100%) !important;
+    }
+    .hero-with-portrait .hero-center {
+        max-width: 100%;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .hero-with-portrait .hero-buttons,
+    .hero-with-portrait .hero-buttons-centered { justify-content: center; }
 }
