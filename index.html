@@ -54,13 +54,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#105675">
+    <meta name="theme-color" content="#08111B">
 
-    <!-- ===== Fonts ===== -->
+    <!-- ===== Fonts — Almoni Neue מקומי (תואם לאתר הדוגמה) + Heebo כגיבוי ===== -->
+    <link rel="preload" href="Fonts/almoni-neue-aaa-400.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="Fonts/almoni-neue-aaa-700.woff" as="font" type="font/woff" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/earlyaccess/opensanshebrew.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- ===== FontAwesome (with SRI for security) ===== -->
     <link rel="stylesheet"
@@ -84,8 +85,32 @@
         "alternateName": "Bar Zohar & Tal Law Office",
         "image": "https://neilkplanning-svg.github.io/ARIEL-TAL-GIL-BAR-ZOHAR/images/og-image.jpg",
         "url": "https://neilkplanning-svg.github.io/ARIEL-TAL-GIL-BAR-ZOHAR/",
-        "telephone": "+972543209765",
-        "email": "a0543209765@gmail.com",
+        "telephone": "+972508813626",
+        "email": "gil@bar-zohar.com",
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "name": "מזכירות — רבקה גורן",
+                "telephone": "+972508813626",
+                "contactType": "customer service",
+                "areaServed": "IL",
+                "availableLanguage": ["Hebrew", "English"]
+            },
+            {
+                "@type": "ContactPoint",
+                "name": "הרב עו״ד אריאל טל",
+                "telephone": "+972543209765",
+                "email": "a0543209765@gmail.com",
+                "contactType": "founder"
+            },
+            {
+                "@type": "ContactPoint",
+                "name": "עו״ד גיל בר-זהר",
+                "telephone": "+972546666607",
+                "email": "gil@bar-zohar.com",
+                "contactType": "founder"
+            }
+        ],
         "priceRange": "₪₪₪",
         "address": [
             {
@@ -466,43 +491,70 @@
             </div>
         </section>
 
-        <!-- ============ SUCCESS STORIES — גרפי, מיד אחרי תחומי התמחות ============ -->
+        <!-- ============ TESTIMONIALS / SUCCESS STORIES — aluk-style large-quote cards ============ -->
         <section class="section section-success-stories" aria-labelledby="success-title">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">המלצות מאנשי מקצוע</span>
-                    <h2 id="success-title" class="section-title">סיפורי הצלחה והערכה</h2>
-                    <p class="section-subtitle">דוגמאות להמלצות שניתנו על עבודתו המקצועית של עו״ד אריאל טל בתחום המשפט</p>
+                    <span class="section-tag">חוות דעת והמלצות</span>
+                    <h2 id="success-title" class="section-title">מה אומרים עלינו</h2>
+                    <p class="section-subtitle">המלצות לקוחות, פסקי דין וחוות דעת מקצועיות שהתפרסמו במהלך השנים</p>
                 </div>
 
-                <div class="success-grid">
-                    <article class="success-card reveal">
-                        <span class="success-eyebrow"><i class="fas fa-award" aria-hidden="true"></i> המלצה מקצועית</span>
-                        <h3>"צירוף מרשים של סגולות ותכונות"</h3>
-                        <p>"חשיבה מקורית, מרץ חיובי בלתי נלאה, יצירתיות בולטת, כושר ניסוח מעולה ומידה רבה של רצון עשייה ושירות הכלל."</p>
-                        <div class="success-card-author">
-                            <strong>פרופ׳ אבנר חי שאקי ז״ל</strong>
-                            <span>פרופסור למשפטים · כתב המלצה לעו״ד אריאל טל, 2002</span>
+                <div class="testimonial-grid">
+                    <!-- חוות דעת לקוח על גיל -->
+                    <article class="testimonial-card reveal">
+                        <span class="testimonial-mark" aria-hidden="true">"</span>
+                        <p class="testimonial-quote">
+                            עו״ד בר-זהר לקח תיק במצב קשה והביא לזכייה גדולה. קיבלנו הכנה
+                            מעולה לחקירות בבית המשפט, וגיל בעצמו ניהל את החקירות בתיק
+                            ופשוט "שבר" את הנחקרים. אדם יקר מאד, בעל ערכים, הבנה של
+                            צרכי הלקוח, יושרה ומקצועיות.
+                        </p>
+                        <div class="testimonial-author">
+                            <strong>לקוח של המשרד</strong>
+                            <span>חוות דעת — עו״ד גיל בר-זהר</span>
                         </div>
                     </article>
 
-                    <article class="success-card reveal">
-                        <span class="success-eyebrow"><i class="fas fa-users" aria-hidden="true"></i> הכרה רשמית</span>
-                        <h3>חבר ועדת בתי משפט לענייני משפחה</h3>
-                        <p>עו״ד אריאל טל מונה ע״י לשכת עורכי הדין כחבר ועדת בתי המשפט לענייני משפחה — מחוז ירושלים. הכרה רשמית בידע, ניסיון ויכולת מקצועית בתחום.</p>
-                        <div class="success-card-author">
+                    <!-- ציטוט מ-TheMarker על גיל -->
+                    <article class="testimonial-card testimonial-card-featured reveal">
+                        <span class="testimonial-mark" aria-hidden="true">"</span>
+                        <p class="testimonial-quote">
+                            מי שעומד בבית משפט ורואה איך חוזים מתפרקים — כותב הסכמים
+                            באופן שונה לגמרי. חוזה גנרי לא מכיר את יחסי הכוחות בין
+                            הצדדים, לא את הדינמיקה ולא את המוקשים הספציפיים של העסקה.
+                        </p>
+                        <div class="testimonial-author">
+                            <strong>עו״ד גיל בר-זהר</strong>
+                            <span>ראיון ב־TheMarker · דצמבר 2025</span>
+                        </div>
+                    </article>
+
+                    <!-- המלצת פרופ' שאקי על אריאל -->
+                    <article class="testimonial-card reveal">
+                        <span class="testimonial-mark" aria-hidden="true">"</span>
+                        <p class="testimonial-quote">
+                            חשיבה מקורית, מרץ חיובי בלתי נלאה, יצירתיות בולטת, כושר
+                            ניסוח מעולה ומידה רבה של רצון עשייה ושירות הכלל. צירוף
+                            מרשים של סגולות ותכונות.
+                        </p>
+                        <div class="testimonial-author">
+                            <strong>פרופ׳ אבנר חי שאקי ז״ל</strong>
+                            <span>פרופסור למשפטים · המלצה על הרב עו״ד אריאל טל, 2002</span>
+                        </div>
+                    </article>
+
+                    <!-- מינוי רשמי לוועדת לשכת עוה"ד -->
+                    <article class="testimonial-card reveal">
+                        <span class="testimonial-mark" aria-hidden="true">"</span>
+                        <p class="testimonial-quote">
+                            הרב עו״ד אריאל טל מונה כחבר ועדת בתי המשפט לענייני משפחה
+                            — מחוז ירושלים. הכרה רשמית בידע, בניסיון וביכולת המקצועית
+                            של חבר במעמד אישי לפני בתי המשפט.
+                        </p>
+                        <div class="testimonial-author">
                             <strong>לשכת עורכי הדין — מחוז ירושלים</strong>
                             <span>מינוי רשמי, 2022 · חתום ע״י יו״ר ועד המחוז</span>
-                        </div>
-                    </article>
-
-                    <article class="success-card reveal">
-                        <span class="success-eyebrow"><i class="fas fa-balance-scale" aria-hidden="true"></i> ייצוג ייחודי</span>
-                        <h3>שילוב נדיר של תורה ומשפט</h3>
-                        <p>הרב עו״ד אריאל טל — סמיכה רבנית "יורה יורה" + תארי משפטים — מעניק יתרון אסטרטגי בתיקי בית דין רבני, דיני משפחה ומעמד אישי: היכרות עמוקה עם ההליך, השפה והרגישויות הרבניות.</p>
-                        <div class="success-card-author">
-                            <strong>הסמכות מאומתות</strong>
-                            <span>הרב שלום משאש זצ״ל · הרב יצחק קוליץ זצ״ל · לשכת עוה״ד 2022</span>
                         </div>
                     </article>
                 </div>
@@ -513,28 +565,61 @@
             </div>
         </section>
 
-        <!-- ============ ABOUT TEASER — 2-column split mirror: visual left, content right ============ -->
-        <section id="about-teaser" class="section section-split section-split-mirror" aria-labelledby="about-teaser-title">
-            <div class="section-split-content">
-                <span class="section-tag">השותפים</span>
-                <h2 id="about-teaser-title" class="section-title">גיל בר-זהר · אריאל טל</h2>
-                <p>
-                    המשרד פונה ללקוחות פרטיים, בעלי נכסים, משפחות בעלות רכוש משמעותי,
-                    אנשי עסקים, בעלי חברות, מפעלים ושותפים עסקיים — הזקוקים לייצוג
-                    משפטי בתיקים מורכבים ובעלי חשיבות ממשית.
-                </p>
-                <p>
-                    <strong>הרב עו״ד אריאל טל</strong> — שותף מייסד, רב מוסמך ועורך דין —
-                    מעניק יתרון ייחודי בתיקי בית דין רבני ודיני משפחה, בזכות שילוב
-                    נדיר של תורה ומשפט.
-                </p>
-                <div style="margin-top:1.5rem;">
+        <!-- ============ PARTNERS — שני שותפים זה לצד זה ============ -->
+        <section id="about-teaser" class="section section-light" aria-labelledby="about-teaser-title">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">השותפים</span>
+                    <h2 id="about-teaser-title" class="section-title">גיל בר-זהר · אריאל טל</h2>
+                    <p class="section-subtitle">שני שותפים מייסדים, שילוב נדיר של ליטיגציה מסחרית, ייעוץ עסקי, תורה ומשפט</p>
+                </div>
+
+                <div class="partners-grid">
+                    <article class="partner-card">
+                        <figure class="partner-photo-frame">
+                            <img src="images/ariel-tal.jpg"
+                                 alt="הרב עו״ד אריאל טל"
+                                 loading="lazy"
+                                 onerror="this.style.opacity='0.15';this.alt='תמונה תיווסף בקרוב';">
+                        </figure>
+                        <div class="partner-card-body">
+                            <span class="partner-eyebrow">השותף הבכיר</span>
+                            <h3>הרב עו״ד אריאל טל</h3>
+                            <p>רב מוסמך + עורך דין — שילוב נדיר של תורה ומשפט.
+                            יתרון ייחודי בתיקי בית דין רבני, דיני משפחה ומעמד אישי.
+                            מעל 40 שנה ניסיון בנדל״ן, מחבר ספרי "משפט אריאל" וכ-200 מאמרים.</p>
+                            <a href="pages/partner-ariel.html" class="btn-link">
+                                לעמוד אישי של הרב עו״ד אריאל טל <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="partner-card">
+                        <figure class="partner-photo-frame">
+                            <img src="images/GIL BAR ZOHAR.webp"
+                                 alt="עו״ד גיל בר-זהר"
+                                 loading="lazy">
+                        </figure>
+                        <div class="partner-card-body">
+                            <span class="partner-eyebrow">השותף המייסד</span>
+                            <h3>עו״ד גיל בר-זהר</h3>
+                            <p>מעל 30 שנה בליטיגציה מסחרית וליווי חברות.
+                            לקוחות: תאגידים מובילים בישראל ובעולם — גופים פיננסיים,
+                            חברות פרסום, חברות הפקה ואופנה, מייצגי אמנים ולקוחות פרטיים.
+                            מודל "צוותי קרב" — עורכי דין בכירים בלבד.</p>
+                            <a href="pages/partner-gil.html" class="btn-link">
+                                לעמוד אישי של עו״ד גיל בר-זהר <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div style="text-align:center;margin-top:2.5rem;">
                     <a href="pages/about.html" class="btn btn-primary">
                         הכירו את המשרד <i class="fas fa-arrow-left" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
-            <div class="section-split-visual" style="background-image:url('images/page-header-bg.jpg');" aria-hidden="true"></div>
         </section>
 
         <!-- ============ סיור במשרד — סרטון ============ -->
@@ -606,16 +691,24 @@
                         <div class="contact-item">
                             <div class="contact-item-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
                             <div class="contact-item-text">
-                                <h4>טלפון</h4>
-                                <p><a href="tel:+972543209765">054-320-9765</a></p>
+                                <h4>הרב עו״ד אריאל טל</h4>
+                                <p><a href="tel:+972543209765">054-320-9765</a> · <a href="mailto:a0543209765@gmail.com">a0543209765@gmail.com</a></p>
                             </div>
                         </div>
 
                         <div class="contact-item">
-                            <div class="contact-item-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+                            <div class="contact-item-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
                             <div class="contact-item-text">
-                                <h4>דוא"ל</h4>
-                                <p><a href="mailto:a0543209765@gmail.com">a0543209765@gmail.com</a></p>
+                                <h4>עו״ד גיל בר-זהר</h4>
+                                <p><a href="tel:+972546666607">054-666-6607</a> · <a href="mailto:gil@bar-zohar.com">gil@bar-zohar.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon"><i class="fas fa-user-tie" aria-hidden="true"></i></div>
+                            <div class="contact-item-text">
+                                <h4>מזכירות — הגב' רבקה גורן</h4>
+                                <p><a href="tel:+972508813626">050-881-3626</a></p>
                             </div>
                         </div>
 
@@ -637,7 +730,7 @@
                                     </div>
                                     <div class="branch-card">
                                         <h4><i class="fas fa-building" aria-hidden="true"></i> סניף תל אביב</h4>
-                                        <p>תיאום פגישות מראש<br>בטלפון: 054-320-9765</p>
+                                        <p>מגדל העגול, מרכז עזריאלי<br>תיאום פגישות: 050-881-3626</p>
                                         <a href="https://waze.com/ul?q=משרד%20עורכי%20דין%20תל%20אביב&navigate=yes"
                                            class="btn-waze"
                                            target="_blank"
@@ -739,8 +832,10 @@
                 </div>
                 <div class="footer-contact">
                     <h4>פרטי התקשרות</h4>
-                    <p><i class="fas fa-phone" aria-hidden="true"></i> 054-320-9765</p>
-                    <p><i class="fas fa-envelope" aria-hidden="true"></i> a0543209765@gmail.com</p>
+                    <p><i class="fas fa-user-tie" aria-hidden="true"></i> מזכירות — רבקה גורן · <a href="tel:+972508813626" style="color:inherit;">050-881-3626</a></p>
+                    <p><i class="fas fa-phone" aria-hidden="true"></i> אריאל טל · <a href="tel:+972543209765" style="color:inherit;">054-320-9765</a></p>
+                    <p><i class="fas fa-phone" aria-hidden="true"></i> גיל בר-זהר · <a href="tel:+972546666607" style="color:inherit;">054-666-6607</a></p>
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:gil@bar-zohar.com" style="color:inherit;">gil@bar-zohar.com</a></p>
                     <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> הרב קוק 8, מרכז אשדר, ירושלים</p>
                     <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> סניף תל אביב</p>
                 </div>
