@@ -5,19 +5,44 @@
    ============================================================ */
 
 /* ============================================================
+   0. LOCAL FONTS — Almoni Neue (תואם לאתר דוגמה)
+   ============================================================ */
+@font-face {
+    font-family: 'Almoni Neue';
+    src: url('../../Fonts/almoni-neue-aaa-400.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Almoni Neue';
+    src: url('../../Fonts/almoni-neue-aaa-700.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Linearicons';
+    src: url('../../Fonts/Linearicons-Free.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ============================================================
    1. VARIABLES — דריסה מלאה של הפלטה הקיימת
    ============================================================ */
 :root {
-    /* Brand new dark palette */
-    --bg-primary:        #0A1520;
-    --bg-secondary:      #0F1E2E;
-    --bg-tertiary:       #142838;
-    --bg-elevated:       #1a3043;
+    /* Brand palette — מעודן לכיוון aluk-firm: נייבי עמוק יותר + זהב נקי יותר */
+    --bg-primary:        #08111B;     /* נייבי כהה מאוד */
+    --bg-secondary:      #0D1A28;
+    --bg-tertiary:       #122438;
+    --bg-elevated:       #182f47;
 
-    --accent-gold:        #C9A961;
-    --accent-gold-bright: #E5C77B;
-    --accent-gold-dark:   #A88947;
-    --accent-gold-glow:   rgba(201, 169, 97, 0.35);
+    --accent-gold:        #BF9E5C;    /* זהב מאופק/מינימליסטי */
+    --accent-gold-bright: #DFB97A;
+    --accent-gold-dark:   #8E7339;
+    --accent-gold-glow:   rgba(191, 158, 92, 0.35);
 
     --brand-teal:        #105675;
     --brand-teal-bright: #177fab;
@@ -26,8 +51,8 @@
     --text-secondary:    #B8B0A0;
     --text-muted:        #7a7468;
 
-    --border-subtle:     rgba(201, 169, 97, 0.22);
-    --border-strong:     rgba(201, 169, 97, 0.45);
+    --border-subtle:     rgba(191, 158, 92, 0.22);
+    --border-strong:     rgba(191, 158, 92, 0.45);
 
     /* Override existing system tokens so cascade reaches everything */
     --primary:           var(--brand-teal);
@@ -56,10 +81,10 @@
     --text:              var(--text-primary);
     --text-light:        var(--text-secondary);
 
-    /* Fonts per brief */
-    --font-primary:   'Heebo', 'Assistant', 'Open Sans Hebrew', -apple-system, sans-serif;
-    --font-secondary: 'Frank Ruhl Libre', 'David Libre', 'Heebo', serif;
-    --font-display:   'Playfair Display', 'Frank Ruhl Libre', serif;
+    /* Fonts — Almoni Neue הוא הפונט הראשי (תואם לאתר דוגמה) */
+    --font-primary:   'Almoni Neue', 'Heebo', 'Assistant', 'Open Sans Hebrew', -apple-system, sans-serif;
+    --font-secondary: 'Almoni Neue', 'Frank Ruhl Libre', 'David Libre', 'Heebo', sans-serif;
+    --font-display:   'Playfair Display', 'Almoni Neue', 'Frank Ruhl Libre', serif;
 
     /* Sharper radii */
     --radius-sm:   4px;
@@ -87,12 +112,16 @@ html, body {
 body {
     background:
         radial-gradient(ellipse at top right, rgba(16,86,117,0.18) 0%, transparent 55%),
-        radial-gradient(ellipse at bottom left, rgba(201,169,97,0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom left, rgba(191,158,92,0.06) 0%, transparent 50%),
         var(--bg-primary) !important;
     background-attachment: fixed;
     color: var(--text-primary);
     font-family: var(--font-primary);
-    font-weight: 300;
+    font-weight: 400;                              /* Almoni 400 הוא ה-regular */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1, "liga" 1;
 }
 
 /* Disable the old body::before overlay if present */
@@ -142,7 +171,7 @@ header#header {
     background: linear-gradient(135deg, var(--accent-gold-dark), var(--accent-gold-bright));
     color: var(--bg-primary);
     font-family: var(--font-display);
-    box-shadow: 0 4px 14px rgba(201, 169, 97, 0.40);
+    box-shadow: 0 4px 14px rgba(191, 158, 92, 0.40);
 }
 
 nav ul a {
@@ -333,11 +362,14 @@ nav ul a::after { background: var(--accent-gold) !important; height: 1px; }
     color: var(--text-primary) !important;
     font-family: var(--font-secondary) !important;
     font-weight: 700;
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    line-height: 1.1;
-    letter-spacing: -1px;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 2px 24px rgba(0,0,0,0.5);
+    font-size: clamp(2.8rem, 5.5vw, 5rem);   /* גדול וחד יותר */
+    line-height: 1.08;
+    letter-spacing: -1.2px;
+    margin-bottom: 1.75rem;
+    text-shadow: 0 2px 28px rgba(0,0,0,0.65), 0 0 1px rgba(255,255,255,0.04);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 .hero h1 span,
@@ -486,7 +518,7 @@ nav ul a::after { background: var(--accent-gold) !important; height: 1px; }
 }
 
 .expertise-strip-item.flagship {
-    background: linear-gradient(135deg, rgba(201,169,97,0.10), transparent);
+    background: linear-gradient(135deg, rgba(191,158,92,0.10), transparent);
 }
 .expertise-strip-item.flagship i { color: var(--accent-gold-bright); }
 
@@ -588,7 +620,7 @@ nav ul a::after { background: var(--accent-gold) !important; height: 1px; }
 .housing-body { color: var(--text-secondary) !important; }
 
 .housing-item {
-    background: rgba(201, 169, 97, 0.06) !important;
+    background: rgba(191, 158, 92, 0.06) !important;
     border: 1px solid var(--border-subtle) !important;
     border-radius: 3px !important;
     color: var(--text-primary) !important;
@@ -608,7 +640,7 @@ nav ul a::after { background: var(--accent-gold) !important; height: 1px; }
 }
 
 .icon-burst {
-    background: radial-gradient(circle, rgba(201,169,97,0.25), rgba(16,86,117,0.10) 60%, transparent) !important;
+    background: radial-gradient(circle, rgba(191,158,92,0.25), rgba(16,86,117,0.10) 60%, transparent) !important;
     color: var(--accent-gold-bright) !important;
 }
 
@@ -831,14 +863,14 @@ nav ul a::after { background: var(--accent-gold) !important; height: 1px; }
 .video-frame .play-btn {
     background: var(--accent-gold) !important;
     color: var(--bg-primary) !important;
-    box-shadow: 0 0 0 0 rgba(201,169,97,0.7);
+    box-shadow: 0 0 0 0 rgba(191,158,92,0.7);
     animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @keyframes pulse-ring {
-    0%   { box-shadow: 0 0 0 0 rgba(201,169,97,0.7); }
-    70%  { box-shadow: 0 0 0 24px rgba(201,169,97,0); }
-    100% { box-shadow: 0 0 0 0 rgba(201,169,97,0); }
+    0%   { box-shadow: 0 0 0 0 rgba(191,158,92,0.7); }
+    70%  { box-shadow: 0 0 0 24px rgba(191,158,92,0); }
+    100% { box-shadow: 0 0 0 0 rgba(191,158,92,0); }
 }
 
 .video-frame:hover .play-btn { background: var(--accent-gold-bright) !important; }
@@ -874,7 +906,7 @@ nav ul a::after { background: var(--accent-gold) !important; height: 1px; }
     transition: background 0.3s ease;
 }
 
-.faq-question:hover { background: rgba(201,169,97,0.05) !important; }
+.faq-question:hover { background: rgba(191,158,92,0.05) !important; }
 
 .faq-question i {
     color: var(--accent-gold) !important;
@@ -937,7 +969,7 @@ nav ul a::after { background: var(--accent-gold) !important; height: 1px; }
 }
 
 .testimonial-mini:hover {
-    background: rgba(201, 169, 97, 0.10) !important;
+    background: rgba(191, 158, 92, 0.10) !important;
     border-color: var(--accent-gold) !important;
 }
 
@@ -956,7 +988,7 @@ nav ul a::after { background: var(--accent-gold) !important; height: 1px; }
 .contact-info p { color: var(--text-secondary) !important; }
 
 .contact-item-icon {
-    background: rgba(201, 169, 97, 0.10) !important;
+    background: rgba(191, 158, 92, 0.10) !important;
     color: var(--accent-gold) !important;
     border-radius: 3px;
     border: 1px solid var(--border-subtle);
@@ -975,7 +1007,7 @@ nav ul a::after { background: var(--accent-gold) !important; height: 1px; }
 .contact-item-text a:hover { color: var(--accent-gold-bright) !important; }
 
 .social-link {
-    background: rgba(201, 169, 97, 0.10) !important;
+    background: rgba(191, 158, 92, 0.10) !important;
     border: 1px solid var(--border-subtle);
     color: var(--accent-gold) !important;
 }
@@ -993,7 +1025,7 @@ nav ul a::after { background: var(--accent-gold) !important; height: 1px; }
 }
 
 .branch-card:hover {
-    background: rgba(201, 169, 97, 0.08) !important;
+    background: rgba(191, 158, 92, 0.08) !important;
     border-color: var(--accent-gold) !important;
 }
 
@@ -1052,7 +1084,7 @@ nav ul a::after { background: var(--accent-gold) !important; height: 1px; }
 .form-group textarea:focus,
 .form-group select:focus {
     border-color: var(--accent-gold-bright) !important;
-    box-shadow: 0 0 0 3px rgba(201,169,97,0.15) !important;
+    box-shadow: 0 0 0 3px rgba(191,158,92,0.15) !important;
     background: rgba(10, 21, 32, 0.85) !important;
 }
 
@@ -1240,7 +1272,7 @@ footer {
 .cert-card span { color: var(--text-secondary) !important; }
 .cert-card i { color: var(--accent-gold) !important; }
 
-.cert-card:hover { background: rgba(201,169,97,0.06) !important; }
+.cert-card:hover { background: rgba(191,158,92,0.06) !important; }
 
 /* Certificate gallery */
 .cert-image-card {
@@ -1290,8 +1322,8 @@ footer {
    ============================================================ */
 .cursor-glow {
     background: radial-gradient(circle,
-        rgba(201,169,97,0.18) 0%,
-        rgba(229,199,123,0.10) 30%,
+        rgba(191,158,92,0.18) 0%,
+        rgba(223,185,122,0.10) 30%,
         transparent 70%) !important;
 }
 
@@ -1395,11 +1427,11 @@ footer {
 }
 .faq-item:hover {
     border-color: var(--accent-gold-bright) !important;
-    box-shadow: 0 6px 24px rgba(201,169,97,0.20);
+    box-shadow: 0 6px 24px rgba(191,158,92,0.20);
 }
 .faq-item.is-open {
     border-right-color: var(--accent-gold-bright) !important;
-    box-shadow: 0 6px 28px rgba(201,169,97,0.28);
+    box-shadow: 0 6px 28px rgba(191,158,92,0.28);
 }
 
 .faq-question {
@@ -1414,7 +1446,7 @@ footer {
     font-size: 1.05rem;
 }
 
-.faq-question:hover { background: rgba(201,169,97,0.08) !important; }
+.faq-question:hover { background: rgba(191,158,92,0.08) !important; }
 
 .faq-question i {
     color: var(--accent-gold) !important;
@@ -1423,7 +1455,7 @@ footer {
 }
 
 .faq-item.is-open .faq-question {
-    background: rgba(201,169,97,0.06) !important;
+    background: rgba(191,158,92,0.06) !important;
     color: var(--accent-gold-bright) !important;
 }
 
@@ -1636,7 +1668,7 @@ footer {
     position: absolute;
     top: 0; right: 0;
     width: 35%; height: 100%;
-    background: radial-gradient(circle at top right, rgba(201,169,97,0.10), transparent 60%);
+    background: radial-gradient(circle at top right, rgba(191,158,92,0.10), transparent 60%);
     pointer-events: none;
 }
 
@@ -1717,10 +1749,10 @@ footer {
 }
 
 .success-card:nth-child(1)::after {
-    background: radial-gradient(circle, rgba(201,169,97,0.12), transparent 70%);
+    background: radial-gradient(circle, rgba(191,158,92,0.12), transparent 70%);
 }
 .success-card:nth-child(2)::after {
-    background: radial-gradient(circle, rgba(229,199,123,0.14), transparent 70%);
+    background: radial-gradient(circle, rgba(223,185,122,0.14), transparent 70%);
     width: 160px; height: 160px;
 }
 .success-card:nth-child(3)::after {
@@ -1806,35 +1838,47 @@ footer {
     text-decoration: none;
 }
 .logo-image {
-    height: 56px;
+    height: 78px;                /* הוגדל מ-56 ל-78 — חד וברור */
     width: auto;
     display: block;
     border-radius: 4px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.35), 0 0 0 1px rgba(201,169,97,0.15);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.50), 0 0 0 1px rgba(191,158,92,0.22);
     transition: transform 0.35s ease, box-shadow 0.35s ease;
     object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;  /* חידוד תמונה */
+    image-rendering: crisp-edges;
 }
 .logo:hover .logo-image {
-    transform: scale(1.03);
-    box-shadow: 0 6px 22px rgba(201,169,97,0.30), 0 0 0 1px rgba(201,169,97,0.35);
+    transform: scale(1.04);
+    box-shadow: 0 8px 28px rgba(191,158,92,0.42), 0 0 0 1px rgba(223,185,122,0.50);
 }
 
-/* Footer logo — slightly larger, no extra background */
+/* Header גדל בהתאם */
+#header {
+    padding: 0.6rem 0;
+}
+#header .container { min-height: 88px; display: flex; align-items: center; }
+
+/* Footer logo — גדול יותר */
 .logo-footer .logo-image {
-    height: 72px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.45);
+    height: 96px;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.55);
 }
 
 /* Hide legacy emblem/fallback if any markup remains */
 .logo .logo-emblem,
 .logo .logo-fallback { display: none !important; }
 
+@media (max-width: 968px) {
+    .logo-image { height: 64px; }
+}
 @media (max-width: 768px) {
-    .logo-image { height: 46px; }
-    .logo-footer .logo-image { height: 60px; }
+    .logo-image { height: 54px; }
+    .logo-footer .logo-image { height: 72px; }
+    #header .container { min-height: 70px; }
 }
 @media (max-width: 380px) {
-    .logo-image { height: 40px; }
+    .logo-image { height: 46px; }
 }
 
 /* ============================================================
@@ -1844,10 +1888,10 @@ footer {
 /* FAQ — pulse the chevron on closed so it's obvious the item is interactive */
 .faq-item:not(.is-open) .faq-question {
     /* visible even when closed — extra contrast */
-    background: rgba(201,169,97,0.03) !important;
+    background: rgba(191,158,92,0.03) !important;
 }
 .faq-item:not(.is-open):hover .faq-question {
-    background: rgba(201,169,97,0.10) !important;
+    background: rgba(191,158,92,0.10) !important;
 }
 .faq-item:not(.is-open) .faq-question i {
     opacity: 0.85;
@@ -2015,4 +2059,267 @@ footer {
     .hero-stats .stat-number, .stat-number { font-size: 1.25rem !important; }
     .stat-label { font-size: 0.62rem !important; }
     .faq-question { font-size: 0.95rem !important; padding: 1rem 0.95rem !important; }
+}
+
+/* ============================================================
+   25. ROUND 5 — Partner photos + pull-quote + aluk-style updates
+   ============================================================ */
+
+/* Partner photo frame — golden border, soft shadow */
+.partner-photo-frame {
+    position: relative;
+    margin: 0;
+    padding: 8px;
+    background: linear-gradient(135deg, var(--accent-gold-dark), var(--accent-gold), var(--accent-gold-bright));
+    border-radius: 4px;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.55), 0 0 0 1px rgba(191,158,92,0.30);
+    overflow: hidden;
+}
+.partner-photo-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    transition: transform 0.6s ease;
+}
+.partner-photo-frame:hover img { transform: scale(1.02); }
+.partner-photo-frame figcaption {
+    margin-top: 0.85rem;
+    padding: 0 0.5rem 0.25rem;
+    text-align: center;
+    font-family: var(--font-secondary);
+    font-size: 0.95rem;
+    color: var(--accent-gold-bright);
+    letter-spacing: 0.6px;
+    background: transparent;
+}
+
+.partner-photo-portrait {
+    aspect-ratio: auto;
+}
+.partner-photo-portrait img {
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    object-position: center top;
+}
+
+/* In bio-grid, Gil's photo fills its column nicely */
+.bio-grid .partner-photo-frame {
+    align-self: start;
+}
+.bio-grid .partner-photo-frame img {
+    aspect-ratio: 4/5;
+    object-fit: cover;
+}
+
+/* Pull-quote — used for TheMarker citation */
+.pull-quote {
+    margin: 2rem 0;
+    padding: 1.5rem 1.75rem 1.5rem 1.5rem;
+    border-right: 4px solid var(--accent-gold);
+    background: linear-gradient(90deg, rgba(191,158,92,0.10) 0%, rgba(191,158,92,0.02) 100%);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    font-style: italic;
+    border-radius: 2px;
+    position: relative;
+}
+.pull-quote::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    right: 12px;
+    font-size: 4rem;
+    color: var(--accent-gold);
+    opacity: 0.25;
+    font-family: var(--font-display);
+    line-height: 1;
+}
+.pull-quote cite {
+    display: block;
+    margin-top: 0.85rem;
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--accent-gold-bright);
+    font-family: var(--font-primary);
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .partner-photo-frame { padding: 6px; }
+    .partner-photo-frame figcaption { font-size: 0.85rem; }
+    .pull-quote {
+        margin: 1.5rem 0;
+        padding: 1.1rem 1.2rem;
+        font-size: 1.05rem;
+    }
+    .pull-quote::before { font-size: 2.8rem; top: -4px; }
+}
+
+/* === Partners showcase grid (home page) === */
+.partners-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+}
+.partner-card {
+    background: var(--bg-elevated, var(--bg-tertiary));
+    border: 1px solid var(--border-subtle);
+    border-top: 3px solid var(--accent-gold);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.partner-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-gold-bright);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.55), 0 0 0 1px var(--accent-gold-glow);
+}
+.partner-card .partner-photo-frame {
+    aspect-ratio: 16/10;
+    padding: 0;
+    background: var(--bg-primary);
+    border-radius: 0;
+    box-shadow: none;
+}
+.partner-card .partner-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+.partner-card-body {
+    padding: 1.75rem 1.5rem 1.75rem;
+    text-align: right;
+}
+.partner-eyebrow {
+    display: inline-block;
+    color: var(--accent-gold);
+    font-size: 0.72rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border-subtle);
+}
+.partner-card h3 {
+    font-family: var(--font-secondary) !important;
+    color: var(--text-primary) !important;
+    font-size: 1.4rem !important;
+    margin: 0.5rem 0 1rem !important;
+    line-height: 1.3;
+}
+.partner-card p {
+    color: var(--text-secondary) !important;
+    line-height: 1.75;
+    font-size: 0.96rem;
+    margin-bottom: 1.25rem;
+}
+.btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-gold-bright) !important;
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-decoration: none;
+    transition: gap 0.3s ease, color 0.3s ease;
+}
+.btn-link:hover { gap: 0.85rem; color: var(--text-primary) !important; }
+
+@media (max-width: 900px) {
+    .partners-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+    .partner-card .partner-photo-frame { aspect-ratio: 16/9; }
+    .partner-card-body { padding: 1.4rem 1.2rem; }
+    .partner-card h3 { font-size: 1.2rem !important; }
+}
+
+/* === Testimonials grid — aluk-firm style with large decorative quote === */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+.testimonial-card {
+    position: relative;
+    background: linear-gradient(165deg, rgba(20,40,56,0.96) 0%, rgba(15,30,46,0.96) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 3rem 2rem 1.75rem;
+    transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    text-align: right;
+    overflow: hidden;
+}
+.testimonial-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-gold) !important;
+    box-shadow: 0 18px 48px rgba(0,0,0,0.60), 0 0 0 1px var(--accent-gold-glow);
+}
+.testimonial-card-featured {
+    background: linear-gradient(165deg, rgba(40,50,40,0.92) 0%, rgba(30,40,30,0.96) 100%);
+    border-top: 3px solid var(--accent-gold-bright);
+}
+
+/* Decorative giant gold quote mark — aluk-style */
+.testimonial-mark {
+    position: absolute;
+    top: -0.5rem;
+    right: 1.2rem;
+    font-family: var(--font-display);
+    font-size: 8rem;
+    line-height: 1;
+    color: var(--accent-gold);
+    opacity: 0.28;
+    font-weight: 700;
+    pointer-events: none;
+    user-select: none;
+}
+
+.testimonial-quote {
+    color: var(--text-primary) !important;
+    font-family: var(--font-primary);
+    font-size: 1.05rem !important;
+    line-height: 1.85 !important;
+    margin-bottom: 1.5rem !important;
+    position: relative;
+    z-index: 1;
+    font-style: italic;
+    font-weight: 300;
+}
+.testimonial-author {
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 1rem;
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+}
+.testimonial-author strong {
+    color: var(--accent-gold-bright);
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 0.2rem;
+    font-family: var(--font-secondary);
+}
+.testimonial-author span {
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    letter-spacing: 0.2px;
+}
+
+@media (max-width: 900px) {
+    .testimonial-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .testimonial-card { padding: 2.5rem 1.4rem 1.4rem; }
+    .testimonial-mark { font-size: 6rem; top: -0.3rem; }
+    .testimonial-quote { font-size: 1rem !important; line-height: 1.75 !important; }
 }

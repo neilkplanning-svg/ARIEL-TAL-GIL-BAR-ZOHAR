@@ -15,12 +15,19 @@
   },
 
   "contact": {
-    "phonePrimary": "+972543209765",
-    "phonePrimaryDisplay": "054-320-9765",
-    "phoneSecondary": "",
-    "phoneSecondaryDisplay": "",
-    "whatsapp": "972543209765",
-    "email": "a0543209765@gmail.com",
+    "phonePrimary": "+972508813626",
+    "phonePrimaryDisplay": "050-881-3626",
+    "phoneSecondary": "+972543209765",
+    "phoneSecondaryDisplay": "054-320-9765",
+    "secretaryName": "רבקה גורן",
+    "secretaryPhone": "+972508813626",
+    "secretaryPhoneDisplay": "050-881-3626",
+    "partners": [
+      {"name": "הרב עו״ד אריאל טל", "phone": "+972543209765", "phoneDisplay": "054-320-9765", "email": "a0543209765@gmail.com"},
+      {"name": "עו״ד גיל בר-זהר", "phone": "+972546666607", "phoneDisplay": "054-666-6607", "email": "gil@bar-zohar.com"}
+    ],
+    "whatsapp": "972508813626",
+    "email": "gil@bar-zohar.com",
     "address": {
       "street": "הרב קוק 8, מרכז אשדר, קומה 3",
       "city": "ירושלים",
