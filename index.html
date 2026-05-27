@@ -215,8 +215,8 @@
 
     <main id="main-content">
 
-        <!-- ============ HERO — centered with video background ============ -->
-        <section id="home" class="hero" aria-labelledby="hero-title">
+        <!-- ============ HERO — centered with video background + partners cutout ============ -->
+        <section id="home" class="hero hero-with-portrait" aria-labelledby="hero-title">
             <!-- Background video (autoplay, muted, loop) — desktop only via JS -->
             <video class="hero-video"
                    data-src="assets/videos/hero.mp4"
@@ -230,6 +230,14 @@
                  alt=""
                  aria-hidden="true"
                  onerror="this.style.display='none'">
+
+            <!-- Partners portrait cutout — תמונה משותפת של גיל ואריאל -->
+            <div class="hero-partners-cutout" aria-hidden="true">
+                <img src="images/GIL&ARIEL.JPG"
+                     alt=""
+                     loading="eager">
+            </div>
+
             <!-- Dark gradient overlay for legibility -->
             <div class="hero-overlay" aria-hidden="true"></div>
 
@@ -834,6 +842,7 @@
                     <h4>פרטי התקשרות</h4>
                     <p><i class="fas fa-user-tie" aria-hidden="true"></i> מזכירות — רבקה גורן · <a href="tel:+972508813626" style="color:inherit;">050-881-3626</a></p>
                     <p><i class="fas fa-phone" aria-hidden="true"></i> אריאל טל · <a href="tel:+972543209765" style="color:inherit;">054-320-9765</a></p>
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:a0543209765@gmail.com" style="color:inherit;">a0543209765@gmail.com</a></p>
                     <p><i class="fas fa-phone" aria-hidden="true"></i> גיל בר-זהר · <a href="tel:+972546666607" style="color:inherit;">054-666-6607</a></p>
                     <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:gil@bar-zohar.com" style="color:inherit;">gil@bar-zohar.com</a></p>
                     <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> הרב קוק 8, מרכז אשדר, ירושלים</p>
