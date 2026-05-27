@@ -3,13 +3,13 @@
   "_version": "1.0.0",
 
   "business": {
-    "name": "הרב עו״ד אריאל טל",
-    "shortName": "הרב עו״ד אריאל טל",
-    "ownerName": "הרב עו״ד אריאל טל",
+    "name": "הרב עו״ד אריאל טל ועו״ד גיל בר-זהר",
+    "shortName": "גיל בר-זהר ואריאל טל",
+    "ownerName": "הרב עו״ד אריאל טל ועו״ד גיל בר-זהר",
     "industry": "עורכי דין",
     "industryKey": "legal",
     "tagline": "משרד עורכי דין בוטיק יוקרתי",
-    "description": "משרד עורכי דין בוטיק יוקרתי בתל אביב וירושלים. למעלה מ־30 שנה ניסיון בדיני משפחה, ירושה, נזיקין, עסקים, נדל״ן ובתי דין רבניים. בהובלת הרב עו״ד אריאל טל — שילוב נדיר של תורה ומשפט.",
+    "description": "משרד עורכי דין בוטיק יוקרתי בתל אביב וירושלים. למעלה מ־30 שנה ניסיון בדיני משפחה, ירושה, נזיקין, עסקים, נדל״ן ובתי דין רבניים. בהובלת הרב עו״ד אריאל טל וגיל בר-זהר.",
     "registrationId": "",
     "establishedYear": ""
   },
@@ -145,7 +145,7 @@
   ],
 
   "footer": {
-    "copyrightText": "© 2026 כל הזכויות שמורות להרב עו״ד אריאל טל",
+    "copyrightText": "© 2026 כל הזכויות שמורות לגיל בר-זהר ואריאל טל",
     "creditLine": "אתר הוקם ע\"י NK Planning",
     "showLegalPages": true
   },
@@ -160,7 +160,7 @@
     "privacyLastUpdate": "05/2026",
     "termsLastUpdate": "05/2026",
     "accessibilityLastUpdate": "05/2026",
-    "accessibilityCoordinatorName": "הרב עו״ד אריאל טל",
+    "accessibilityCoordinatorName": "גיל בר-זהר",
     "accessibilityCoordinatorEmail": "a0543209765@gmail.com",
     "accessibilityCoordinatorPhone": "054-320-9765"
   }
