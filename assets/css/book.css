@@ -1,0 +1,667 @@
+/* ============================================================
+   book.css
+   עיצוב הספר "חזון אריאל" — עמוד שער (נחיתה) + קורא מחולק לחלקים.
+   נטען אחרי luxury-theme.css ומשתמש במשתני המותג שלו.
+   ============================================================ */
+
+:root {
+    --parchment:        #f7f1e2;
+    --parchment-edge:   #efe6cf;
+    --ink:              #211c12;
+    --ink-soft:         #4a4231;
+    --book-gold:        var(--accent-gold, #BF9E5C);
+    --book-gold-deep:   #8a6d27;
+}
+
+/* ====== Reading font ====== */
+.book-reader .book-page,
+.book-hero,
+.book-toc {
+    font-family: 'Frank Ruhl Libre', 'David Libre', 'Heebo', serif;
+}
+
+/* ============================================================
+   READER — toolbar
+   ============================================================ */
+#book-content { padding-top: var(--header-height, 80px); }
+
+.book-toolbar {
+    position: sticky;
+    top: var(--header-height, 80px);
+    z-index: 50;
+    background: rgba(8, 17, 27, 0.96);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-subtle, rgba(191,158,92,0.22));
+    border-top: 1px solid var(--border-subtle, rgba(191,158,92,0.22));
+}
+
+.book-toolbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+}
+
+.book-progress {
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    color: var(--accent-gold, #BF9E5C);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.book-nav-group { display: inline-flex; gap: 0.5rem; }
+
+.book-nav-link {
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    color: var(--text-primary, #F5F1E8) !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--border-subtle, rgba(191,158,92,0.22));
+    border-radius: 3px;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+.book-nav-link:hover {
+    color: var(--bg-primary, #08111B) !important;
+    background: var(--accent-gold, #BF9E5C);
+    border-color: var(--accent-gold, #BF9E5C);
+}
+.book-toc-link i { color: var(--accent-gold, #BF9E5C); }
+.book-toc-link:hover i { color: inherit; }
+
+/* ============================================================
+   READER — the parchment page
+   ============================================================ */
+.book-page {
+    max-width: 780px;
+    margin: 2.5rem auto 1rem;
+    background: var(--parchment);
+    background-image:
+        linear-gradient(180deg, rgba(255,255,255,0.5), transparent 120px),
+        radial-gradient(ellipse at top, rgba(138,109,39,0.05), transparent 70%);
+    color: var(--ink);
+    border: 1px solid var(--parchment-edge);
+    border-radius: 6px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45), 0 0 0 1px rgba(191,158,92,0.25);
+    position: relative;
+}
+
+/* thin gold rule down the binding side */
+.book-page::before {
+    content: '';
+    position: absolute;
+    inset: 14px 14px 14px 14px;
+    border: 1px solid rgba(138,109,39,0.20);
+    border-radius: 3px;
+    pointer-events: none;
+}
+
+.book-page-inner {
+    padding: clamp(1.6rem, 4vw, 3.5rem) clamp(1.4rem, 5vw, 4rem);
+    position: relative;
+    z-index: 1;
+}
+
+.book-part-head {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(138,109,39,0.25);
+}
+.book-kicker {
+    display: block;
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    color: var(--book-gold-deep);
+    letter-spacing: 3px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: none;
+    margin-bottom: 0.6rem;
+}
+.book-part-title {
+    color: var(--ink) !important;
+    font-family: 'Frank Ruhl Libre', serif !important;
+    font-size: clamp(1.5rem, 3vw, 2.1rem) !important;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: normal;
+}
+
+/* Body paragraphs */
+.book-p {
+    color: var(--ink) !important;
+    font-size: 1.18rem;
+    line-height: 2.05;
+    margin: 0 0 1.15rem;
+    text-align: justify;
+    text-justify: inter-character;
+}
+.book-p:last-child { margin-bottom: 0; }
+
+/* Section headings inside the text */
+.book-h {
+    color: var(--book-gold-deep) !important;
+    font-family: 'Frank Ruhl Libre', serif !important;
+    font-size: clamp(1.3rem, 2.4vw, 1.7rem) !important;
+    font-weight: 700;
+    letter-spacing: normal;
+    margin: 2.4rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(138,109,39,0.3);
+    scroll-margin-top: calc(var(--header-height, 80px) + 70px);
+}
+.book-h::before {
+    content: '\f02d'; /* book icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.7em;
+    color: var(--book-gold);
+    margin-inline-start: 0.5rem;
+    opacity: 0.7;
+}
+
+/* ============================================================
+   READER — bottom pager
+   ============================================================ */
+.book-pager { margin: 1.5rem auto 4rem; }
+.book-pager-inner {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+.book-pager-btn {
+    flex: 1 1 0;
+    min-width: 140px;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 1rem 1.2rem;
+    background: var(--bg-tertiary, #122438);
+    border: 1px solid var(--border-subtle, rgba(191,158,92,0.22));
+    border-radius: 5px;
+    color: var(--text-primary, #F5F1E8) !important;
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    transition: all 0.25s ease;
+}
+.book-pager-btn:hover {
+    border-color: var(--accent-gold, #BF9E5C);
+    background: var(--bg-elevated, #182f47);
+    transform: translateY(-2px);
+}
+.book-pager-btn i { color: var(--accent-gold, #BF9E5C); font-size: 1.1rem; }
+.book-pager-btn span { display: flex; flex-direction: column; line-height: 1.3; }
+.book-pager-btn small {
+    color: var(--text-muted, #7a7468);
+    font-size: 0.72rem;
+    font-weight: 400;
+}
+.book-pager-next { text-align: left; justify-content: flex-end; }
+.book-pager-next span { align-items: flex-start; }
+.book-pager-prev span { align-items: flex-end; }
+.book-pager-toc {
+    flex: 0 0 auto;
+    min-width: 0;
+    justify-content: center;
+    color: var(--accent-gold, #BF9E5C) !important;
+    font-weight: 600;
+}
+
+/* ============================================================
+   LANDING (book.html) — hero / שער
+   ============================================================ */
+.book-hero {
+    padding: calc(var(--header-height, 80px) + 3.5rem) 0 4rem;
+    background:
+        radial-gradient(ellipse at top right, rgba(16,86,117,0.20), transparent 55%),
+        radial-gradient(ellipse at bottom left, rgba(191,158,92,0.10), transparent 50%),
+        var(--bg-primary, #08111B);
+    border-bottom: 1px solid var(--accent-gold, #BF9E5C);
+}
+.book-hero-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 3.5rem;
+    align-items: center;
+}
+
+/* CSS-built cover */
+.book-cover {
+    position: relative;
+    aspect-ratio: 3 / 4.2;
+    border-radius: 4px 8px 8px 4px;
+    background:
+        linear-gradient(135deg, #0d2030 0%, #0a1722 60%, #060f17 100%);
+    border: 1px solid var(--border-strong, rgba(191,158,92,0.45));
+    box-shadow:
+        0 30px 70px rgba(0,0,0,0.6),
+        -6px 0 0 0 rgba(0,0,0,0.25),
+        inset 0 0 0 1px rgba(191,158,92,0.18);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+.book-cover::before {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(191,158,92,0.40);
+    border-radius: 3px;
+    pointer-events: none;
+}
+.book-cover-crown {
+    width: 78px;
+    height: auto;
+    margin: 0.5rem auto 1.2rem;
+    filter: drop-shadow(0 4px 12px rgba(191,158,92,0.45));
+}
+.book-cover-eyebrow {
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    color: var(--accent-gold-bright, #DFB97A);
+    letter-spacing: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+.book-cover-title {
+    font-family: 'Frank Ruhl Libre', serif;
+    color: #fff;
+    font-size: 2.7rem;
+    font-weight: 900;
+    line-height: 1.05;
+    margin: 0 0 0.5rem;
+    text-shadow: 0 2px 18px rgba(0,0,0,0.6);
+}
+.book-cover-sub {
+    font-family: 'Frank Ruhl Libre', serif;
+    color: var(--accent-gold-bright, #DFB97A);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+.book-cover-desc {
+    color: var(--text-secondary, #B8B0A0);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    margin-top: auto;
+}
+.book-cover-author {
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(191,158,92,0.30);
+    width: 100%;
+}
+.book-cover-author strong {
+    display: block;
+    color: #fff;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.05rem;
+}
+.book-cover-author span {
+    color: var(--text-muted, #7a7468);
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    font-size: 0.78rem;
+}
+
+/* Hero text side */
+.book-hero-eyebrow {
+    display: inline-block;
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    color: var(--accent-gold, #BF9E5C);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+}
+.book-hero-title {
+    color: var(--text-primary, #F5F1E8) !important;
+    font-family: 'Frank Ruhl Libre', serif !important;
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+.book-hero-title span { color: var(--accent-gold-bright, #DFB97A) !important; }
+.book-hero-lead {
+    color: var(--text-secondary, #B8B0A0) !important;
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    font-size: 1.15rem;
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+    max-width: 640px;
+}
+.book-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2.5rem;
+    margin: 1.8rem 0 2.2rem;
+    padding: 1.3rem 0;
+    border-top: 1px solid var(--border-subtle, rgba(191,158,92,0.22));
+    border-bottom: 1px solid var(--border-subtle, rgba(191,158,92,0.22));
+}
+.book-hero-meta div { line-height: 1.2; }
+.book-hero-meta strong {
+    display: block;
+    font-family: 'Playfair Display', 'Frank Ruhl Libre', serif;
+    color: var(--accent-gold, #BF9E5C);
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+.book-hero-meta span {
+    color: var(--text-secondary, #B8B0A0);
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    font-size: 0.82rem;
+    letter-spacing: 0.5px;
+}
+.book-hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* ============================================================
+   LANDING — content sections
+   ============================================================ */
+.book-section { padding: 4.5rem 0; }
+.book-section-alt { background: var(--bg-secondary, #0D1A28); }
+
+.book-about-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+.book-prose p {
+    color: var(--text-secondary, #B8B0A0) !important;
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    font-size: 1.08rem;
+    line-height: 1.9;
+    margin-bottom: 1.1rem;
+}
+.book-prose p strong { color: var(--accent-gold-bright, #DFB97A); }
+
+.book-facts {
+    background: var(--bg-tertiary, #122438);
+    border: 1px solid var(--border-subtle, rgba(191,158,92,0.22));
+    border-top: 3px solid var(--accent-gold, #BF9E5C);
+    border-radius: 6px;
+    padding: 1.8rem;
+}
+.book-facts h3 {
+    color: var(--text-primary, #F5F1E8) !important;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+}
+.book-facts ul { list-style: none; padding: 0; margin: 0; }
+.book-facts li {
+    display: flex;
+    gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border-subtle, rgba(191,158,92,0.18));
+    color: var(--text-secondary, #B8B0A0);
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    font-size: 0.95rem;
+}
+.book-facts li:last-child { border-bottom: 0; }
+.book-facts li i { color: var(--accent-gold, #BF9E5C); margin-top: 0.2rem; }
+.book-facts li strong { color: var(--text-primary, #F5F1E8); }
+
+/* Themes chips */
+.book-themes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1.5rem;
+}
+.book-theme-chip {
+    background: rgba(191,158,92,0.08);
+    border: 1px solid var(--border-subtle, rgba(191,158,92,0.22));
+    color: var(--text-primary, #F5F1E8);
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    font-size: 0.88rem;
+    padding: 0.45rem 1rem;
+    border-radius: 30px;
+}
+.book-theme-chip i { color: var(--accent-gold, #BF9E5C); margin-inline-start: 0.4rem; }
+
+/* ============================================================
+   LANDING — table of contents
+   ============================================================ */
+.book-toc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    margin-top: 2.5rem;
+}
+.book-toc-card {
+    display: block;
+    background: var(--bg-tertiary, #122438);
+    border: 1px solid var(--border-subtle, rgba(191,158,92,0.22));
+    border-radius: 6px;
+    padding: 1.5rem 1.6rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.book-toc-card:hover {
+    border-color: var(--accent-gold, #BF9E5C);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg, 0 12px 48px rgba(0,0,0,0.55));
+}
+.book-toc-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--accent-gold, #BF9E5C);
+    opacity: 0.35;
+    line-height: 1;
+    position: absolute;
+    top: 1rem;
+    left: 1.2rem;
+}
+.book-toc-card h3 {
+    color: var(--text-primary, #F5F1E8) !important;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.3rem;
+    margin: 0 0 0.8rem;
+    padding-inline-end: 2.5rem;
+}
+.book-toc-list { list-style: none; padding: 0; margin: 0; }
+.book-toc-list li {
+    color: var(--text-secondary, #B8B0A0);
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    font-size: 0.92rem;
+    padding: 0.25rem 0;
+    line-height: 1.5;
+}
+.book-toc-list li i { color: var(--book-gold, #BF9E5C); font-size: 0.6rem; margin-inline-start: 0.5rem; vertical-align: middle; }
+.book-toc-deep { color: var(--text-secondary, #B8B0A0); transition: color 0.2s ease; }
+.book-toc-card:hover .book-toc-deep { color: var(--accent-gold-bright, #DFB97A); }
+.book-toc-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    color: var(--accent-gold, #BF9E5C);
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* ============================================================
+   LANDING — gallery
+   ============================================================ */
+.book-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+.book-gallery figure {
+    margin: 0;
+    background: var(--bg-tertiary, #122438);
+    border: 1px solid var(--border-subtle, rgba(191,158,92,0.22));
+    border-radius: 6px;
+    overflow: hidden;
+}
+.book-gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    background: #fff;
+}
+.book-gallery figcaption {
+    padding: 0.7rem 0.9rem;
+    color: var(--text-secondary, #B8B0A0);
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    font-size: 0.82rem;
+    text-align: center;
+}
+
+/* ============================================================
+   LANDING — disclaimer / CTA
+   ============================================================ */
+.book-note {
+    background: rgba(191,158,92,0.06);
+    border: 1px solid var(--border-subtle, rgba(191,158,92,0.22));
+    border-radius: 6px;
+    padding: 1.4rem 1.6rem;
+    color: var(--text-secondary, #B8B0A0);
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-top: 2rem;
+}
+.book-note i { color: var(--accent-gold, #BF9E5C); margin-inline-start: 0.4rem; }
+
+.book-startcta {
+    text-align: center;
+    padding: 4.5rem 0;
+    background:
+        linear-gradient(135deg, var(--bg-primary, #08111B), var(--bg-secondary, #0D1A28));
+    border-top: 1px solid var(--accent-gold, #BF9E5C);
+}
+.book-startcta h2 {
+    color: var(--text-primary, #F5F1E8) !important;
+    font-family: 'Frank Ruhl Libre', serif;
+    margin-bottom: 1rem;
+}
+.book-startcta p {
+    color: var(--text-secondary, #B8B0A0) !important;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+    .book-hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .book-cover { max-width: 300px; margin: 0 auto; }
+    .book-about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .book-gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 680px) {
+    .book-toc-grid { grid-template-columns: 1fr; }
+    .book-toolbar-inner { flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+    .book-progress { order: -1; flex-basis: 100%; text-align: center; }
+    .book-page { margin: 1.2rem auto; border-radius: 4px; }
+    .book-page::before { inset: 8px; }
+    .book-p { font-size: 1.1rem; line-height: 1.95; text-align: right; }
+    .book-pager-btn { flex-basis: 100%; }
+    .book-pager-toc { order: 3; }
+}
+
+/* ============================================================
+   FEATURE BANNER + FEATURED CARD (used on articles.html)
+   ============================================================ */
+.book-feature-banner {
+    display: block;
+    margin: 0 auto 2.5rem;
+    max-width: 900px;
+    padding: 1.8rem 2.2rem;
+    border-radius: 8px;
+    background:
+        linear-gradient(135deg, rgba(191,158,92,0.14), rgba(16,86,117,0.10)),
+        var(--bg-tertiary, #122438);
+    border: 1px solid var(--border-strong, rgba(191,158,92,0.45));
+    box-shadow: var(--shadow, 0 6px 24px rgba(0,0,0,0.40));
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    text-align: center;
+}
+.book-feature-banner:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-gold, #BF9E5C);
+    box-shadow: var(--shadow-lg, 0 12px 48px rgba(0,0,0,0.55));
+}
+.book-feature-tag {
+    display: inline-block;
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    color: var(--accent-gold, #BF9E5C);
+    letter-spacing: 1.5px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: none;
+    margin-bottom: 0.6rem;
+}
+.book-feature-tag i { margin-inline-start: 0.3rem; }
+.book-feature-title {
+    display: block;
+    font-family: 'Frank Ruhl Libre', serif;
+    color: var(--text-primary, #F5F1E8);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+}
+.book-feature-text {
+    display: block;
+    color: var(--text-secondary, #B8B0A0);
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1rem;
+}
+.book-feature-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent-gold, #BF9E5C);
+    color: var(--bg-primary, #08111B);
+    font-family: var(--font-primary, 'Heebo', sans-serif);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.7rem 1.6rem;
+    border-radius: 3px;
+    transition: background 0.25s ease;
+}
+.book-feature-banner:hover .book-feature-cta { background: var(--accent-gold-bright, #DFB97A); }
+
+.book-card-featured {
+    border-color: var(--accent-gold, #BF9E5C) !important;
+    background:
+        linear-gradient(135deg, rgba(191,158,92,0.08), transparent),
+        var(--bg-tertiary, #122438) !important;
+    box-shadow: 0 0 0 1px var(--accent-gold-glow, rgba(191,158,92,0.35));
+}
+
+/* Print — clean reading/printing of a part */
+@media print {
+    #header, .book-toolbar, .book-pager, footer, .side-actions, .skip-link { display: none !important; }
+    body, html { background: #fff !important; }
+    .book-page { box-shadow: none; border: 0; max-width: 100%; }
+    .book-p, .book-h, .book-part-title { color: #000 !important; }
+}
