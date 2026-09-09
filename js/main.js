@@ -5,17 +5,28 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    initHeader();
-    initMobileMenu();
-    initSmoothScroll();
-    initFAQ();
-    initScrollReveal();
-    initContactForm();
-    initCurrentYear();
-    initImageFallbacks();
-    initCursorGlow();
-    initHeroParallax();
-    initBackToTop();
+    // כל אתחול רץ בנפרד: כשל באחד לא מפיל את השאר.
+    // initContactForm מוגדר ב-form-handler.js, שנטען רק בעמודים עם טופס.
+    [
+        initHeader,
+        initMobileMenu,
+        initSmoothScroll,
+        initFAQ,
+        initScrollReveal,
+        typeof initContactForm === 'function' ? initContactForm : null,
+        initCurrentYear,
+        initImageFallbacks,
+        initCursorGlow,
+        initHeroParallax,
+        initBackToTop
+    ].forEach(fn => {
+        if (typeof fn !== 'function') return;
+        try {
+            fn();
+        } catch (err) {
+            console.error('[main] init failed:', fn.name, err);
+        }
+    });
 });
 
 /**
@@ -123,6 +134,30 @@ function initImageFallbacks() {
             handleError(img);
         } else {
             img.addEventListener('error', () => handleError(img), { once: true });
+        }
+    });
+
+    // fallback מוצהר דרך data-fallback.
+    // מחליף onerror inline, שנחסם ע"י ה-CSP (script-src ללא unsafe-inline).
+    const strategies = {
+        hide: (img) => { img.hidden = true; },
+        'hide-parent': (img) => {
+            img.hidden = true;
+            if (img.parentElement) img.parentElement.hidden = true;
+        },
+        dim: (img) => {
+            img.style.opacity = '0.15';
+            img.alt = 'תמונה תיווסף בקרוב';
+        }
+    };
+
+    document.querySelectorAll('img[data-fallback]').forEach(img => {
+        const apply = strategies[img.dataset.fallback];
+        if (!apply) return;
+        if (img.complete && img.naturalHeight === 0) {
+            apply(img);
+        } else {
+            img.addEventListener('error', () => apply(img), { once: true });
         }
     });
 }
