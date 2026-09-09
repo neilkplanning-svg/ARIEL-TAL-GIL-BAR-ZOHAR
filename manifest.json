@@ -2,14 +2,30 @@
     "name": "הרב עו״ד אריאל טל ועו״ד גיל בר-זהר",
     "short_name": "בר-זהר ואריאל טל",
     "description": "משרד עורכי דין בוטיק יוקרתי בתל אביב וירושלים. למעלה מ־30 שנה ניסיון בדיני משפחה, ירושה, נזיקין, נדל״ן, עסקים ובתי דין רבניים.",
-    "start_url": "/",
+    "start_url": "/ARIEL-TAL-GIL-BAR-ZOHAR/",
     "display": "standalone",
-    "background_color": "#105675",
-    "theme_color": "#105675",
+    "background_color": "#08111B",
+    "theme_color": "#08111B",
     "lang": "he",
     "dir": "rtl",
     "icons": [
-        {"src": "images/icon-192.png", "sizes": "192x192", "type": "image/png"},
-        {"src": "images/icon-512.png", "sizes": "512x512", "type": "image/png"}
-    ]
+        {
+            "src": "images/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "images/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "images/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ],
+    "scope": "/ARIEL-TAL-GIL-BAR-ZOHAR/"
 }
