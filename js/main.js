@@ -6,14 +6,12 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // כל אתחול רץ בנפרד: כשל באחד לא מפיל את השאר.
-    // initContactForm מוגדר ב-form-handler.js, שנטען רק בעמודים עם טופס.
     [
         initHeader,
         initMobileMenu,
         initSmoothScroll,
         initFAQ,
         initScrollReveal,
-        typeof initContactForm === 'function' ? initContactForm : null,
         initCurrentYear,
         initImageFallbacks,
         initCursorGlow,
