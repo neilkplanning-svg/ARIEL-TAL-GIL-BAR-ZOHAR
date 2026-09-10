@@ -2652,3 +2652,10 @@ footer {
     gap: 0.4rem;
     min-height: 44px;
 }
+
+/* פרופיל יחיד: הרשת נבנתה לשני שותפים זה לצד זה.
+   עם כרטיס אחד הוא היה נמתח על כל הרוחב ונראה ריק. */
+.partners-grid-single {
+    grid-template-columns: minmax(0, 34rem);
+    justify-content: center;
+}
