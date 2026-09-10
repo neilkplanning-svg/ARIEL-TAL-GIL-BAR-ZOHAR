@@ -3,11 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== Security Headers (CSP via meta) ===== -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self';
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        img-src 'self' data: https:;
+        connect-src 'self';
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+    ">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <title>הרב עו״ד אריאל טל — עמוד אישי</title>
-    <meta name="description" content="עמוד אישי של הרב עו״ד אריאל טל — שותף מייסד במשרד בר-זהר ואריאל טל. שילוב נדיר של תורה ומשפט.">
+    <meta name="description" content="עמוד אישי של הרב עו״ד אריאל טל — שותף מייסד במשרד הרב עו״ד אריאל טל. שילוב נדיר של תורה ומשפט.">
     <meta name="robots" content="noindex,follow"> <!-- עמוד תצוגה — לא לאינדוקס בשלב זה -->
 
     <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
@@ -24,8 +40,8 @@
     <header id="header" class="header-scrolled">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="../index.html" class="logo" aria-label="דף הבית — בר-זהר ואריאל טל">
-                    <img class="logo-image" src="../images/LOGO.png" alt="בר-זהר ואריאל טל — משרד עורכי דין בוטיק" width="220" height="124">
+                <a href="../index.html" class="logo" aria-label="דף הבית — הרב עו״ד אריאל טל">
+                    <img class="logo-image" src="../images/LOGO.png" alt="הרב עו״ד אריאל טל — משרד עורכי דין בוטיק" width="220" height="124">
                 </a>
                 <nav aria-label="ניווט ראשי">
                     <ul id="nav-menu">
@@ -58,7 +74,7 @@
                     <img src="../images/ariel-tal.jpg"
                          alt="הרב עו״ד אריאל טל"
                          loading="lazy"
-                         onerror="this.style.display='none';this.parentElement.style.display='none';">
+                         data-fallback="hide-parent">
                     <figcaption>הרב עו״ד אריאל טל</figcaption>
                 </figure>
 
@@ -83,7 +99,7 @@
     <footer>
         <div class="container">
             <div class="footer-bottom">
-                <p>© <span id="current-year">2026</span> כל הזכויות שמורות לבר-זהר ואריאל טל</p>
+                <p>© <span id="current-year">2026</span> כל הזכויות שמורות להרב עו״ד אריאל טל</p>
                 <div class="footer-legal-links">
                     <a href="privacy.html">פרטיות</a><span aria-hidden="true">·</span>
                     <a href="terms.html">תקנון</a><span aria-hidden="true">·</span>
@@ -94,6 +110,5 @@
     </footer>
 
     <script src="../js/main.js" defer></script>
-    <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

@@ -1,11 +1,15 @@
 /**
  * form-handler.js
- * טיפול בטופס יצירת קשר עם validation, honeypot, ושליחה ל-Formspree.
+ * טיפול בטופס יצירת קשר עם validation, honeypot ושליחה ל-Web3Forms.
  *
- * הגדרת FORM_ENDPOINT:
- *   1. הירשם ל-Formspree (https://formspree.io) או Web3Forms (https://web3forms.com)
- *   2. החלף את הערך ב-data-endpoint על תג ה-form ב-HTML.
- *   3. אם לא הוגדר endpoint — הטופס יציג הודעת הצלחה דמה (לבדיקות בלבד).
+ * הגדרה (פעם אחת):
+ *   1. היכנס ל-https://web3forms.com, הזן את כתובת המייל שאליה יגיעו הלידים
+ *      וקבל Access Key במייל.
+ *   2. הדבק את המפתח ב-index.html, בשדה:
+ *        <input type="hidden" name="access_key" value="...">
+ *
+ * אם המפתח חסר — הטופס *לא* מתחזה להצלחה. הוא מציג שגיאה ומפנה
+ * לטלפון ול-WhatsApp, כדי שלא ייעלמו לידים בלי שאיש יידע.
  */
 
 function initContactForm() {
@@ -68,21 +72,26 @@ async function handleSubmit(e) {
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> שולח...';
 
     const endpoint = form.dataset.endpoint;
+    const accessKey = form.querySelector('input[name="access_key"]')?.value.trim();
 
     try {
-        if (endpoint && endpoint !== '' && !endpoint.startsWith('{{')) {
-            // שליחה אמיתית
-            const data = new FormData(form);
-            const response = await fetch(endpoint, {
-                method: 'POST',
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            });
-            if (!response.ok) throw new Error('Network error');
-        } else {
-            // מצב בדיקה — דמה הצלחה
-            await new Promise(r => setTimeout(r, 800));
-            console.warn('[form-handler] No endpoint configured — simulated success.');
+        if (!endpoint || endpoint.startsWith('{{')) {
+            throw new Error('form endpoint is not configured');
+        }
+        if (!accessKey || accessKey.startsWith('{{')) {
+            throw new Error('web3forms access_key is not configured');
+        }
+
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        });
+
+        // Web3Forms מחזיר 200 עם success:false על מפתח שגוי — יש לבדוק את הגוף.
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || result.success === false) {
+            throw new Error(result.message || `HTTP ${response.status}`);
         }
 
         showSuccess(form, submitBtn);
@@ -90,8 +99,28 @@ async function handleSubmit(e) {
         console.error('[form-handler] Error:', err);
         submitBtn.innerHTML = originalHTML;
         submitBtn.disabled = false;
-        alert('אירעה שגיאה בשליחה. אנא נסו שוב או צרו קשר טלפוני.');
+        showFormFailure(form);
     }
+}
+
+/**
+ * כשל שליחה — הודעה גלויה בתוך הטופס עם דרכי קשר חלופיות.
+ * מוצג במקום alert() כדי לא לחסום ולהישאר נגיש לקוראי מסך.
+ */
+function showFormFailure(form) {
+    let box = form.querySelector('.form-failure');
+    if (!box) {
+        box = document.createElement('div');
+        box.className = 'form-failure';
+        box.setAttribute('role', 'alert');
+        box.innerHTML =
+            '<strong>השליחה נכשלה.</strong> ' +
+            'אנא נסו שוב, או צרו קשר ישירות: ' +
+            '<a href="tel:+972508813626">050-881-3626</a> · ' +
+            '<a href="https://wa.me/972543209765" target="_blank" rel="noopener noreferrer">WhatsApp</a>';
+        form.querySelector('.submit-btn').insertAdjacentElement('afterend', box);
+    }
+    box.hidden = false;
 }
 
 function showError(el, message) {
