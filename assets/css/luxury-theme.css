@@ -4,6 +4,10 @@
    Inspired by aluk-firm.com aesthetics.
    ============================================================ */
 
+/* Playfair Display — לספרות ולמספרים גדולים.
+   חייב להופיע לפני כל כלל אחר בקובץ, אחרת הדפדפן מתעלם ממנו. */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&display=swap');
+
 /* ============================================================
    0. LOCAL FONTS — Almoni Neue (תואם לאתר דוגמה)
    ============================================================ */
@@ -49,7 +53,7 @@
 
     --text-primary:      #F5F1E8;
     --text-secondary:    #B8B0A0;
-    --text-muted:        #7a7468;
+    --text-muted:        #9c9485;   /* היה #7a7468 — 3.4:1 בלבד מול הרקעים הכהים. עכשיו ≥4.55:1 (WCAG AA) */
 
     --border-subtle:     rgba(191, 158, 92, 0.22);
     --border-strong:     rgba(191, 158, 92, 0.45);
@@ -98,8 +102,6 @@
     --shadow-accent:  0 8px 28px var(--accent-gold-glow);
 }
 
-/* Load Playfair Display for numerals */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&display=swap');
 
 /* ============================================================
    2. BASE — body, html, links, headings
@@ -247,6 +249,20 @@ nav ul a::after { background: var(--accent-gold) !important; height: 1px; }
     border-radius: 2px !important;
     display: inline-block;
     margin-bottom: 1.25rem;
+}
+
+/* .section-title הוא inline-block (כדי שקו הזהב יתמקם לפי רוחב הטקסט).
+   בלי הכלל הבא, תגית inline-block שלפניו נדבקת אליו לאותה שורה
+   בכל section-header שאין אחריו subtitle שיכפה מעבר שורה. */
+.section-header .section-tag {
+    display: block;
+    width: fit-content;
+    margin-inline: auto;
+}
+
+/* כותרות מיושרות-ימין: התגית נשארת בתחילת השורה ולא במרכז */
+.section-success-stories .section-header .section-tag {
+    margin-inline: 0;
 }
 
 .section-title {
@@ -427,6 +443,10 @@ nav ul a::after { background: var(--accent-gold) !important; height: 1px; }
     color: var(--accent-gold) !important;
     line-height: 1;
     display: block;
+    /* בהקשר RTL הסימן הנייטרלי נזרק לצד השני: "30+" הוצג כ-"+30".
+       בידוד כרצף LTR שומר על הסדר הנכון גם ל-%‎ ול-+. */
+    direction: ltr;
+    unicode-bidi: isolate;
 }
 
 .stat-label {
@@ -2557,4 +2577,85 @@ footer {
     .hero-with-portrait {
         padding-top: calc(var(--header-height) + 0.85rem) !important;
     }
+}
+
+/* ============================================================
+   30. MOBILE UX — יעדי מגע וגדלי טקסט
+   נוסף אחרי ביקורת UI/UX: נמדד ב-Chromium ברוחב 390px.
+   הבלוק בסוף הקובץ בכוונה — כדי לגבור על כללי המובייל שקדמו לו
+   בלי להוסיף עוד שכבת !important מיותרת.
+   ============================================================ */
+@media (max-width: 768px) {
+    /* היה 30x30 — קטן מדי לכפתור הניווט הראשי במובייל.
+       ה-span-ים נשארים בגודלם; רק שטח המגע גדל. */
+    .mobile-toggle {
+        width: 48px !important;
+        height: 48px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 5px;
+        margin-inline-start: -6px;   /* משמר את היישור האופטי לקצה */
+    }
+
+    /* קישורי טקסט צפופים — הגדלת אזור המגע בלי לשנות את המראה */
+    .footer-legal-links a,
+    .footer-links a,
+    .footer-contact a,
+    .contact-item-text a,
+    .breadcrumb a {
+        display: inline-block;
+        min-height: 44px;
+        line-height: 44px;
+    }
+    .footer-legal-links { display: flex; flex-wrap: wrap; gap: 0 1.1rem; justify-content: center; }
+
+    /* טקסט מתחת ל-12px נקרא גרוע בעברית במסך קטן */
+    .stat-label            { font-size: 0.78rem !important; }
+    .section-tag           { font-size: 0.75rem !important; letter-spacing: 1.5px !important; }
+    .hero-eyebrow          { font-size: 0.78rem !important; }
+    .expertise-strip-item small { font-size: 0.8rem !important; }
+    .side-action-btn .label     { font-size: 0.78rem !important; }
+}
+
+@media (max-width: 380px) {
+    .stat-label  { font-size: 0.72rem !important; }
+    .section-tag { font-size: 0.72rem !important; }
+}
+
+/* הכיתוב מעל כותרת ה-Hero נקרא בקושי מול הרקע הבהיר של התצלום.
+   הצללה + הבהרה מחזירות אותו לקריאוּת בלי לשנות את העיצוב. */
+.hero-eyebrow {
+    color: var(--accent-gold-bright) !important;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.85), 0 0 4px rgba(0, 0, 0, 0.9);
+}
+
+/* הודעת כשל שליחה בטופס — נוצרת ב-form-handler.js */
+.form-failure {
+    margin-top: 1rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--error);
+    border-radius: 3px;
+    background: rgba(220, 53, 69, 0.12);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+.form-failure a { color: var(--accent-gold-bright); text-decoration: underline; }
+
+/* שאריות מסבב האימות: eyebrow של כרטיס שותף ב-11.5px, וקישורי
+   "לפרופיל המלא" בגובה 24px בלבד. */
+.partner-eyebrow { font-size: 0.8rem !important; letter-spacing: 2px !important; }
+
+.btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 44px;
+}
+
+/* פרופיל יחיד: הרשת נבנתה לשני שותפים זה לצד זה.
+   עם כרטיס אחד הוא היה נמתח על כל הרוחב ונראה ריק. */
+.partners-grid-single {
+    grid-template-columns: minmax(0, 34rem);
+    justify-content: center;
 }
