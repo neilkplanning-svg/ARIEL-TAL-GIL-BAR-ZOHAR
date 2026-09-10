@@ -2659,3 +2659,30 @@ footer {
     grid-template-columns: minmax(0, 34rem);
     justify-content: center;
 }
+
+/* ============================================================
+   31. CONTACT — ללא טופס
+   הלקוח ביקש להסיר את רובריקת השארת הפרטים. הרשת נבנתה לשתי
+   עמודות (פרטים + טופס); עם עמודה אחת היא נשארה חצי ריקה.
+   עמודה אחת ממורכזת מחזיקה את ארבעת הפריטים בלי חורים.
+   ============================================================ */
+.contact-grid {
+    grid-template-columns: minmax(0, 38rem);
+    justify-content: center;
+    gap: 0;
+}
+.contact-info > h2,
+.contact-info > p { text-align: center; }
+.contact-info > p { max-width: 44ch; margin-inline: auto; }
+
+.contact-info .contact-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+}
+.contact-info .contact-item:has(+ .contact-social) { border-bottom: none; }
+
+.contact-info .branch-cards { margin-top: .75rem; }
+.contact-social { justify-content: center; display: flex; margin-top: 1.75rem; }

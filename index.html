@@ -11,11 +11,11 @@
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
         font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
         img-src 'self' data: https:;
-        connect-src 'self' https://www.google-analytics.com https://api.web3forms.com;
+        connect-src 'self' https://www.google-analytics.com;
         frame-src https://www.google.com https://calendar.google.com;
         object-src 'none';
         base-uri 'self';
-        form-action 'self' https://api.web3forms.com;
+        form-action 'none';
     ">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -638,7 +638,7 @@
                 <div class="contact-grid">
                     <div class="contact-info reveal">
                         <h2 id="contact-title">בואו נדבר</h2>
-                        <p>הצעד הראשון מתחיל כאן. נחזור אליכם מהר.</p>
+                        <p>לתיאום פגישת ייעוץ — בטלפון, ב-WhatsApp או במייל. כל פנייה מטופלת בדיסקרטיות מלאה.</p>
 
                         <div class="contact-item">
                             <div class="contact-item-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
@@ -689,66 +689,6 @@
                         </div>
                     </div>
 
-                    <div class="reveal">
-                        <form class="contact-form" id="contact-form"
-                              data-endpoint="https://api.web3forms.com/submit"
-                              method="POST" novalidate>
-                            <h3>השאירו פרטים</h3>
-                            <p>ונחזור אליכם בהקדם</p>
-
-                            <!-- ⚠️ להשלמה לפני עלייה לאוויר:
-                                 מפתח Web3Forms (חינמי) מ-https://web3forms.com —
-                                 מזינים שם את כתובת המייל שאליה יגיעו הלידים והמפתח נשלח במייל.
-                                 עד שיוזן מפתח, הטופס יציג הודעת שגיאה עם טלפון ו-WhatsApp
-                                 ולא יתחזה להצלחה. -->
-                            <input type="hidden" name="access_key" value="">
-                            <input type="hidden" name="subject" value="פנייה חדשה מאתר הרב עו״ד אריאל טל">
-                            <input type="hidden" name="from_name" value="אתר המשרד">
-
-                            <div class="honeypot" aria-hidden="true">
-                                <label for="website">אתר (אל תמלאו)</label>
-                                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="name">שם מלא *</label>
-                                    <input type="text" id="name" name="name" required placeholder="שמכם" autocomplete="name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">טלפון *</label>
-                                    <input type="tel" id="phone" name="phone" required placeholder="050-0000000" pattern="[0-9\-\+\s\(\)]+" autocomplete="tel">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email">דוא"ל</label>
-                                <input type="email" id="email" name="email" placeholder="example@email.com" autocomplete="email">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="subject">נושא הפנייה *</label>
-                                <select id="subject" name="subject" required>
-                                    <option value="" disabled selected>בחרו נושא...</option>
-                                    <option value="דיני-משפחה">דיני משפחה ורכוש</option>
-                                    <option value="ירושה-וצוואות">ירושה וצוואות</option>
-                                    <option value="בית-דין-רבני">בית דין רבני</option>
-                                    <option value="ערעורים-פליליים">ערעורים בתחום המשפט הפלילי</option>
-                                    <option value="נזיקין">נזיקין (ביטוח לאומי, רשלנות רפואית, תאונות)</option>
-                                    <option value="עסקים">עסקים וסכסוכים מסחריים</option>
-                                    <option value="אחר">אחר</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="message">פרטים נוספים</label>
-                                <textarea id="message" name="message" placeholder="ספרו בקצרה..."></textarea>
-                            </div>
-
-                            <button type="submit" class="submit-btn"><i class="fas fa-paper-plane" aria-hidden="true"></i> שלחו פנייה</button>
-                            <p class="form-note"><i class="fas fa-lock" aria-hidden="true"></i> הפרטים שלכם מאובטחים</p>
-                        </form>
-                    </div>
                 </div>
             </div>
         </section>
@@ -804,14 +744,13 @@
             <i class="fas fa-phone" aria-hidden="true"></i>
             <span class="label">חייגו עכשיו</span>
         </a>
-        <a href="#contact" class="side-action-btn" aria-label="השאירו פרטים">
+        <a href="mailto:a0543209765@gmail.com" class="side-action-btn" aria-label="שליחת מייל">
             <i class="fas fa-envelope" aria-hidden="true"></i>
-            <span class="label">השאירו פרטים</span>
+            <span class="label">שליחת מייל</span>
         </a>
     </aside>
 
     <script src="js/main.js"></script>
-    <script src="js/form-handler.js"></script>
     <script src="assets/js/video-hover.js" defer></script>
 </body>
 </html>

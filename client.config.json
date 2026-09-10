@@ -104,7 +104,7 @@
     "robotsIndex": true
   },
   "features": {
-    "leadForm": true,
+    "leadForm": false,
     "googleCalendarBooking": false,
     "googleCalendarEmbedUrl": "",
     "wazeNavigation": true,
