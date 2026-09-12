@@ -2426,7 +2426,7 @@ footer {
 }
 
 /* תמונת השותפים — חצי הרוחב השמאלי, צמודה לתחתית */
-.hero-partners-cutout {
+.hero-portrait-cutout {
     position: absolute;
     inset: 0 50% 0 0;          /* תופסת רק את החצי השמאלי (RTL: ימין=50%, שמאל=0) */
     z-index: 1;
@@ -2436,7 +2436,7 @@ footer {
     justify-content: center;
     padding: 0 1rem;
 }
-.hero-partners-cutout img {
+.hero-portrait-cutout img {
     width: auto;
     height: 92%;
     max-width: 100%;
@@ -2488,9 +2488,9 @@ footer {
 
 /* טאבלט — צמצום פרופורציות */
 @media (max-width: 1100px) {
-    .hero-partners-cutout { inset: 0 48% 0 0; }
+    .hero-portrait-cutout { inset: 0 48% 0 0; }
     .hero-with-portrait .hero-center { max-width: 52%; padding-right: 1rem; padding-left: 1rem; }
-    .hero-partners-cutout img { height: 82%; }
+    .hero-portrait-cutout img { height: 82%; }
 }
 
 /* מובייל — סטאק אנכי נקי: טקסט למעלה (45% גובה), תמונה למטה (45%), הכל ברור */
@@ -2504,7 +2504,7 @@ footer {
     }
 
     /* תמונה — נצמדת לתחתית, נראית במלואה, ללא שקיפות */
-    .hero-partners-cutout {
+    .hero-portrait-cutout {
         position: relative !important;       /* יוצא מ-absolute לזרימה הטבעית */
         inset: auto !important;
         opacity: 1;                          /* מלא — בלי רוח רפאים */
@@ -2514,7 +2514,7 @@ footer {
         flex-shrink: 0;
         height: auto;
     }
-    .hero-partners-cutout img {
+    .hero-portrait-cutout img {
         height: auto;
         width: 100%;
         max-width: 480px;                    /* גודל סביר במובייל */
@@ -2570,7 +2570,7 @@ footer {
 
 /* מסכים זעירים — תמונה מעט קטנה יותר כדי לא לדחוף את ה-fold */
 @media (max-width: 480px) {
-    .hero-partners-cutout img {
+    .hero-portrait-cutout img {
         max-height: 36vh;
         max-width: 380px;
     }
@@ -2686,3 +2686,56 @@ footer {
 
 .contact-info .branch-cards { margin-top: .75rem; }
 .contact-social { justify-content: center; display: flex; margin-top: 1.75rem; }
+
+/* ============================================================
+   32. HERO PORTRAIT — כיולים אחרי החלפת הדיוקן
+   הדיוקן החדש צר וגבוה (507×1100) מהקודם, ולכן
+   max-height קודם הקטין אותו במובייל לכ-140px רוחב בלבד.
+   ============================================================ */
+@media (max-width: 768px) {
+    /* פס הפעולות הצף (64px) חתך את תחתית הדמות */
+    .hero-with-portrait { padding-bottom: 72px !important; }
+
+    /* דמות מלאה ברוחב 124px לא נקראת. במקום להקטין, חותכים לראש
+       וכתפיים מאותו קובץ — נוכחות גדולה באותו שטח מסך.
+       הגובה מוגבל כך שה-hero נכנס למסך מעל פס הפעולות הצף. */
+    .hero-portrait-cutout {
+        margin-top: 0.75rem !important;
+        width: 100%;
+    }
+    .hero-portrait-cutout img {
+        width: 260px;
+        height: 260px;
+        max-width: none;
+        max-height: none;
+        object-fit: cover;
+        object-position: top center;   /* ראש וכתפיים מתוך הדמות המלאה */
+    }
+
+    /* ה-overlay במובייל חלש יותר, והכיתוב העליון נפל על אזור שמיים בהיר */
+    .hero-with-portrait .hero-overlay {
+        background:
+            linear-gradient(180deg,
+                rgba(8,17,27,0.72) 0%,
+                rgba(8,17,27,0.45) 42%,
+                rgba(8,17,27,0.12) 100%) !important;
+    }
+}
+
+/* קישורי "המשך קריאה" בכרטיסים נמדדו בגובה 18–26px במובייל */
+@media (max-width: 768px) {
+    .read-more,
+    .service-link,
+    .book-feature-cta,
+    .article-card a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        min-height: 44px;
+    }
+}
+
+/* בדסקטופ ראש הדמות נגע בשולי ההדר */
+@media (min-width: 769px) {
+    .hero-portrait-cutout img { height: 86%; }
+}

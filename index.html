@@ -191,7 +191,7 @@
     <main id="main-content">
 
         <!-- ============ HERO — centered with video background + partners cutout ============ -->
-        <section id="home" class="hero" aria-labelledby="hero-title">
+        <section id="home" class="hero hero-with-portrait" aria-labelledby="hero-title">
             <!-- Background video (autoplay, muted, loop) — desktop only via JS -->
             <video class="hero-video"
                    data-src="assets/videos/hero.mp4"
@@ -205,6 +205,16 @@
                  alt=""
                  aria-hidden="true"
                  data-fallback="hide">
+
+            <!-- דיוקן חתוך על רקע שקוף -->
+            <div class="hero-portrait-cutout" aria-hidden="true">
+                <img src="images/ariel-tal-cutout.webp"
+                     alt=""
+                     width="507" height="1100"
+                     loading="eager"
+                     decoding="async"
+                     data-fallback="hide-parent">
+            </div>
 
             <!-- Dark gradient overlay for legibility -->
             <div class="hero-overlay" aria-hidden="true"></div>
