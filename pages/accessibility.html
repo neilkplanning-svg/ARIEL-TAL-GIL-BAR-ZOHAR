@@ -3,22 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- ===== Security Headers (CSP via meta) ===== -->
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self';
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
-        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-        img-src 'self' data: https:;
-        connect-src 'self';
-        object-src 'none';
-        base-uri 'self';
-        form-action 'self';
-    ">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-
     <title>הצהרת נגישות | הרב עו״ד אריאל טל</title>
     <meta name="description" content="הצהרת הנגישות של אתר הרב עו״ד אריאל טל">
     <link rel="canonical" href="https://neilkplanning-svg.github.io/ARIEL-TAL-GIL-BAR-ZOHAR/pages/accessibility.html">
@@ -35,17 +19,20 @@
     <link rel="stylesheet" href="../assets/css/luxury-theme.css">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
     <header id="header" class="header-scrolled">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="../index.html" class="logo" aria-label="דף הבית — הרב עו״ד אריאל טל">
-                    <img class="logo-image" src="../images/LOGO.png" alt="הרב עו״ד אריאל טל — משרד עורכי דין בוטיק" width="220" height="124">
+                <a href="../index.html" class="logo logo-text" aria-label="דף הבית — הרב עו״ד אריאל טל, משרד עורכי דין">
+                    <span class="logo-mark" aria-hidden="true"><i class="fas fa-scale-balanced"></i></span>
+                    <span class="logo-lines">
+                        <span class="logo-name">הרב עו״ד אריאל טל</span>
+                        <span class="logo-sub">משרד עורכי דין</span>
+                    </span>
                 </a>
                 <nav aria-label="ניווט ראשי">
                     <ul id="nav-menu">
                         <li><a href="../index.html#home">ראשי</a></li>
-                        <li><a href="../index.html#services">תחומי התמחות</a></li>
+                        <li><a href="../index.html#services">תחומי עיסוק</a></li>
                         <li><a href="about.html">אודות</a></li>
                         <li><a href="articles.html">מאמרים וספרים</a></li>
                         <li><a href="../index.html#contact">צור קשר</a></li>
@@ -57,7 +44,7 @@
         </div>
     </header>
 
-    <main id="main-content">
+    <main>
         <section class="page-header">
             <div class="container">
                 <h1>הצהרת נגישות</h1>
@@ -68,38 +55,55 @@
         <section class="section section-light">
             <div class="container" style="max-width: 800px;">
                 <div class="article-content">
-                    <p><strong>עודכן לאחרונה:</strong> 09/2026</p>
+                    <p><strong>עודכן לאחרונה:</strong> ספטמבר 2026</p>
 
                     <h2>מחויבות לנגישות</h2>
-                    <p>הרב עו״ד אריאל טל רואה בחשיבות עליונה את הנגשת האתר לציבור הרחב, לרבות אנשים עם מוגבלויות, בהתאם לתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), תשע"ג-2013.</p>
+                    <p>משרד הרב עו״ד אריאל טל רואה חשיבות בהנגשת האתר לכלל הציבור, לרבות אנשים עם מוגבלות, בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, התשנ"ח-1998 ולתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג-2013.</p>
 
-                    <h2>תקן הנגישות</h2>
-                    <p>האתר נבנה בהתאם להמלצות תקן ישראלי 5568 ולהנחיות WCAG 2.1 ברמה AA, ככל שניתן ביישום סטטי על תשתית GitHub Pages.</p>
+                    <h2>תקן הנגישות שיושם</h2>
+                    <p>האתר הונגש בהתאם לתקן הישראלי ת"י 5568 המבוסס על הנחיות <strong>WCAG 2.1 ברמה AA</strong>. ההנגשה בוצעה בקוד האתר עצמו, ולא באמצעות תוסף או widget חיצוני.</p>
+                    <p>בדיקת הנגישות האחרונה בוצעה בספטמבר 2026 בבדיקה ידנית של קוד האתר. <strong>טרם בוצעה בדיקה על ידי מורשה נגישות שירות מוסמך.</strong></p>
 
-                    <h2>אמצעי נגישות שנעשו</h2>
+                    <h2>אמצעי הנגישות שיושמו באתר</h2>
                     <ul>
-                        <li>ניווט מלא באמצעות מקלדת.</li>
-                        <li>מבנה סמנטי תקין (HTML5) לעבודה עם קוראי מסך (JAWS, NVDA, VoiceOver).</li>
-                        <li>טקסט אלטרנטיבי (alt) לכל תמונה משמעותית.</li>
-                        <li>ניגודיות צבעים גבוהה — עומדת ב-AA (4.5:1 לפחות).</li>
-                        <li>כל אמצעי יצירת הקשר (טלפון, דוא״ל, WhatsApp) נגישים בקישור ישיר ומתויגים לקוראי מסך.</li>
-                        <li>כיבוד הגדרות מערכת (prefers-reduced-motion).</li>
+                        <li>ניווט מלא באמצעות מקלדת, כולל סימון ברור של מוקד המקלדת (focus) בכל רכיב אינטראקטיבי.</li>
                         <li>קישור "דלג לתוכן הראשי" בתחילת כל עמוד.</li>
-                        <li>תמיכה בכל הדפדפנים המודרניים.</li>
+                        <li>מבנה סמנטי תקין (HTML5) עם היררכיית כותרות רציפה, לעבודה עם קוראי מסך (NVDA, JAWS, VoiceOver).</li>
+                        <li>טקסט חלופי (alt) לכל תמונה נושאת מידע; תמונות דקורטיביות מסומנות כך שקוראי מסך ידלגו עליהן.</li>
+                        <li>ניגודיות צבעים העומדת בדרישת 4.5:1 לטקסט רגיל ו-3:1 לטקסט גדול ולרכיבי ממשק.</li>
+                        <li>כיבוד העדפת המערכת להפחתת אנימציות (<code>prefers-reduced-motion</code>) — סרטוני הרקע אינם מתנגנים.</li>
+                        <li>כיבוד העדפת ניגודיות מוגברת (<code>prefers-contrast</code>).</li>
+                        <li>גודל מינימלי של 44×44 פיקסלים לרכיבי הפעלה עיקריים.</li>
+                        <li>תצוגה תקינה בהגדלת דפדפן עד 200% ללא אובדן תוכן.</li>
+                        <li>האתר בעברית עם סימון <code>lang="he"</code> ו-<code>dir="rtl"</code> תקין.</li>
                     </ul>
 
                     <h2>מגבלות ידועות</h2>
-                    <p>למרות מאמצינו, ייתכן ויתגלו רכיבים שאינם נגישים במלואם. אנו פועלים באופן שוטף לשיפור.</p>
-
-                    <h2>פניות בנושא נגישות</h2>
-                    <p>אם נתקלת בקושי או רכיב שאינו נגיש, אנא פנה ל<strong>רכז/ת הנגישות</strong> של הרב עו״ד אריאל טל:</p>
+                    <p>למרות מאמצינו, קיימים באתר רכיבים שטרם הונגשו במלואם:</p>
                     <ul>
-                        <li>שם: הרב עו״ד אריאל טל</li>
-                        <li>דוא"ל: <a href="mailto:a0543209765@gmail.com">a0543209765@gmail.com</a></li>
-                        <li>טלפון: 054-320-9765</li>
-                        <li>מזכירות: רבקה גורן · 050-881-3626</li>
+                        <li><strong>סריקות תעודות ומכתבים</strong> — התעודות ומכתבי ההמלצה מוצגים כתמונות סרוקות. תוכנן המלא אינו נגיש לקוראי מסך. ניתן לקבל את תוכן כל מסמך בכתב או בעל פה בפנייה לרכז הנגישות.</li>
+                        <li><strong>ספר "חזון אריאל"</strong> — עמודי הספר ארוכים ומכילים ציטוטים בארמית ובעברית מנוקדת חלקית, שעשויים להיקרא באופן שגוי על ידי קוראי מסך.</li>
+                        <li><strong>סרטון סיור במשרד</strong> — מתארח בפייסבוק ואינו כולל כתוביות.</li>
+                        <li><strong>קובצי מדיה</strong> — סרטוני הרקע אינם נושאי מידע ואינם כוללים פס קול, ולפיכך אינם דורשים כתוביות או תמלול.</li>
                     </ul>
-                    <p>אנו מתחייבים להתייחס לפנייתך בתוך פרק זמן סביר ולעדכן בהתקדמות.</p>
+                    <p>אנו פועלים לצמצום מגבלות אלו.</p>
+
+                    <h2>דרכי הנגשה חלופיות</h2>
+                    <p>כל מידע המופיע באתר — לרבות תוכן התעודות, המכתבים והפרסומים — יימסר בעל פה בטלפון או בדוא"ל, ללא תשלום, לכל אדם הפונה בבקשה.</p>
+
+                    <h2>רכז הנגישות</h2>
+                    <p>נתקלתם בקושי, ברכיב שאינו נגיש או בתקלת נגישות באתר? נשמח לשמוע ולתקן. פנייה לרכז הנגישות:</p>
+                    <ul>
+                        <li><strong>שם:</strong> הרב עו״ד אריאל טל</li>
+                        <li><strong>דוא"ל:</strong> <a href="mailto:a0543209765@gmail.com">a0543209765@gmail.com</a></li>
+                        <li><strong>טלפון:</strong> <a href="tel:+972543209765">054-320-9765</a></li>
+                        <li><strong>מזכירות:</strong> רבקה גורן · <a href="tel:+972508813626">050-881-3626</a></li>
+                        <li><strong>כתובת:</strong> הרב קוק 8, מרכז אשדר, קומה 3, ירושלים</li>
+                    </ul>
+                    <p>נשתדל להשיב לכל פנייה בתוך <strong>7 ימי עסקים</strong>, ולטפל בליקוי בהקדם האפשרי בהתאם למורכבותו.</p>
+
+                    <h2>נגישות המשרד הפיזי</h2>
+                    <p>לבירור התאמות הנגישות במשרד עצמו (חניית נכים, גישה, שירותים) — נא ליצור קשר מראש עם המזכירות בטלפון 050-881-3626, ונשמח לסייע בתיאום.</p>
                 </div>
             </div>
         </section>
@@ -108,7 +112,7 @@
     <footer>
         <div class="container">
             <div class="footer-bottom">
-                <p>© <span id="current-year">2026</span> כל הזכויות שמורות ל-הרב עו״ד אריאל טל</p>
+                <p>© <span id="current-year">2026</span> כל הזכויות שמורות להרב עו״ד אריאל טל</p>
                 <div class="footer-legal-links">
                     <a href="privacy.html">מדיניות פרטיות</a>
                     <a href="terms.html">תנאי שימוש</a>
@@ -127,9 +131,9 @@
             <i class="fas fa-phone" aria-hidden="true"></i>
             <span class="label">חייגו עכשיו</span>
         </a>
-        <a href="mailto:a0543209765@gmail.com" class="side-action-btn" aria-label="שליחת מייל">
+        <a href="../index.html#contact" class="side-action-btn" aria-label="השאירו פרטים">
             <i class="fas fa-envelope" aria-hidden="true"></i>
-            <span class="label">שליחת מייל</span>
+            <span class="label">השאירו פרטים</span>
         </a>
     </aside>
 

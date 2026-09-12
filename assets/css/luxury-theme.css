@@ -2739,3 +2739,79 @@ footer {
 @media (min-width: 769px) {
     .hero-portrait-cutout img { height: 86%; }
 }
+
+/* ============================================================
+   33. לוגו טקסטואלי + השלמות נגישות — ספטמבר 2026
+   images/LOGO.png נושא את הכיתוב "גיל בר-זהר · אריאל טל" צרוב
+   בתמונה עצמה, ולכן הוצא משימוש. עד להזמנת לוגו חדש —
+   נעילת טקסט בזהב על הרקע הכהה.
+   ============================================================ */
+
+.logo-text {
+    display: flex !important;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+}
+.logo-text .logo-mark {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    border: 1px solid var(--accent-gold-dark);
+    border-radius: 3px;
+    color: var(--accent-gold);
+    font-size: 1.15rem;
+    background: rgba(191, 158, 92, 0.08);
+}
+.logo-text .logo-lines {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.18;
+}
+.logo-text .logo-name {
+    font-family: var(--font-secondary), serif;
+    font-size: 1.06rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+}
+.logo-text .logo-sub {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--accent-gold);
+    letter-spacing: 0.16em;
+}
+@media (max-width: 480px) {
+    .logo-text .logo-mark { width: 36px; height: 36px; flex-basis: 36px; font-size: 1rem; }
+    .logo-text .logo-name { font-size: 0.95rem; }
+    .logo-text .logo-sub  { font-size: 0.62rem; letter-spacing: 0.12em; }
+}
+.vcard-logo-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border: 1px solid var(--accent-gold-dark);
+    border-radius: 3px;
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+}
+
+/* הבהרה משפטית בתחתית העמוד */
+.footer-disclaimer {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.4rem;
+}
+
+/* כיבוד העדפת ניגודיות מוגברת של מערכת ההפעלה */
+@media (prefers-contrast: more) {
+    :root {
+        --text-secondary: #d8d2c6;
+        --text-muted: #b3ac9d;
+        --border-subtle: rgba(191, 158, 92, 0.5);
+    }
+}
