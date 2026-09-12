@@ -185,10 +185,20 @@ function initMobileMenu() {
     const menu = document.getElementById('nav-menu');
     if (!toggle || !menu) return;
 
+    // WCAG 4.1.2 — מצב התפריט חייב להימסר לקוראי מסך, לא רק ויזואלית
+    function setState(isOpen) {
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        toggle.setAttribute('aria-label', isOpen ? 'סגור תפריט' : 'פתח תפריט');
+    }
+
+    toggle.setAttribute('aria-controls', 'nav-menu');
+    setState(menu.classList.contains('active'));
+
     function closeMenu() {
         toggle.classList.remove('active');
         menu.classList.remove('active');
         document.body.classList.remove('menu-open');
+        setState(false);
     }
 
     toggle.addEventListener('click', (e) => {
@@ -196,6 +206,15 @@ function initMobileMenu() {
         const isActive = menu.classList.toggle('active');
         toggle.classList.toggle('active', isActive);
         document.body.classList.toggle('menu-open', isActive);
+        setState(isActive);
+    });
+
+    // WCAG 2.1.2 — יציאה מהתפריט במקלדת בלי להיתקע, עם החזרת הפוקוס
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.classList.contains('active')) {
+            closeMenu();
+            toggle.focus();
+        }
     });
 
     // סגירה בקליק על קישור

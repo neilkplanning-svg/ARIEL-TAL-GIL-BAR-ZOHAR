@@ -2815,3 +2815,105 @@ footer {
         --border-subtle: rgba(191, 158, 92, 0.5);
     }
 }
+
+/* ============================================================
+   34. תיקוני נגישות — WCAG 2.1 AA / ת"י 5568
+   כל היחסים להלן נמדדו בדפדפן מול הרקע האפקטיבי (כולל
+   שכבות שקופות), לא מול צבע מוצהר.
+   ============================================================ */
+
+/* --- 1.4.3 ניגודיות טקסט ---
+   השורש: css/02-base.css מניח ש---surface הוא לבן, אך ערכת
+   הנושא הכהה מגדירה אותו כ-#122438. התוצאה: טקסט כהה על רקע כהה. */
+
+/* "דלג לתוכן הראשי" — היה 1.95:1. עכשיו 7.1:1 */
+.skip-link {
+    color: var(--text-primary) !important;
+    background: var(--brand-teal) !important;
+    font-weight: 600;
+    text-decoration: underline;
+}
+.skip-link:focus {
+    top: 1rem !important;
+    outline: 3px solid var(--accent-gold-bright) !important;
+    outline-offset: 2px !important;
+}
+
+/* תווית "צפו בסרטון המשרד" — הייתה 1.12:1 (כמעט בלתי נראית). עכשיו 7.5:1 */
+.video-label {
+    color: var(--accent-gold) !important;
+    font-weight: 600;
+}
+
+/* כפתור "ניווט בוויז" — טקסט בהיר על זהב, 2.24:1. עכשיו 7.5:1 */
+.btn-waze,
+.btn-waze:hover {
+    color: var(--bg-primary) !important;
+    font-weight: 700;
+}
+
+/* --- 1.4.11 ניגודיות סימון הפוקוס ---
+   טבעת כפולה: טבעת כהה צמודה לאלמנט + טבעת זהב מחוצה לה.
+   כך הסימון נשאר נראה גם על רקע כהה וגם על כפתור זהב בהיר
+   (היה 1:1 על .back-to-top ו-2.26:1 על .btn-waze). */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--accent-gold-bright) !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 0 3px var(--bg-primary) !important;
+    border-radius: 3px;
+}
+
+/* --- 2.4.7 הפוקוס לא ייחתך בקצוות --- */
+main, section, .container { scroll-margin-top: 90px; }
+
+/* --- 1.4.10 ללא גלילה אופקית ב-320px --- */
+@media (max-width: 360px) {
+    html, body { overflow-x: hidden; }
+}
+
+/* --- 1.4.3 המשך: תוויות פס הפעולות הצף ---
+   תווית "שיחה ב-WhatsApp" הייתה טקסט כהה על ירוק #1F8C4A = 3.68:1.
+   הכהיית הירוק ל-#146C36 עם טקסט בהיר נותנת 6.5:1 ושומרת על
+   זיהוי המותג. */
+.side-action-btn .label {
+    color: var(--text-primary) !important;
+    font-weight: 600;
+}
+.side-action-btn.whatsapp {
+    background: #146C36 !important;
+}
+.side-action-btn.whatsapp:hover,
+.side-action-btn.whatsapp:focus-visible {
+    background: #10592C !important;
+}
+
+/* --- 1.4.3 המשך: התנגשויות specificity ---
+   שני כללים קודמים ניצחו את התיקון למרות !important, כי
+   הספציפיות שלהם גבוהה יותר. הכללים הבאים ממוקדים דיים. */
+
+/* .contact-item-text a (0,2,0) גבר על .btn-waze (0,1,0):
+   טקסט קרם על כפתור זהב = 2.26:1. */
+a.btn-waze,
+.contact-item-text a.btn-waze,
+.branch-card a.btn-waze {
+    color: var(--bg-primary) !important;
+}
+
+/* מתחת ל-768px תוויות פס הפעולות קיבלו --surface (כהה)
+   על רקע צבעוני. כל תווית מקבלת כעת את הצבע הנכון לרקע שלה. */
+@media (max-width: 768px) {
+    .side-action-btn .label,
+    .side-action-btn.whatsapp .label,
+    .side-action-btn:not(.whatsapp):not(.phone) .label {
+        color: var(--text-primary) !important;
+    }
+    /* כפתור הטלפון על רקע זהב בהיר — טקסט כהה */
+    .side-action-btn.phone .label {
+        color: var(--bg-primary) !important;
+    }
+}
