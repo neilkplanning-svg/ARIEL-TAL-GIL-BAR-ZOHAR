@@ -19,11 +19,12 @@
     <link rel="stylesheet" href="../assets/css/luxury-theme.css">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
     <header id="header" class="header-scrolled">
         <div class="container">
             <div class="nav-wrapper">
                 <a href="../index.html" class="logo logo-text" aria-label="דף הבית — הרב עו״ד אריאל טל, משרד עורכי דין">
-                    <span class="logo-mark" aria-hidden="true"><i class="fas fa-scale-balanced"></i></span>
+                    <span class="logo-mark" aria-hidden="true"><i class="fas fa-scale-balanced" aria-hidden="true"></i></span>
                     <span class="logo-lines">
                         <span class="logo-name">הרב עו״ד אריאל טל</span>
                         <span class="logo-sub">משרד עורכי דין</span>
@@ -38,13 +39,13 @@
                         <li><a href="../index.html#contact">צור קשר</a></li>
                     </ul>
                 </nav>
-                <a href="../index.html#contact" class="cta-btn"><i class="fas fa-calendar-check"></i> תיאום פגישה</a>
-                <button class="mobile-toggle" aria-label="תפריט"><span></span><span></span><span></span></button>
+                <a href="../index.html#contact" class="cta-btn"><i class="fas fa-calendar-check" aria-hidden="true"></i> תיאום פגישה</a>
+                <button class="mobile-toggle" aria-label="פתח תפריט" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
             </div>
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <section class="page-header">
             <div class="container">
                 <h1>הצהרת נגישות</h1>
@@ -74,15 +75,19 @@
                         <li>כיבוד העדפת המערכת להפחתת אנימציות (<code>prefers-reduced-motion</code>) — סרטוני הרקע אינם מתנגנים.</li>
                         <li>כיבוד העדפת ניגודיות מוגברת (<code>prefers-contrast</code>).</li>
                         <li>גודל מינימלי של 44×44 פיקסלים לרכיבי הפעלה עיקריים.</li>
-                        <li>תצוגה תקינה בהגדלת דפדפן עד 200% ללא אובדן תוכן.</li>
+                        <li>תצוגה תקינה בהגדלת דפדפן עד 200%, וללא גלילה אופקית ברוחב מסך של 320 פיקסלים.</li>
                         <li>האתר בעברית עם סימון <code>lang="he"</code> ו-<code>dir="rtl"</code> תקין.</li>
+                        <li>תפריט הנייד מדווח לקוראי מסך על מצבו (פתוח/סגור) וניתן לסגירה במקש <kbd>Esc</kbd>.</li>
+                        <li>כל קישור הנפתח בחלון חדש מכריז על כך מראש לקוראי מסך.</li>
+                        <li>סימון מוקד המקלדת בטבעת כפולה, הנראית היטב גם על רקע כהה וגם על כפתורים בהירים.</li>
                     </ul>
+                    <p>בדיקת הנגישות האחרונה כללה מדידה בפועל בדפדפן של יחסי הניגודיות מול הרקע האפקטיבי בכל רכיב טקסט באתר, בשני רוחבי מסך (1280 ו-375 פיקסלים).</p>
 
                     <h2>מגבלות ידועות</h2>
                     <p>למרות מאמצינו, קיימים באתר רכיבים שטרם הונגשו במלואם:</p>
                     <ul>
                         <li><strong>סריקות תעודות ומכתבים</strong> — התעודות ומכתבי ההמלצה מוצגים כתמונות סרוקות. תוכנן המלא אינו נגיש לקוראי מסך. ניתן לקבל את תוכן כל מסמך בכתב או בעל פה בפנייה לרכז הנגישות.</li>
-                        <li><strong>ספר "חזון אריאל"</strong> — עמודי הספר ארוכים ומכילים ציטוטים בארמית ובעברית מנוקדת חלקית, שעשויים להיקרא באופן שגוי על ידי קוראי מסך.</li>
+                        <li><strong>ספר "חזון אריאל"</strong> — עמודי הספר ארוכים, והציטוטים בארמית שזורים בתוך פסקאות בעברית ואינם מסומנים בנפרד בתגית <code>lang</code>. קורא מסך יהגה אותם בכללי ההגייה של העברית. סימון מדויק מחייב עבודת עריכה ידנית על אלפי פסקאות, והוא בתכנון.</li>
                         <li><strong>סרטון סיור במשרד</strong> — מתארח בפייסבוק ואינו כולל כתוביות.</li>
                         <li><strong>קובצי מדיה</strong> — סרטוני הרקע אינם נושאי מידע ואינם כוללים פס קול, ולפיכך אינם דורשים כתוביות או תמלול.</li>
                     </ul>
@@ -123,7 +128,7 @@
     </footer>
 
     <aside class="side-actions" aria-label="פעולות מהירות">
-        <a href="https://wa.me/972543209765" class="side-action-btn whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <a href="https://wa.me/972543209765" class="side-action-btn whatsapp" target="_blank" rel="noopener noreferrer" aria-label="שיחה בוואטסאפ — נפתח בחלון חדש">
             <i class="fab fa-whatsapp" aria-hidden="true"></i>
             <span class="label">שיחה ב-WhatsApp</span>
         </a>
