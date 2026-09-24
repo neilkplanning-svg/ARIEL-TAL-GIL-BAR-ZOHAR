@@ -2951,3 +2951,46 @@ a.btn-waze,
 }
 .book-note a:hover,
 .inline-link:hover { color: var(--text-primary) !important; }
+
+/* --- נגישות: תמלול טקסטואלי לסריקות (1.1.1 / 1.4.5) ---
+   התעודות והמכתבים הם תמונות סרוקות. התמלול מספק את תוכנם
+   בטקסט אמיתי, לקוראי מסך ולמי שמעדיף לקרוא ולא להגדיל תמונה. */
+.cert-transcript {
+    margin: 2rem auto 0;
+    max-width: 780px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    background: rgba(191, 158, 92, 0.04);
+}
+.cert-transcript > summary {
+    cursor: pointer;
+    padding: 0.9rem 1.2rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    list-style-position: inside;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+.cert-transcript > summary:focus-visible {
+    outline: 3px solid var(--accent-gold-bright);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px var(--bg-primary);
+}
+.cert-transcript[open] > summary {
+    border-bottom: 1px solid var(--border-subtle);
+}
+.cert-transcript dl { margin: 0; padding: 1rem 1.4rem 1.3rem; }
+.cert-transcript dt {
+    font-weight: 700;
+    color: var(--accent-gold-bright);
+    margin-top: 1.1rem;
+    font-size: 0.95rem;
+}
+.cert-transcript dt:first-child { margin-top: 0; }
+.cert-transcript dd {
+    margin: 0.35rem 0 0;
+    color: var(--text-secondary);
+    font-size: 0.93rem;
+    line-height: 1.7;
+}
