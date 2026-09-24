@@ -2917,3 +2917,44 @@ a.btn-waze,
         color: var(--bg-primary) !important;
     }
 }
+
+/* ============================================================
+   34. טקסט בלתי נראה — המשך השורש שתועד בסעיף הנגישות
+   css/*.css נכתבו כאשר --surface היה #ffffff, ולכן 41 כללים
+   כותבים color: var(--surface) בכוונה של "טקסט בהיר".
+   ערכת הנושא הכהה מגדירה --surface כ-#122438, ובכל מקום שאין
+   דריסה הטקסט נצבע בדיוק בצבע הרקע שמאחוריו (יחס 1.00:1).
+   הסבב הקודם תיקן חמישה מקרים; אלה שנמדדו כבלתי נראים כעת:
+   ============================================================ */
+
+/* כותרות בסקציות כהות — "מעוניינים בייעוץ משפטי?" נמדד 1.21:1 */
+.section-dark h2,
+.section-dark h3 { color: var(--text-primary) !important; }
+
+/* כיתובי התעודות בעמוד אודות — 1.00:1 מול הגרדיאנט שמאחוריהם */
+.cert-image-card .cert-caption { color: var(--text-primary) !important; }
+
+/* תיקון סדר הכותרות שינה h4 ל-h3 בסקציית יצירת הקשר, אך כלל
+   הזהב היה מוגדר ל-h4 בלבד — ה-h3 נפל ל-.section-dark h3. */
+.contact-item-text h3,
+.contact-item-text h4 { color: var(--accent-gold) !important; }
+
+/* קישורי טלפון/מייל בכרטיסי הקשר — 1.00:1 בעמוד הספר */
+.contact-item-text a { color: var(--text-primary) !important; }
+.contact-item-text a:hover,
+.contact-item-text a:focus-visible { color: var(--accent-gold-bright) !important; }
+
+/* קישור "צרו קשר" בעמוד המאמרים נמדד 3.49:1 */
+.articles-cta a,
+.article-cta a { color: var(--accent-gold-bright) !important; }
+
+/* קישורים בתוך פסקאות טקסט שירשו --surface או --accent-dark */
+.book-note a,
+.inline-link {
+    color: var(--accent-gold-bright) !important;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 600;
+}
+.book-note a:hover,
+.inline-link:hover { color: var(--text-primary) !important; }
