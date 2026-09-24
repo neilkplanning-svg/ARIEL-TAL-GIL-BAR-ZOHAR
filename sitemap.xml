@@ -122,6 +122,12 @@
         <priority>0.3</priority>
     </url>
     <url>
+        <loc>https://neilkplanning-svg.github.io/ARIEL-TAL-GIL-BAR-ZOHAR/pages/sitemap.html</loc>
+        <lastmod>2026-09-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    <url>
         <loc>https://neilkplanning-svg.github.io/ARIEL-TAL-GIL-BAR-ZOHAR/pages/accessibility.html</loc>
         <lastmod>2026-09-09</lastmod>
         <changefreq>yearly</changefreq>
