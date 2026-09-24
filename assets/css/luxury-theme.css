@@ -2917,3 +2917,11 @@ a.btn-waze,
         color: var(--bg-primary) !important;
     }
 }
+
+/* --- 1.4.3: כותרות סקציית יצירת הקשר ---
+   הכותרות שונו מ-h4 ל-h3 לתיקון סדר הכותרות (1.3.1), ובכך
+   ירשו כלל צבע אחר שנתן 1.21:1 על הרקע הכהה. */
+.contact-item-text h3,
+.contact-item-text h4 {
+    color: var(--accent-gold) !important;
+}
