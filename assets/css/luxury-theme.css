@@ -112,7 +112,7 @@ body {
     background-attachment: fixed;
     color: var(--text-primary);
     font-family: var(--font-primary);
-    font-weight: 400;                              /* Almoni 400 הוא ה-regular */
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
