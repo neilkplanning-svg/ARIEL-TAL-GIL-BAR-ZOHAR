@@ -82,13 +82,44 @@
 
 ## 4. גופנים
 
-| גופן | רישיון |
+כל הגופנים באתר נטענים מ-Google Fonts תחת רישיונות חופשיים. **אין באתר
+אף קובץ גופן המאוחסן מקומית** מלבד Linearicons.
+
+| גופן | שימוש | רישיון |
+|---|---|---|
+| **Assistant** | הגופן הראשי של האתר | SIL Open Font License 1.1 (Google Fonts) — שימוש מסחרי חופשי, ללא הגבלת דומיין |
+| Heebo | גיבוי | SIL Open Font License 1.1 (Google Fonts) |
+| Frank Ruhl Libre | כותרות | SIL Open Font License 1.1 (Google Fonts) |
+| Open Sans / Open Sans Hebrew | גיבוי בעמודים פנימיים | Apache License 2.0 (Google Fonts) |
+| Playfair Display | מספרים גדולים | SIL Open Font License 1.1 (Google Fonts) |
+| Linearicons Free (`Fonts/Linearicons-Free.woff2`) | אייקונים (מקומי) | חינמי — לבדוק גרסה מול SIL OFL / CC BY-SA |
+| Font Awesome 6.5.1 | אייקונים (CDN) | Free tier — CC BY 4.0 (אייקונים) + MIT (קוד) |
+
+### ⚠️ גופן שהוסר — Almoni Neue
+
+עד 24/09/2026 שימש כגופן הראשי הגופן **Almoni Neue DL 4.0 AAA**,
+שאוחסן מקומית בקבצים `Fonts/almoni-neue-aaa-400.woff` ו-`-700.woff`.
+
+פענוח טבלת השמות שבתוך הקבצים העלה:
+
+| שדה | ערך |
 |---|---|
-| Heebo | Open Font License (Google Fonts) |
-| Open Sans Hebrew | Apache License 2.0 (Google Fonts) |
-| Almoni Neue (`Fonts/almoni-neue-aaa-*.woff`) | ⚠️ **לבדיקה** — Almoni הוא גופן מסחרי של פונטף. יש לוודא רישיון web מתאים, אחרת להסירו ולהסתמך על Heebo. |
-| Linearicons Free (`Fonts/Linearicons-Free.woff2`) | חינמי (SIL OFL / CC BY-SA — לבדוק גרסה) |
-| Font Awesome 6.5.1 | Free tier — CC BY 4.0 (אייקונים) + MIT (קוד) |
+| Family | Almoni Neue DL 4.0 AAA |
+| Designer | Avraham Cornfeld |
+| Manufacturer | AlefAlefAlef (אאא) |
+| Copyright | © 2009-2018 Avraham Cornfeld. All rights reserved. |
+| LicenseURL | https://alefalefalef.co.il/more/license/ |
+
+Almoni הוא גופן **מסחרי**. AlefAlefAlef מוכרים רישיון webfont נפרד,
+**לדומיין אחד**, במדרגות לפי כמות צפיות חודשית. אחסון עצמי של קובץ
+גופן מסחרי ללא רישיון מתאים הוא הפרת זכויות יוצרים — חוק זכות יוצרים
+התשס"ח-2007, סעיף 56: פיצוי עד ₪100,000 ללא הוכחת נזק.
+
+מאחר שלא אותר רישיון, הוחלט להחליף את הגופן ב-Assistant. הקבצים נמחקו
+מהמאגר, וכל הפניות אליהם הוסרו מקבצי ה-CSS וה-HTML.
+
+> **אם בעתיד יוחלט לחזור ל-Almoni** — יש לרכוש רישיון webfont
+> **לאחר** שנקבע הדומיין הסופי, משום שהרישיון צמוד לדומיין יחיד.
 
 ---
 

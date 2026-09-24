@@ -9,22 +9,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&display=swap');
 
 /* ============================================================
-   0. LOCAL FONTS — Almoni Neue (תואם לאתר דוגמה)
+   0. גופן ראשי — Assistant (Google Fonts, רישיון OFL)
+   ------------------------------------------------------------
+   הוחלף ב-24/09/2026 את Almoni Neue DL 4.0 AAA.
+   Almoni הוא גופן מסחרי של AlefAlefAlef (אאא), ואחסונו העצמי
+   על שרת האתר חייב רישיון webfont בתשלום, לדומיין אחד.
+   Assistant הוא גופן עברי חופשי ברישיון SIL Open Font License,
+   המותר לשימוש מסחרי ללא תשלום וללא הגבלת דומיין — והחלופה
+   הקרובה ביותר ל-Almoni באופיו. נטען דרך Google Fonts בכל עמוד.
    ============================================================ */
-@font-face {
-    font-family: 'Almoni Neue';
-    src: url('../../Fonts/almoni-neue-aaa-400.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Almoni Neue';
-    src: url('../../Fonts/almoni-neue-aaa-700.woff') format('woff');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
 @font-face {
     font-family: 'Linearicons';
     src: url('../../Fonts/Linearicons-Free.woff2') format('woff2');
@@ -85,10 +78,10 @@
     --text:              var(--text-primary);
     --text-light:        var(--text-secondary);
 
-    /* Fonts — Almoni Neue הוא הפונט הראשי (תואם לאתר דוגמה) */
-    --font-primary:   'Almoni Neue', 'Heebo', 'Assistant', 'Open Sans Hebrew', -apple-system, sans-serif;
-    --font-secondary: 'Almoni Neue', 'Frank Ruhl Libre', 'David Libre', 'Heebo', sans-serif;
-    --font-display:   'Playfair Display', 'Almoni Neue', 'Frank Ruhl Libre', serif;
+    /* Fonts — Assistant הוא הפונט הראשי (Google Fonts, OFL) */
+    --font-primary:   'Assistant', 'Heebo', 'Open Sans Hebrew', -apple-system, sans-serif;
+    --font-secondary: 'Assistant', 'Frank Ruhl Libre', 'David Libre', 'Heebo', sans-serif;
+    --font-display:   'Playfair Display', 'Assistant', 'Frank Ruhl Libre', serif;
 
     /* Sharper radii */
     --radius-sm:   4px;
