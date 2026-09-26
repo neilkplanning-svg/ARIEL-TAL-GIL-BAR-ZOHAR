@@ -2580,7 +2580,11 @@ footer {
    ============================================================ */
 @media (max-width: 768px) {
     /* היה 30x30 — קטן מדי לכפתור הניווט הראשי במובייל.
-       ה-span-ים נשארים בגודלם; רק שטח המגע גדל. */
+       הפסים מוגדרים ב-04-sections.css ללא רוחב, ומקבלים אותו רק
+       ממתיחה (align-items: stretch) בעמודת flex. align-items: center
+       ביטל את המתיחה והפסים התכווצו ל-0px — הכפתור נשאר לחיץ אך
+       הפך לבלתי נראה, ולמשתמש לא היה שום סימן שקיים תפריט.
+       רוחב מפורש לפסים מבטל את התלות הזו. */
     .mobile-toggle {
         width: 48px !important;
         height: 48px !important;
@@ -2588,6 +2592,12 @@ footer {
         justify-content: center !important;
         gap: 5px;
         margin-inline-start: -6px;   /* משמר את היישור האופטי לקצה */
+    }
+    .mobile-toggle span {
+        display: block;
+        width: 26px;
+        height: 3px;
+        flex-shrink: 0;
     }
 
     /* קישורי טקסט צפופים — הגדלת אזור המגע בלי לשנות את המראה */
@@ -2993,4 +3003,193 @@ a.btn-waze,
     color: var(--text-secondary);
     font-size: 0.93rem;
     line-height: 1.7;
+}
+
+/* ============================================================
+   35. MOBILE UX — ניווט, צפיפות ונראות
+   תקלה מדווחת: "במובייל אין תפריט ואי אפשר לנווט בין העמודים".
+   נמדד ב-Chromium ברוחב 390px. השורשים:
+   (א) פסי ההמבורגר ברוחב 0px — תוקן בסעיף 30.
+   (ב) .logo-text — שם המחלקה שנבחר ללוגו הטקסטואלי מתנגש עם
+       כלל ישן בתבנית (04-sections.css:95) שקובע flex-direction:
+       column. הסמל נערם מעל השם בכל הרזולוציות וההדר במובייל
+       תפס 105px במקום 64.
+   (ג) #header nav ul { height: auto !important } (סעיף 23) דרס
+       את גובה המגירה, כך שהתפריט נפתח כפאנל צף בגובה הקישורים,
+       חופף את תחתית ההדר ומשאיר פס של העמוד גלוי משמאלו.
+   ============================================================ */
+
+/* (ב) — לכל הרזולוציות */
+.logo.logo-text { flex-direction: row !important; }
+
+/* תגיות "ערכי המשרד" — הוצאו מ-style מוטבע */
+.credential-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* פס הפעולות הצף: שלושה צבעים מתנגשים (טורקיז / זהב / ירוק).
+   פלטה אחת; החיוג — הפעולה העיקרית — מודגש בזהב. */
+.side-actions .side-action-btn,
+.side-actions .side-action-btn.whatsapp,
+.side-actions .side-action-btn:not(.whatsapp):not(.phone) {
+    background: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+.side-actions .side-action-btn:hover,
+.side-actions .side-action-btn.whatsapp:hover,
+.side-actions .side-action-btn:not(.whatsapp):not(.phone):hover {
+    background: var(--bg-elevated) !important;
+}
+.side-actions .side-action-btn.phone {
+    background: var(--accent-gold) !important;
+    color: var(--bg-primary) !important;
+}
+.side-actions .side-action-btn.phone:hover { background: var(--accent-gold-bright) !important; }
+.side-actions .side-action-btn .label { color: inherit !important; }
+.side-actions .side-action-btn.whatsapp i { color: #25d366; }
+
+/* כרטיס "מי עומד מאחורי המשרד" — הדיוקן השקוף על רקע המותג */
+#about-teaser .partner-photo-frame {
+    background:
+        radial-gradient(ellipse at 50% 100%, rgba(191,158,92,.22) 0%, transparent 62%),
+        linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg-primary) 100%) !important;
+}
+/* contain הציג דמות מלאה קטנה, והראש נגע בשולי המסגרת.
+   cover עם 20px מרווח עליון נותן חיתוך ראש-עד-מותניים — הדיוקן
+   שקוף, כך שהמרווח מעליו מתמלא ברקע המותג. */
+#about-teaser .partner-photo-frame img {
+    object-fit: cover !important;
+    object-position: 50% 20px !important;
+}
+
+/* הדר בדסקטופ: 125px — גובה שנקבע ללוגו התמונתי (124px) ולא
+   הותאם כשהוחלף בלוגו טקסטואלי. */
+#header .container { min-height: 0 !important; }
+
+@media (max-width: 768px) {
+
+    /* ---------- הדר ----------
+       .container נשא min-height: 76px מתקופת הלוגו התמונתי, וההדר
+       הגיע ל-96px. המגירה נפתחת ב-var(--header-height)=64px, כך
+       שכ-30px מתחתית ההדר (כולל שם המשרד) הוסתרו מתחתיה.
+       48 (כפתור) + 2×6 (ריפוד) + 4 (גבולות) = 64. */
+    #header { padding: 6px 0 !important; }
+    #header .container { min-height: 0 !important; }
+    #header .nav-wrapper { min-height: 48px; }
+
+    /* ---------- (ג) מגירת התפריט ---------- */
+    /* ל-#header יש backdrop-filter, ולכן הוא ה-containing block של
+       המגירה (position: fixed) — top נמדד מתוכו ולא מהחלון.
+       top: 64px הותיר רווח של 3px (גבול הזהב העליון) שבו העמוד נראה. */
+    #header nav #nav-menu {
+        top: 100% !important;
+        right: -100% !important;
+        width: 100% !important;
+        max-width: none !important;
+        height: calc(100vh - var(--header-height) - 64px) !important;
+        height: calc(100dvh - var(--header-height) - 64px) !important;
+        padding: 0.25rem 1.5rem 1.5rem !important;
+        gap: 0 !important;
+        /* #header nav ul { justify-content: center } נכתב לניווט האופקי
+           בדסקטופ; בעמודה הוא מרכז את הקישורים אנכית באמצע המגירה. */
+        justify-content: flex-start !important;
+        background: var(--bg-primary) !important;
+        border-top: 1px solid var(--border-subtle);
+        box-shadow: none !important;
+        visibility: hidden;          /* סגור = לא נגיש גם למקלדת */
+        transition: right 0.3s ease, visibility 0s linear 0.3s !important;
+    }
+    #header nav #nav-menu.active {
+        right: 0 !important;
+        visibility: visible;
+        transition: right 0.3s ease, visibility 0s !important;
+    }
+    #header nav #nav-menu li { border-bottom: 1px solid var(--border-subtle); }
+    #header nav #nav-menu a {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 58px;
+        padding: 0 0.25rem !important;
+        font-size: 1.12rem !important;
+        font-weight: 500;
+        border-bottom: none !important;
+    }
+    #header nav #nav-menu a::before {
+        content: '‹';
+        content: '‹' / '';
+        order: 2;
+        color: var(--accent-gold);
+        font-size: 1.4rem;
+        line-height: 1;
+    }
+    #header nav #nav-menu a:active { background: rgba(191,158,92,.08); }
+
+    /* המגירה ממלאת את המסך — השכבה הכהה מתחתיה מיותרת,
+       והיא עמעמה את פס הפעולות שנשאר גלוי מתחת למגירה. */
+    body.menu-open::before { display: none !important; }
+    body.menu-open { overflow: hidden; }
+
+    /* פס הפעולות: מיכל שקוף עם ריפוד 8px — תוכן העמוד נראה סביב
+       הכפתורים, גם כשהתפריט פתוח. */
+    .side-actions {
+        background: var(--bg-primary) !important;
+        border-top: 1px solid var(--border-subtle);
+    }
+
+    /* ---------- צפיפות ---------- */
+    /* 14 כרטיסי שירות תפסו 4,422px — 32% מהעמוד. כל כרטיס נשא
+       כ-53px ריקים בתחתיתו בגלל min-height. */
+    .service-card {
+        min-height: 0 !important;
+        padding: 1.4rem 1.25rem 1.2rem !important;
+    }
+    .service-card p { margin-bottom: 0.6rem !important; }
+    .service-card .service-link { margin-bottom: 0 !important; }
+    .service-card .service-number { font-size: 2.1rem !important; }
+
+    /* דיור ציבורי — שישה תיבות ברוחב מלא זו מתחת לזו */
+    .housing-visual { display: none !important; }
+    .housing-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.6rem !important;
+    }
+    .housing-item {
+        padding: 0.8rem 0.7rem !important;
+        font-size: 0.88rem !important;
+        line-height: 1.4;
+    }
+
+    /* תמונת מדף הספרים — קישוט בלבד, 200px של גלילה */
+    .section-split-visual { display: none !important; }
+
+    /* תגיות "ערכי המשרד" נשברו בשורות לא אחידות (1,1,2,1) */
+    .credential-chips {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+    }
+    .credential-chips .section-tag {
+        width: 100%;
+        margin: 0 !important;
+        text-align: center;
+        padding: 0.7rem 0.5rem !important;
+        letter-spacing: 1px !important;
+        line-height: 1.4;
+    }
+
+    /* פרופיל — דיוקן בגובה שמראה פנים וכתפיים */
+    #about-teaser .partner-photo-frame { height: 300px !important; }
+
+    /* פוטר — קישורים מהירים בשתי עמודות */
+    .footer-links ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 1rem;
+    }
 }
