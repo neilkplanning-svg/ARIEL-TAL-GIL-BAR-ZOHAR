@@ -6,7 +6,7 @@ Allow: /
 Crawl-delay: 1
 
 # מפת האתר
-Sitemap: https://neilkplanning-svg.github.io/ARIEL-TAL-GIL-BAR-ZOHAR/sitemap.xml
+Sitemap: https://ariel-tal-adv.com/sitemap.xml
 
 # חסימה של תיקיות לא רלוונטיות (לדוגמה — ניתן להוסיף לפי צורך)
 # Disallow: /tmp/

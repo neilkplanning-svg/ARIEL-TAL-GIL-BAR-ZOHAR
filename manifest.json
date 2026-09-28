@@ -2,7 +2,7 @@
     "name": "הרב עו״ד אריאל טל — משרד עורכי דין",
     "short_name": "אריאל טל",
     "description": "משרד עורכי דין בוטיק בירושלים בהובלת הרב עו״ד אריאל טל — בתי דין רבניים, דיני משפחה, ירושה, בג״ץ וערעורים פליליים.",
-    "start_url": "/ARIEL-TAL-GIL-BAR-ZOHAR/",
+    "start_url": "/",
     "display": "standalone",
     "background_color": "#08111B",
     "theme_color": "#08111B",
@@ -27,5 +27,5 @@
             "type": "image/png"
         }
     ],
-    "scope": "/ARIEL-TAL-GIL-BAR-ZOHAR/"
+    "scope": "/"
 }
