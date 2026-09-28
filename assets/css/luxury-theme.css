@@ -2792,16 +2792,6 @@ footer {
     .logo-text .logo-name { font-size: 0.95rem; }
     .logo-text .logo-sub  { font-size: 0.62rem; letter-spacing: 0.12em; }
 }
-.vcard-logo-mark {
-    display: inline-grid;
-    place-items: center;
-    width: 46px;
-    height: 46px;
-    border: 1px solid var(--accent-gold-dark);
-    border-radius: 3px;
-    color: var(--accent-gold);
-    font-size: 1.2rem;
-}
 
 /* הבהרה משפטית בתחתית העמוד */
 .footer-disclaimer {

@@ -1,15 +1,20 @@
-# מנטרל את עיבוד Jekyll עבור קבצי תיעוד שמכילים placeholders ({{ }})
-# שגורמים לשגיאת Liquid syntax בעת build.
-# גם אם Jekyll רץ למרות .nojekyll — הקבצים האלה לא ייכללו.
+# הגדרות Jekyll ל-GitHub Pages.
+# אף קובץ באתר אינו כולל front matter, ולכן Jekyll מעתיק את כל ה-HTML/CSS/JS כמו שהם, ללא עיבוד Liquid.
+# תפקיד הקובץ: למנוע פרסום של קבצים פנימיים בכתובת ישירה. קבצים שמתחילים ב-"." או ב-"_" מוחרגים אוטומטית.
 
 exclude:
   - CLAUDE.md
+  - AGENTS.md
   - README.md
+  - CREDITS.md
   - BRIEF.md
   - BRIEF.template.md
+  - "*.brief.md"
   - client.config.json
   - "Internal Use/"
-  - .claude/
-  - .gitignore
-  - .github/
+  - "thank you notes and certificates/"
   - images/README.md
+  - assets/videos/README.md
+  - node_modules/
+  - package.json
+  - package-lock.json
